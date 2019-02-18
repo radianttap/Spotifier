@@ -9,13 +9,20 @@
 import UIKit
 
 final class SearchController: UIViewController, StoryboardLoadable {
-	//	MARK:- Internal Data model
+	//	Dependencies
 
-	private lazy var dataSource = SearchDataSource(collectionView: collectionView)
+	var appDependency: AppDependency?
 
 
 
-	
+
+	//	MARK:- Data model
+
+	private lazy var dataSource = SearchDataSource(collectionView: collectionView, appDependency: appDependency)
+
+
+
+
 	//	MARK:- UI
 
 	@IBOutlet private var searchBox: UIView!

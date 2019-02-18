@@ -12,13 +12,15 @@ final class SearchDataSource: NSObject {
 	//	Initialization
 
 	private weak var collectionView: UICollectionView?
+	private weak var contentManager: ContentManager?
 
-	init(collectionView: UICollectionView) {
+	init(collectionView: UICollectionView?, appDependency: AppDependency?) {
 		self.collectionView = collectionView
+		self.contentManager = appDependency?.contentManager
 		super.init()
 
-		collectionView.register(SearchCell.self)
-		collectionView.register(LargeHeader.self, kind: UICollectionView.elementKindSectionHeader)
+		collectionView?.register(SearchCell.self)
+		collectionView?.register(LargeHeader.self, kind: UICollectionView.elementKindSectionHeader)
 	}
 
 
@@ -103,7 +105,7 @@ private extension SearchDataSource {
 
 		searchWorkItem = nil
 
-		#warning("Execute search on DATA layer")
+		#warning("Execute search on CONTENT (middleware) layer")
 	}
 }
 
