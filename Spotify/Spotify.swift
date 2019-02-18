@@ -198,6 +198,19 @@ fileprivate extension Spotify.Endpoint {
 		return arr
 	}
 
+	private var body: Data? {
+		switch self {
+		case .deleteTracks(let tracks, _):
+			return try? JSONSerialization.data(withJSONObject: tracks)
+
+		case .createPlaylist(let playlist, _):
+			return try? JSONSerialization.data(withJSONObject: playlist)
+
+		case .search, .albums, .artists:
+			return nil
+		}
+	}
+
 	var urlRequest: URLRequest {
 		guard var comps = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
 			fatalError("Invalid path-based URL")
