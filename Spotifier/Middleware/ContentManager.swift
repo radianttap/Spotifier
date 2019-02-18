@@ -18,3 +18,47 @@ final class ContentManager: NSObject {
 	}
 }
 
+extension ContentManager {
+	func search(for q: String,
+				onQueue queue: OperationQueue? = nil,
+				callback: @escaping (String, [SearchResult], ContentError?) -> Void )
+	{
+		var localError: ContentError? = nil
+		var localResults: [SearchResult] = []
+
+		let group = DispatchGroup()
+
+		for searchType in Spotify.SearchType.allCases {
+			group.enter()
+			search(for: q, type: searchType) {
+				searchedTerm, results, contentError in
+
+				if let contentError = contentError {
+					localError = contentError
+				}
+				localResults.append(contentsOf: results)
+				group.leave()
+			}
+		}
+
+		group.notify(queue: .main) {
+			OperationQueue.perform( callback(q, localResults, localError), onQueue: queue)
+		}
+	}
+
+	private func search(for q: String,
+						type: Spotify.SearchType,
+						callback: @escaping (String, [SearchResult], ContentError?) -> Void )
+	{
+		dataManager.search(for: q, type: type) {
+			results, dataError in
+
+			if let dataError = dataError {
+				callback(q, results, .dataError(dataError))
+				return
+			}
+
+			callback(q, results, nil)
+		}
+	}
+}
