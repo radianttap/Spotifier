@@ -12,7 +12,7 @@ import UIKit
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
-	//MARK:- Middleware
+	//	MARK:- Middleware
 
 	//	All the shared instances are kept here,
 	//	since AppDelegate is the only object that is always in memory
@@ -35,7 +35,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 		window = UIWindow(frame: UIScreen.main.bounds)
 
 		buildDependencies()
-		applyTheme()
 
 		return true
 	}
@@ -44,6 +43,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 					 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
 	{
 		setupUI()
+		applyTheme()
 
 		window?.makeKeyAndVisible()
 		return true
@@ -52,7 +52,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
-//MARK:- Private
+//	MARK:- Private
 
 private extension AppDelegate {
 	///	Global theme (look & feel) for the app
@@ -69,9 +69,11 @@ private extension AppDelegate {
 									  contentManager: contentManager)
 	}
 
-	///	Built UI stack and supply the dependencies into it
+	///	Built UI stack and inject the dependencies into it
 	func setupUI() {
-		let vc = UIViewController()
+		let vc = SearchController.instantiate()
+		vc.appDependency = appDependency
+
 		let nc = UINavigationController(rootViewController: vc)
 		window?.rootViewController = nc
 	}

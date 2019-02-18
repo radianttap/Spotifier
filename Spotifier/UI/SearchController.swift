@@ -11,7 +11,12 @@ import UIKit
 final class SearchController: UIViewController, StoryboardLoadable {
 	//	Dependencies
 
-	var appDependency: AppDependency?
+	var appDependency: AppDependency? {
+		didSet {
+			if !isViewLoaded { return }
+			dataSource = SearchDataSource(collectionView: collectionView, appDependency: appDependency)
+		}
+	}
 
 
 
