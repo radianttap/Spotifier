@@ -92,3 +92,23 @@ extension Spotify {
 		case deleteTracks(_ tracks: [JSON], fromPlaylist: String)
 	}
 }
+
+fileprivate extension Spotify.Endpoint {
+	var urlRequest: URLRequest {
+		guard var comps = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+			fatalError("Invalid path-based URL")
+		}
+		comps.queryItems = queryItems
+
+		guard let finalURL = comps.url else {
+			fatalError("Invalid query items...(probably)")
+		}
+
+		var req = URLRequest(url: finalURL)
+		req.httpMethod = method.rawValue
+		req.allHTTPHeaderFields = headers
+		req.httpBody = body
+
+		return req
+	}
+}
