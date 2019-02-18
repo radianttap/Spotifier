@@ -17,8 +17,13 @@ extension Spotify {
 	typealias JSON = [String: Any]
 	typealias Callback = (JSON?, SpotifyError?) -> Void
 
-	func call(path: Path, callback: @escaping Callback) {
+	func call(path: Endpoint, callback: @escaping Callback) {
 
 	}
 }
 
+extension Spotify {
+	enum Endpoint {
+		case search(q: String, type: SearchType, market: String?, limit: Int?, offset: Int?)
+	}
+}
