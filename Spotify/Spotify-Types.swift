@@ -15,4 +15,7 @@ extension Spotify {
 
 	}
 
+	enum ObjectContentType: String {
+		case albums //, topTracks, relatedArtists
+	}
 }

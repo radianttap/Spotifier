@@ -85,5 +85,10 @@ private extension Spotify {
 extension Spotify {
 	enum Endpoint {
 		case search(q: String, type: SearchType, market: String?, limit: Int?, offset: Int?)
+		case albums(albumId: String?)
+		case artists(artistId: String?, contentType: ObjectContentType?)
+
+		case createPlaylist(_ playlist: JSON, forUserId: String)
+		case deleteTracks(_ tracks: [JSON], fromPlaylist: String)
 	}
 }
