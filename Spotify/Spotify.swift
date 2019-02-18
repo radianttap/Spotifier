@@ -96,7 +96,7 @@ extension Spotify {
 fileprivate extension Spotify.Endpoint {
 	//	Request parts:
 
-	fileprivate var method: NetworkHTTPMethod {
+	private var method: NetworkHTTPMethod {
 		switch self {
 		case .search, .albums, .artists:
 			return .GET
@@ -105,6 +105,17 @@ fileprivate extension Spotify.Endpoint {
 		case .createPlaylist:
 			return .POST
 		}
+	}
+
+	private var headers: [String: String] {
+		var h: [String: String] = [:]
+
+		switch self {
+		default:
+			h["Accept"] = "application/json"
+		}
+
+		return h
 	}
 
 	var urlRequest: URLRequest {
