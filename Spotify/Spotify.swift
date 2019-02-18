@@ -15,7 +15,7 @@ typealias JSON = [String: Any]
 final class Spotify: NetworkSession {
 	//	Configuration
 
-	private let basePath: String = "https://api.spotify.com/v1/"
+	private static let basePath: String = "https://api.spotify.com/v1/"
 
 	//	Init
 
@@ -116,6 +116,49 @@ fileprivate extension Spotify.Endpoint {
 		}
 
 		return h
+	}
+
+	private var baseURL : URL {
+		guard let url = URL(string: Spotify.basePath) else { fatalError("Can't create base URL!") }
+		return url
+	}
+
+	private var url: URL {
+		var url = baseURL
+
+		switch self {
+		case .search:
+			return url.appendingPathComponent("search")
+
+		case .albums(let albumId):
+			url = url.appendingPathComponent("albums")
+			if let albumId = albumId {
+				return url.appendingPathComponent(albumId)
+			}
+			return url
+
+		case .artists(let artistId, let contentType):
+			url = url.appendingPathComponent("artists")
+			if let artistId = artistId {
+				url = url.appendingPathComponent(artistId)
+				if let contentType = contentType {
+					url = url.appendingPathComponent(contentType.rawValue)
+				}
+			}
+			return url
+
+		case .createPlaylist(_, let userId):
+			url = url.appendingPathComponent("users")
+				.appendingPathComponent(userId)
+				.appendingPathComponent("playlists")
+			return url
+
+		case .deleteTracks(_, let playlistId):
+			url = url.appendingPathComponent("playlist")
+				.appendingPathComponent(playlistId)
+				.appendingPathComponent("tracks")
+			return url
+		}
 	}
 
 	var urlRequest: URLRequest {
