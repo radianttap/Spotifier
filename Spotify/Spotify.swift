@@ -8,13 +8,15 @@
 
 import Foundation
 
+typealias JSON = [String: Any]
+
+
 final class Spotify {
 
 	private let basePath: String = "https://api.spotify.com/v1/"
 }
 
 extension Spotify {
-	typealias JSON = [String: Any]
 	typealias Callback = (JSON?, SpotifyError?) -> Void
 
 	func call(path: Endpoint, callback: @escaping Callback) {
