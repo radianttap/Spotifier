@@ -56,6 +56,7 @@
 		D0764085221B203100304D21 /* SearchType-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764084221B203100304D21 /* SearchType-Extensions.swift */; };
 		D0764087221B275400304D21 /* SearchResult-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764086221B275400304D21 /* SearchResult-Extensions.swift */; };
 		D0764089221B284B00304D21 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0764088221B284B00304D21 /* Kingfisher.framework */; };
+		D076408C221B309E00304D21 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D076408B221B309E00304D21 /* Icons.xcassets */; };
 		D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3D37F221231BD00695166 /* AppDelegate.swift */; };
 		D0A3D387221231BF00695166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D386221231BF00695166 /* Assets.xcassets */; };
 		D0A3D38A221231BF00695166 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D388221231BF00695166 /* LaunchScreen.storyboard */; };
@@ -112,6 +113,7 @@
 		D0764084221B203100304D21 /* SearchType-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchType-Extensions.swift"; sourceTree = "<group>"; };
 		D0764086221B275400304D21 /* SearchResult-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResult-Extensions.swift"; sourceTree = "<group>"; };
 		D0764088221B284B00304D21 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		D076408B221B309E00304D21 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		D0A3D37C221231BD00695166 /* Spotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A3D37F221231BD00695166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0A3D386221231BF00695166 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 		D0A3D37E221231BD00695166 /* Spotifier */ = {
 			isa = PBXGroup;
 			children = (
+				D076408B221B309E00304D21 /* Icons.xcassets */,
 				D0A3D386221231BF00695166 /* Assets.xcassets */,
 				D0A3D388221231BF00695166 /* LaunchScreen.storyboard */,
 				D0A3D38B221231BF00695166 /* Info.plist */,
@@ -387,6 +390,7 @@
 				D0A3D38A221231BF00695166 /* LaunchScreen.storyboard in Resources */,
 				D076407C221B1CEF00304D21 /* SearchCell.xib in Resources */,
 				D076407E221B1CEF00304D21 /* SearchController.storyboard in Resources */,
+				D076408C221B309E00304D21 /* Icons.xcassets in Resources */,
 				D0A3D387221231BF00695166 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
