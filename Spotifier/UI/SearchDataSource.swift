@@ -105,7 +105,19 @@ private extension SearchDataSource {
 
 		searchWorkItem = nil
 
-		#warning("Execute search on CONTENT (middleware) layer")
+		contentManager?.search(for: s, onQueue: .main) {
+			[weak self] searchedTerm, results, error in
+
+			//	race-condition check
+			if let lastSearchTerm = self?.searchTerm, lastSearchTerm != searchedTerm { return }
+
+			if let error = error {
+				print(error)
+				return
+			}
+
+			self?.results = results
+		}
 	}
 }
 
