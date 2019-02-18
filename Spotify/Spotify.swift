@@ -8,6 +8,7 @@
 
 import Foundation
 import Avenue
+import SwiftyOAuth
 
 typealias JSON = [String: Any]
 
@@ -16,6 +17,8 @@ final class Spotify: NetworkSession {
 	//	Configuration
 
 	private static let basePath: String = "https://api.spotify.com/v1/"
+	private static let clientID: String = "YOUR_CLIENT_ID"
+	private static let clientSecret: String = "YOUR_CLIENT_SECRET"
 
 	//	Init
 
@@ -46,6 +49,11 @@ final class Spotify: NetworkSession {
 
 	private var queue: OperationQueue
 
+
+	//	OAuth2
+
+	private lazy var oauthProvider = Provider.spotify(clientID: Spotify.clientID,
+												 clientSecret: Spotify.clientSecret)
 
 }
 
