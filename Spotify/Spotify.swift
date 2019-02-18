@@ -19,7 +19,7 @@ final class Spotify {
 extension Spotify {
 	typealias Callback = (JSON?, SpotifyError?) -> Void
 
-	func call(path: Endpoint, callback: @escaping Callback) {
+	func call(endpoint: Endpoint, callback: @escaping Callback) {
 
 	}
 }
