@@ -24,7 +24,36 @@ final class DataManager {
 }
 
 extension DataManager {
+	func search(for q: String,
+				type: Spotify.SearchType,
+				market: String? = nil,
+				limit: Int? = nil,
+				offset: Int? = nil,
+				callback: @escaping ([SearchResult], DataError?) -> Void)
+	{
+		let path: Spotify.Endpoint = .search(q: q, type: type, market: market, limit: limit, offset: offset)
+		spotify.call(path: path) {
+			[unowned self] json, spotifyError in
 
+			//	validate
+			if let spotifyError = spotifyError {
+				print(spotifyError)
+				callback([], .spotifyError(spotifyError))
+				return
+			}
+
+			guard let json = json else {
+				callback([], nil)
+				return
+			}
+
+			//	process and convert into model object
+			let result = self.processSearchResult(json, forSearchType: type)
+
+			//	execute callback
+			callback( result.items, result.dataError)
+		}
+	}
 
 	func createPlaylist(_ playlist: Playlist,
 						callback: ( Playlist?, DataError? ) -> Void)
