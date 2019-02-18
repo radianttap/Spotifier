@@ -31,6 +31,7 @@ extension SearchCell {
 
 		nameLabel.text = item.name
 		detailsLabel.text = item.details
+		item.populateImageView(photoView, with: item.imageURL)
 	}
 }
 

@@ -55,6 +55,8 @@
 		D0764081221B1D2300304D21 /* LargeHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D076407F221B1D2300304D21 /* LargeHeader.xib */; };
 		D0764082221B1D2300304D21 /* LargeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764080221B1D2300304D21 /* LargeHeader.swift */; };
 		D0764085221B203100304D21 /* SearchType-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764084221B203100304D21 /* SearchType-Extensions.swift */; };
+		D0764087221B275400304D21 /* SearchResult-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764086221B275400304D21 /* SearchResult-Extensions.swift */; };
+		D0764089221B284B00304D21 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0764088221B284B00304D21 /* Kingfisher.framework */; };
 		D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3D37F221231BD00695166 /* AppDelegate.swift */; };
 		D0A3D387221231BF00695166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D386221231BF00695166 /* Assets.xcassets */; };
 		D0A3D38A221231BF00695166 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D388221231BF00695166 /* LaunchScreen.storyboard */; };
@@ -109,6 +111,8 @@
 		D076407F221B1D2300304D21 /* LargeHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LargeHeader.xib; sourceTree = "<group>"; };
 		D0764080221B1D2300304D21 /* LargeHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeHeader.swift; sourceTree = "<group>"; };
 		D0764084221B203100304D21 /* SearchType-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchType-Extensions.swift"; sourceTree = "<group>"; };
+		D0764086221B275400304D21 /* SearchResult-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResult-Extensions.swift"; sourceTree = "<group>"; };
+		D0764088221B284B00304D21 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		D0A3D37C221231BD00695166 /* Spotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A3D37F221231BD00695166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0A3D386221231BF00695166 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,10 +126,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0763FFC221ADE9B00304D21 /* Coordinator.framework in Frameworks */,
+				D0763FFF221ADE9B00304D21 /* Avenue.framework in Frameworks */,
 				D0764038221B028E00304D21 /* Marshal.framework in Frameworks */,
 				D0763FFD221ADE9B00304D21 /* CardPresentationController.framework in Frameworks */,
 				D0763FFE221ADE9B00304D21 /* Ambar.framework in Frameworks */,
-				D0763FFF221ADE9B00304D21 /* Avenue.framework in Frameworks */,
+				D0764089221B284B00304D21 /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +140,7 @@
 		D0763FF7221ADE9B00304D21 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0764088221B284B00304D21 /* Kingfisher.framework */,
 				D0764037221B028E00304D21 /* Marshal.framework */,
 				D0763FFA221ADE9B00304D21 /* Ambar.framework */,
 				D0763FFB221ADE9B00304D21 /* Avenue.framework */,
@@ -280,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				D0764084221B203100304D21 /* SearchType-Extensions.swift */,
+				D0764086221B275400304D21 /* SearchResult-Extensions.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -432,6 +439,7 @@
 				D076406E221B1CEF00304D21 /* SearchCell.swift in Sources */,
 				D0764026221AE15300304D21 /* Notifying.swift in Sources */,
 				D076404B221B058B00304D21 /* DataManager.swift in Sources */,
+				D0764087221B275400304D21 /* SearchResult-Extensions.swift in Sources */,
 				D0764041221B040F00304D21 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
