@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0763FFC221ADE9B00304D21 /* Coordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0763FF8221ADE9B00304D21 /* Coordinator.framework */; };
+		D0763FFD221ADE9B00304D21 /* CardPresentationController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0763FF9221ADE9B00304D21 /* CardPresentationController.framework */; };
+		D0763FFE221ADE9B00304D21 /* Ambar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0763FFA221ADE9B00304D21 /* Ambar.framework */; };
+		D0763FFF221ADE9B00304D21 /* Avenue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0763FFB221ADE9B00304D21 /* Avenue.framework */; };
 		D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3D37F221231BD00695166 /* AppDelegate.swift */; };
 		D0A3D387221231BF00695166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D386221231BF00695166 /* Assets.xcassets */; };
 		D0A3D38A221231BF00695166 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D388221231BF00695166 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D0763FF8221ADE9B00304D21 /* Coordinator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Coordinator.framework; path = Carthage/Build/iOS/Coordinator.framework; sourceTree = "<group>"; };
+		D0763FF9221ADE9B00304D21 /* CardPresentationController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardPresentationController.framework; path = Carthage/Build/iOS/CardPresentationController.framework; sourceTree = "<group>"; };
+		D0763FFA221ADE9B00304D21 /* Ambar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ambar.framework; path = Carthage/Build/iOS/Ambar.framework; sourceTree = "<group>"; };
+		D0763FFB221ADE9B00304D21 /* Avenue.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Avenue.framework; path = Carthage/Build/iOS/Avenue.framework; sourceTree = "<group>"; };
 		D0A3D37C221231BD00695166 /* Spotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A3D37F221231BD00695166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0A3D386221231BF00695166 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -25,17 +33,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0763FFC221ADE9B00304D21 /* Coordinator.framework in Frameworks */,
+				D0763FFD221ADE9B00304D21 /* CardPresentationController.framework in Frameworks */,
+				D0763FFE221ADE9B00304D21 /* Ambar.framework in Frameworks */,
+				D0763FFF221ADE9B00304D21 /* Avenue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D0763FF7221ADE9B00304D21 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0763FFA221ADE9B00304D21 /* Ambar.framework */,
+				D0763FFB221ADE9B00304D21 /* Avenue.framework */,
+				D0763FF9221ADE9B00304D21 /* CardPresentationController.framework */,
+				D0763FF8221ADE9B00304D21 /* Coordinator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D0A3D373221231BD00695166 = {
 			isa = PBXGroup;
 			children = (
 				D0A3D37E221231BD00695166 /* Spotifier */,
 				D0A3D37D221231BD00695166 /* Products */,
+				D0763FF7221ADE9B00304D21 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -271,6 +295,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Spotifier/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -288,6 +316,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Spotifier/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
