@@ -3,5 +3,6 @@ github "radianttap/Avenue"
 github "radianttap/Ambar"
 github "radianttap/CardPresentationController"
 
+github "radianttap/SwiftyOAuth"
 github "utahiosmac/Marshal"
 github "onevcat/Kingfisher"

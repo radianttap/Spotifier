@@ -57,6 +57,7 @@
 		D0764087221B275400304D21 /* SearchResult-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764086221B275400304D21 /* SearchResult-Extensions.swift */; };
 		D0764089221B284B00304D21 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0764088221B284B00304D21 /* Kingfisher.framework */; };
 		D076408C221B309E00304D21 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D076408B221B309E00304D21 /* Icons.xcassets */; };
+		D0764090221B350200304D21 /* SwiftyOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D076408F221B350200304D21 /* SwiftyOAuth.framework */; };
 		D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3D37F221231BD00695166 /* AppDelegate.swift */; };
 		D0A3D387221231BF00695166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D386221231BF00695166 /* Assets.xcassets */; };
 		D0A3D38A221231BF00695166 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D388221231BF00695166 /* LaunchScreen.storyboard */; };
@@ -114,6 +115,7 @@
 		D0764086221B275400304D21 /* SearchResult-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResult-Extensions.swift"; sourceTree = "<group>"; };
 		D0764088221B284B00304D21 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		D076408B221B309E00304D21 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
+		D076408F221B350200304D21 /* SwiftyOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyOAuth.framework; path = Carthage/Build/iOS/SwiftyOAuth.framework; sourceTree = "<group>"; };
 		D0A3D37C221231BD00695166 /* Spotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A3D37F221231BD00695166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0A3D386221231BF00695166 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				D0763FFD221ADE9B00304D21 /* CardPresentationController.framework in Frameworks */,
 				D0764038221B028E00304D21 /* Marshal.framework in Frameworks */,
 				D0764089221B284B00304D21 /* Kingfisher.framework in Frameworks */,
+				D0764090221B350200304D21 /* SwiftyOAuth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +143,7 @@
 		D0763FF7221ADE9B00304D21 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D076408F221B350200304D21 /* SwiftyOAuth.framework */,
 				D0764088221B284B00304D21 /* Kingfisher.framework */,
 				D0764037221B028E00304D21 /* Marshal.framework */,
 				D0763FFA221ADE9B00304D21 /* Ambar.framework */,
@@ -337,7 +341,7 @@
 				D0A3D378221231BD00695166 /* Sources */,
 				D0A3D379221231BD00695166 /* Frameworks */,
 				D0A3D37A221231BD00695166 /* Resources */,
-				D076408A221B2F3900304D21 /* ShellScript */,
+				D076408A221B2F3900304D21 /* Run Script: Carthage frameworks */,
 			);
 			buildRules = (
 			);
@@ -398,7 +402,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		D076408A221B2F3900304D21 /* ShellScript */ = {
+		D076408A221B2F3900304D21 /* Run Script: Carthage frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -411,7 +415,9 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Coordinator.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Avenue.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CardPresentationController.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyOAuth.framework",
 			);
+			name = "Run Script: Carthage frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -420,6 +426,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Coordinator.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Avenue.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CardPresentationController.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftyOAuth.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
