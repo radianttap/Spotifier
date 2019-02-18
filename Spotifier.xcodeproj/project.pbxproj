@@ -37,6 +37,8 @@
 		D0764045221B040F00304D21 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076403E221B040F00304D21 /* User.swift */; };
 		D0764046221B040F00304D21 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076403F221B040F00304D21 /* Artist.swift */; };
 		D0764047221B040F00304D21 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764040221B040F00304D21 /* Playlist.swift */; };
+		D076404B221B058B00304D21 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764049221B058B00304D21 /* DataManager.swift */; };
+		D076404C221B058B00304D21 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076404A221B058B00304D21 /* DataError.swift */; };
 		D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3D37F221231BD00695166 /* AppDelegate.swift */; };
 		D0A3D387221231BF00695166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D386221231BF00695166 /* Assets.xcassets */; };
 		D0A3D38A221231BF00695166 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D388221231BF00695166 /* LaunchScreen.storyboard */; };
@@ -73,6 +75,8 @@
 		D076403E221B040F00304D21 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D076403F221B040F00304D21 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		D0764040221B040F00304D21 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		D0764049221B058B00304D21 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		D076404A221B058B00304D21 /* DataError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
 		D0A3D37C221231BD00695166 /* Spotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A3D37F221231BD00695166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0A3D386221231BF00695166 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -202,9 +206,19 @@
 			path = DataModel;
 			sourceTree = "<group>";
 		};
+		D0764048221B058B00304D21 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				D0764049221B058B00304D21 /* DataManager.swift */,
+				D076404A221B058B00304D21 /* DataError.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
 		D0A3D373221231BD00695166 = {
 			isa = PBXGroup;
 			children = (
+				D0764048221B058B00304D21 /* DataManager */,
 				D0764039221B040F00304D21 /* DataModel */,
 				D0764027221AE4F900304D21 /* Spotify */,
 				D0764000221AE15300304D21 /* Vendor */,
@@ -321,6 +335,7 @@
 				D0764025221AE15300304D21 /* NibLoadable.swift in Sources */,
 				D076401E221AE15300304D21 /* OperationQueue-Extensions.swift in Sources */,
 				D076401B221AE15300304D21 /* DispatchQueue-Extensions.swift in Sources */,
+				D076404C221B058B00304D21 /* DataError.swift in Sources */,
 				D076402B221AE4F900304D21 /* Spotify.swift in Sources */,
 				D076401F221AE15300304D21 /* FileManager-Extensions.swift in Sources */,
 				D0764018221AE15300304D21 /* NumberFormatter-Extensions.swift in Sources */,
@@ -328,6 +343,7 @@
 				D0764046221B040F00304D21 /* Artist.swift in Sources */,
 				D0764020221AE15300304D21 /* Atomic.swift in Sources */,
 				D0764026221AE15300304D21 /* Notifying.swift in Sources */,
+				D076404B221B058B00304D21 /* DataManager.swift in Sources */,
 				D0764041221B040F00304D21 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
