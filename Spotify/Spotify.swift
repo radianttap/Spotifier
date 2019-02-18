@@ -58,6 +58,13 @@ final class Spotify: NetworkSession {
 	private typealias APIRequest = (endpoint: Endpoint, callback: Callback )
 
 	private var queuedRequests: [APIRequest] = []
+
+	private var isFetchingToken = false {
+		didSet {
+			if isFetchingToken { return }
+			processQueuedRequests()
+		}
+	}
 }
 
 extension Spotify {
@@ -65,9 +72,7 @@ extension Spotify {
 
 	func call(endpoint: Endpoint, callback: @escaping Callback) {
 		let apiRequest = (endpoint, callback)
-
-		//	apply Authorization
-		oauth(request: apiRequest)
+		oauth(apiRequest)
 	}
 }
 
@@ -241,5 +246,68 @@ fileprivate extension Spotify.Endpoint {
 		req.httpBody = body
 
 		return req
+	}
+}
+
+
+private extension Spotify {
+	private func oauth(_ apiRequest: APIRequest) {
+		if isFetchingToken {
+			queuedRequests.append(apiRequest)
+			return
+		}
+
+		//	is token availalbe?
+		guard let token = oauthProvider.token else {
+			queuedRequests.append(apiRequest)
+
+			fetchToken()
+			return
+		}
+
+		//	is token valid?
+		if token.isExpired {
+			queuedRequests.append(apiRequest)
+
+			refreshToken()
+			return
+		}
+
+		execute(apiRequest)
+	}
+
+	func fetchToken() {
+		if isFetchingToken { return }
+		isFetchingToken = true
+
+		oauthProvider.authorize {
+			[unowned self] result in
+
+			self.isFetchingToken = false
+
+			switch result {
+			case .success(let token):
+				print(token)
+			case .failure(let error):
+				print(error)
+			}
+		}
+	}
+
+	func refreshToken() {
+		fetchToken()
+	}
+
+	///	When fetching token process completes,
+	///	attempt re-authorization of all received API calls
+	func processQueuedRequests() {
+		for apiReq in queuedRequests {
+			oauth(apiReq)
+		}
+		queuedRequests.removeAll()
+	}
+
+	private func execute(_ apiRequest: APIRequest) {
+
 	}
 }
