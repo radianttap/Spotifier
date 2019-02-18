@@ -55,13 +55,17 @@ final class Spotify: NetworkSession {
 	private lazy var oauthProvider = Provider.spotify(clientID: Spotify.clientID,
 												 clientSecret: Spotify.clientSecret)
 
+	private typealias APIRequest = (endpoint: Endpoint, callback: Callback )
 }
 
 extension Spotify {
 	typealias Callback = (JSON?, SpotifyError?) -> Void
 
 	func call(endpoint: Endpoint, callback: @escaping Callback) {
+		let apiRequest = (endpoint, callback)
 
+		//	apply Authorization
+		oauth(request: apiRequest)
 	}
 }
 
