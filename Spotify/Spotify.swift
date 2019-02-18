@@ -56,6 +56,8 @@ final class Spotify: NetworkSession {
 												 clientSecret: Spotify.clientSecret)
 
 	private typealias APIRequest = (endpoint: Endpoint, callback: Callback )
+
+	private var queuedRequests: [APIRequest] = []
 }
 
 extension Spotify {
