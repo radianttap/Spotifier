@@ -94,6 +94,19 @@ extension Spotify {
 }
 
 fileprivate extension Spotify.Endpoint {
+	//	Request parts:
+
+	fileprivate var method: NetworkHTTPMethod {
+		switch self {
+		case .search, .albums, .artists:
+			return .GET
+		case .deleteTracks:
+			return .DELETE
+		case .createPlaylist:
+			return .POST
+		}
+	}
+
 	var urlRequest: URLRequest {
 		guard var comps = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
 			fatalError("Invalid path-based URL")
