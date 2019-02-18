@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import Avenue
 
 typealias JSON = [String: Any]
 
 
-final class Spotify {
+final class Spotify: NetworkSession {
 	//	Configuration
 
 	private let basePath: String = "https://api.spotify.com/v1/"
