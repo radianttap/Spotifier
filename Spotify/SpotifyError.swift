@@ -15,4 +15,5 @@ enum SpotifyError: Error {
 	case emptyResponse
 	case unexpectedResponse(HTTPURLResponse, String?)
 	case httpError(HTTPURLResponse)
+	case authError
 }

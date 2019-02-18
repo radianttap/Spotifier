@@ -115,7 +115,7 @@ extension Spotify {
 fileprivate extension Spotify.Endpoint {
 	//	Request parts:
 
-	private var method: NetworkHTTPMethod {
+	fileprivate var method: NetworkHTTPMethod {
 		switch self {
 		case .search, .albums, .artists:
 			return .GET
@@ -308,6 +308,68 @@ private extension Spotify {
 	}
 
 	private func execute(_ apiRequest: APIRequest) {
+		let endpoint = apiRequest.endpoint
+		let callback = apiRequest.callback
 
+		guard let token = oauthProvider.token, token.isValid else {
+			callback(nil, .authError)
+			return
+		}
+
+		var urlRequest = endpoint.urlRequest
+		urlRequest.addValue("Bearer \( token.accessToken )",
+			forHTTPHeaderField: "Authorization")
+
+		let op = NetworkOperation(urlRequest: urlRequest, urlSession: urlSession) {
+			payload in
+
+			if let tsStart = payload.tsStart, let tsEnd = payload.tsEnd {
+				let period = tsEnd.timeIntervalSince(tsStart) * 1000
+				print("\tURL: \( urlRequest.url?.absoluteString ?? "" )\n\t⏱: \( period ) ms")
+			}
+
+			//	process the returned stuff, now
+			if let error = payload.error {
+				callback(nil, SpotifyError.networkError(error) )
+				return
+			}
+
+			guard let httpURLResponse = payload.response else {
+				callback(nil, SpotifyError.invalidResponseType)
+				return
+			}
+
+			if !(200...299).contains(httpURLResponse.statusCode) {
+				switch httpURLResponse.statusCode {
+				default:
+					callback(nil, SpotifyError.httpError(httpURLResponse))
+				}
+				return
+			}
+
+			guard let data = payload.data else {
+				if endpoint.method.allowsEmptyResponseData {
+					callback(nil, nil)
+					return
+				}
+				callback(nil, SpotifyError.emptyResponse)
+				return
+			}
+
+			guard
+				let obj = try? JSONSerialization.jsonObject(with: data, options: []),	//.allowFragments
+				let json = obj as? JSON
+			else {
+				//	conversion to JSON failed.
+				//	convert to string, so the caller knows what‘s actually returned
+				let str = String(data: data, encoding: .utf8)
+				callback(nil, SpotifyError.unexpectedResponse(httpURLResponse, str))
+				return
+			}
+
+			callback(json, nil)
+		}
+
+		queue.addOperation(op)
 	}
 }
