@@ -16,6 +16,36 @@ final class Spotify: NetworkSession {
 	//	Configuration
 
 	private let basePath: String = "https://api.spotify.com/v1/"
+
+	//	Init
+
+	private override init(urlSessionConfiguration: URLSessionConfiguration) {
+		fatalError("Not implemented, use `init()`")
+	}
+
+	init() {
+		queue = {
+			let oq = OperationQueue()
+			oq.qualityOfService = .userInitiated
+			return oq
+		}()
+
+		let urlSessionConfiguration: URLSessionConfiguration = {
+			let c = URLSessionConfiguration.default
+			c.allowsCellularAccess = true
+			c.httpCookieAcceptPolicy = .never
+			c.httpShouldSetCookies = false
+			c.requestCachePolicy = .reloadIgnoringLocalCacheData
+			return c
+		}()
+		super.init(urlSessionConfiguration: urlSessionConfiguration)
+	}
+
+	//	Local stuff
+
+	private var queue: OperationQueue
+
+
 }
 
 extension Spotify {
