@@ -12,6 +12,7 @@ typealias JSON = [String: Any]
 
 
 final class Spotify {
+	//	Configuration
 
 	private let basePath: String = "https://api.spotify.com/v1/"
 }
