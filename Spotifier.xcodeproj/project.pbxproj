@@ -45,6 +45,16 @@
 		D0764057221B0CBD00304D21 /* ContentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764053221B0CBD00304D21 /* ContentError.swift */; };
 		D0764059221B0D0200304D21 /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764058221B0D0200304D21 /* AccountError.swift */; };
 		D076405B221B0D9B00304D21 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076405A221B0D9B00304D21 /* AppDependency.swift */; };
+		D076406E221B1CEF00304D21 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076405D221B1CEF00304D21 /* SearchCell.swift */; };
+		D076406F221B1CEF00304D21 /* BaseGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076405E221B1CEF00304D21 /* BaseGridLayout.swift */; };
+		D0764074221B1CEF00304D21 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764063221B1CEF00304D21 /* SearchController.swift */; };
+		D0764079221B1CEF00304D21 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764068221B1CEF00304D21 /* SearchDataSource.swift */; };
+		D076407C221B1CEF00304D21 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D076406B221B1CEF00304D21 /* SearchCell.xib */; };
+		D076407D221B1CEF00304D21 /* SearchLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076406C221B1CEF00304D21 /* SearchLayout.swift */; };
+		D076407E221B1CEF00304D21 /* SearchController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D076406D221B1CEF00304D21 /* SearchController.storyboard */; };
+		D0764081221B1D2300304D21 /* LargeHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D076407F221B1D2300304D21 /* LargeHeader.xib */; };
+		D0764082221B1D2300304D21 /* LargeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764080221B1D2300304D21 /* LargeHeader.swift */; };
+		D0764085221B203100304D21 /* SearchType-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764084221B203100304D21 /* SearchType-Extensions.swift */; };
 		D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3D37F221231BD00695166 /* AppDelegate.swift */; };
 		D0A3D387221231BF00695166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D386221231BF00695166 /* Assets.xcassets */; };
 		D0A3D38A221231BF00695166 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D388221231BF00695166 /* LaunchScreen.storyboard */; };
@@ -89,6 +99,16 @@
 		D0764053221B0CBD00304D21 /* ContentError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentError.swift; sourceTree = "<group>"; };
 		D0764058221B0D0200304D21 /* AccountError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountError.swift; sourceTree = "<group>"; };
 		D076405A221B0D9B00304D21 /* AppDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
+		D076405D221B1CEF00304D21 /* SearchCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		D076405E221B1CEF00304D21 /* BaseGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGridLayout.swift; sourceTree = "<group>"; };
+		D0764063221B1CEF00304D21 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		D0764068221B1CEF00304D21 /* SearchDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
+		D076406B221B1CEF00304D21 /* SearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
+		D076406C221B1CEF00304D21 /* SearchLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchLayout.swift; sourceTree = "<group>"; };
+		D076406D221B1CEF00304D21 /* SearchController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchController.storyboard; sourceTree = "<group>"; };
+		D076407F221B1D2300304D21 /* LargeHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LargeHeader.xib; sourceTree = "<group>"; };
+		D0764080221B1D2300304D21 /* LargeHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeHeader.swift; sourceTree = "<group>"; };
+		D0764084221B203100304D21 /* SearchType-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchType-Extensions.swift"; sourceTree = "<group>"; };
 		D0A3D37C221231BD00695166 /* Spotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A3D37F221231BD00695166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0A3D386221231BF00695166 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -240,6 +260,30 @@
 			path = Middleware;
 			sourceTree = "<group>";
 		};
+		D076405C221B1CEF00304D21 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D076405E221B1CEF00304D21 /* BaseGridLayout.swift */,
+				D076406C221B1CEF00304D21 /* SearchLayout.swift */,
+				D0764063221B1CEF00304D21 /* SearchController.swift */,
+				D076406D221B1CEF00304D21 /* SearchController.storyboard */,
+				D0764068221B1CEF00304D21 /* SearchDataSource.swift */,
+				D076405D221B1CEF00304D21 /* SearchCell.swift */,
+				D076406B221B1CEF00304D21 /* SearchCell.xib */,
+				D0764080221B1D2300304D21 /* LargeHeader.swift */,
+				D076407F221B1D2300304D21 /* LargeHeader.xib */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		D0764083221B200A00304D21 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D0764084221B203100304D21 /* SearchType-Extensions.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		D0A3D373221231BD00695166 = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +313,8 @@
 				D0A3D38B221231BF00695166 /* Info.plist */,
 				D076404F221B0CBD00304D21 /* Middleware */,
 				D0A3D37F221231BD00695166 /* AppDelegate.swift */,
+				D0764083221B200A00304D21 /* ViewModels */,
+				D076405C221B1CEF00304D21 /* UI */,
 			);
 			path = Spotifier;
 			sourceTree = "<group>";
@@ -331,7 +377,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0764081221B1D2300304D21 /* LargeHeader.xib in Resources */,
 				D0A3D38A221231BF00695166 /* LaunchScreen.storyboard in Resources */,
+				D076407C221B1CEF00304D21 /* SearchCell.xib in Resources */,
+				D076407E221B1CEF00304D21 /* SearchController.storyboard in Resources */,
 				D0A3D387221231BF00695166 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +403,7 @@
 				D0764043221B040F00304D21 /* Album.swift in Sources */,
 				D0764021221AE15300304D21 /* StoryboardLoadable.swift in Sources */,
 				D0764022221AE15300304D21 /* Embeddable.swift in Sources */,
+				D0764074221B1CEF00304D21 /* SearchController.swift in Sources */,
 				D0764047221B040F00304D21 /* Playlist.swift in Sources */,
 				D0764024221AE15300304D21 /* ReusableView.swift in Sources */,
 				D0764019221AE15300304D21 /* String-Extensions.swift in Sources */,
@@ -361,9 +411,13 @@
 				D0764031221AE8E300304D21 /* SpotifyError.swift in Sources */,
 				D0764023221AE15300304D21 /* DequeableView.swift in Sources */,
 				D0764055221B0CBD00304D21 /* ContentManager.swift in Sources */,
+				D0764085221B203100304D21 /* SearchType-Extensions.swift in Sources */,
+				D076406F221B1CEF00304D21 /* BaseGridLayout.swift in Sources */,
 				D0764025221AE15300304D21 /* NibLoadable.swift in Sources */,
+				D076407D221B1CEF00304D21 /* SearchLayout.swift in Sources */,
 				D076401E221AE15300304D21 /* OperationQueue-Extensions.swift in Sources */,
 				D076401B221AE15300304D21 /* DispatchQueue-Extensions.swift in Sources */,
+				D0764082221B1D2300304D21 /* LargeHeader.swift in Sources */,
 				D076404C221B058B00304D21 /* DataError.swift in Sources */,
 				D076402B221AE4F900304D21 /* Spotify.swift in Sources */,
 				D076404E221B096200304D21 /* SearchResult.swift in Sources */,
@@ -374,6 +428,8 @@
 				D0764046221B040F00304D21 /* Artist.swift in Sources */,
 				D0764020221AE15300304D21 /* Atomic.swift in Sources */,
 				D076405B221B0D9B00304D21 /* AppDependency.swift in Sources */,
+				D0764079221B1CEF00304D21 /* SearchDataSource.swift in Sources */,
+				D076406E221B1CEF00304D21 /* SearchCell.swift in Sources */,
 				D0764026221AE15300304D21 /* Notifying.swift in Sources */,
 				D076404B221B058B00304D21 /* DataManager.swift in Sources */,
 				D0764041221B040F00304D21 /* Track.swift in Sources */,
