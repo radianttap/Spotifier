@@ -35,6 +35,7 @@ final class Spotify: NetworkSession {
 			c.allowsCellularAccess = true
 			c.httpCookieAcceptPolicy = .never
 			c.httpShouldSetCookies = false
+			c.httpAdditionalHeaders = Spotify.commonHeaders
 			c.requestCachePolicy = .reloadIgnoringLocalCacheData
 			return c
 		}()
@@ -54,6 +55,31 @@ extension Spotify {
 	func call(endpoint: Endpoint, callback: @escaping Callback) {
 
 	}
+}
+
+private extension Spotify {
+	static let commonHeaders: [String: String] = {
+		return [
+			"User-Agent": userAgent,
+			"Accept-Charset": "utf-8",
+			"Accept-Encoding": "gzip, deflate"
+		]
+	}()
+
+	static var userAgent: String = {
+		#if os(watchOS)
+		let osName = "watchOS"
+		let osVersion = ""
+		let deviceVersion = "Apple Watch"
+		#else
+		let osName = UIDevice.current.systemName
+		let osVersion = UIDevice.current.systemVersion
+		let deviceVersion = UIDevice.current.model
+		#endif
+
+		let locale = Locale.current.identifier
+		return "\( Bundle.appName ) \( Bundle.appVersion ) (\( Bundle.appBuild )); \( deviceVersion ); \( osName ) \( osVersion ); \( locale )"
+	}()
 }
 
 extension Spotify {
