@@ -161,6 +161,43 @@ fileprivate extension Spotify.Endpoint {
 		}
 	}
 
+	private var params: JSON {
+		var p: JSON = [:]
+
+		switch self {
+		case .search(let q, let type, let market, let limit, let offset):
+			p["q"] = q
+			p["type"] = type.rawValue
+			if let market = market {
+				p["market"] = market
+			}
+			if let limit = limit {
+				p["limit"] = limit
+			}
+			if let offset = offset {
+				p["offset"] = offset
+			}
+
+		case .albums, .artists, .deleteTracks, .createPlaylist:
+			break
+		}
+
+		return p
+	}
+
+	//	Request building
+
+	private var queryItems: [URLQueryItem]? {
+		if params.count == 0 { return nil }
+
+		var arr: [URLQueryItem] = []
+		for (key, value) in params {
+			let qi = URLQueryItem(name: key, value: "\( value )")
+			arr.append( qi )
+		}
+		return arr
+	}
+
 	var urlRequest: URLRequest {
 		guard var comps = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
 			fatalError("Invalid path-based URL")
