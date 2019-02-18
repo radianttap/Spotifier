@@ -23,3 +23,19 @@ final class DataManager {
 	private var playlists: Set<Playlist> = []
 }
 
+extension DataManager {
+
+
+	func createPlaylist(_ playlist: Playlist,
+						callback: ( Playlist?, DataError? ) -> Void)
+	{
+
+	}
+
+	func removeTracks(_ tracks: [Track],
+					  from playlist: Playlist,
+					  callback: ( Playlist, DataError? ) -> Void)
+	{
+
+	}
+}
