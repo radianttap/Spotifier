@@ -40,6 +40,10 @@
 		D076404B221B058B00304D21 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764049221B058B00304D21 /* DataManager.swift */; };
 		D076404C221B058B00304D21 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076404A221B058B00304D21 /* DataError.swift */; };
 		D076404E221B096200304D21 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076404D221B096200304D21 /* SearchResult.swift */; };
+		D0764055221B0CBD00304D21 /* ContentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764051221B0CBD00304D21 /* ContentManager.swift */; };
+		D0764056221B0CBD00304D21 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764052221B0CBD00304D21 /* AccountManager.swift */; };
+		D0764057221B0CBD00304D21 /* ContentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764053221B0CBD00304D21 /* ContentError.swift */; };
+		D0764059221B0D0200304D21 /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764058221B0D0200304D21 /* AccountError.swift */; };
 		D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3D37F221231BD00695166 /* AppDelegate.swift */; };
 		D0A3D387221231BF00695166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D386221231BF00695166 /* Assets.xcassets */; };
 		D0A3D38A221231BF00695166 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D388221231BF00695166 /* LaunchScreen.storyboard */; };
@@ -79,6 +83,10 @@
 		D0764049221B058B00304D21 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		D076404A221B058B00304D21 /* DataError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
 		D076404D221B096200304D21 /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		D0764051221B0CBD00304D21 /* ContentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentManager.swift; sourceTree = "<group>"; };
+		D0764052221B0CBD00304D21 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		D0764053221B0CBD00304D21 /* ContentError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentError.swift; sourceTree = "<group>"; };
+		D0764058221B0D0200304D21 /* AccountError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountError.swift; sourceTree = "<group>"; };
 		D0A3D37C221231BD00695166 /* Spotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A3D37F221231BD00695166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0A3D386221231BF00695166 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -218,6 +226,17 @@
 			path = DataManager;
 			sourceTree = "<group>";
 		};
+		D076404F221B0CBD00304D21 /* Middleware */ = {
+			isa = PBXGroup;
+			children = (
+				D0764051221B0CBD00304D21 /* ContentManager.swift */,
+				D0764053221B0CBD00304D21 /* ContentError.swift */,
+				D0764052221B0CBD00304D21 /* AccountManager.swift */,
+				D0764058221B0D0200304D21 /* AccountError.swift */,
+			);
+			path = Middleware;
+			sourceTree = "<group>";
+		};
 		D0A3D373221231BD00695166 = {
 			isa = PBXGroup;
 			children = (
@@ -242,10 +261,11 @@
 		D0A3D37E221231BD00695166 /* Spotifier */ = {
 			isa = PBXGroup;
 			children = (
-				D0A3D37F221231BD00695166 /* AppDelegate.swift */,
 				D0A3D386221231BF00695166 /* Assets.xcassets */,
 				D0A3D388221231BF00695166 /* LaunchScreen.storyboard */,
 				D0A3D38B221231BF00695166 /* Info.plist */,
+				D076404F221B0CBD00304D21 /* Middleware */,
+				D0A3D37F221231BD00695166 /* AppDelegate.swift */,
 			);
 			path = Spotifier;
 			sourceTree = "<group>";
@@ -324,6 +344,7 @@
 				D076401C221AE15300304D21 /* Date-Extensions.swift in Sources */,
 				D0764045221B040F00304D21 /* User.swift in Sources */,
 				D076402F221AE80700304D21 /* Spotify-Types.swift in Sources */,
+				D0764059221B0D0200304D21 /* AccountError.swift in Sources */,
 				D076401D221AE15300304D21 /* Bundle-Extensions.swift in Sources */,
 				D0764017221AE15300304D21 /* AsyncOperation.swift in Sources */,
 				D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */,
@@ -333,14 +354,17 @@
 				D0764047221B040F00304D21 /* Playlist.swift in Sources */,
 				D0764024221AE15300304D21 /* ReusableView.swift in Sources */,
 				D0764019221AE15300304D21 /* String-Extensions.swift in Sources */,
+				D0764057221B0CBD00304D21 /* ContentError.swift in Sources */,
 				D0764031221AE8E300304D21 /* SpotifyError.swift in Sources */,
 				D0764023221AE15300304D21 /* DequeableView.swift in Sources */,
+				D0764055221B0CBD00304D21 /* ContentManager.swift in Sources */,
 				D0764025221AE15300304D21 /* NibLoadable.swift in Sources */,
 				D076401E221AE15300304D21 /* OperationQueue-Extensions.swift in Sources */,
 				D076401B221AE15300304D21 /* DispatchQueue-Extensions.swift in Sources */,
 				D076404C221B058B00304D21 /* DataError.swift in Sources */,
 				D076402B221AE4F900304D21 /* Spotify.swift in Sources */,
 				D076404E221B096200304D21 /* SearchResult.swift in Sources */,
+				D0764056221B0CBD00304D21 /* AccountManager.swift in Sources */,
 				D076401F221AE15300304D21 /* FileManager-Extensions.swift in Sources */,
 				D0764018221AE15300304D21 /* NumberFormatter-Extensions.swift in Sources */,
 				D076401A221AE15300304D21 /* DateFormatter-Extensions.swift in Sources */,
