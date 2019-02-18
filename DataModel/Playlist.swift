@@ -8,6 +8,6 @@
 
 import Foundation
 
-final class Playlist {
+final class Playlist: NSObject {
 
 }

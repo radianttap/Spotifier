@@ -8,6 +8,6 @@
 
 import Foundation
 
-final class Track {
+final class Track: NSObject {
 
 }

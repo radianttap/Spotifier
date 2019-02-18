@@ -9,7 +9,7 @@
 import Foundation
 import Marshal
 
-final class Album {
+final class Album: NSObject {
 	//	Properties
 
 	let name: String
