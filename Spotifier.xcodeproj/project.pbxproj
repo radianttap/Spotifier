@@ -44,6 +44,7 @@
 		D0764056221B0CBD00304D21 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764052221B0CBD00304D21 /* AccountManager.swift */; };
 		D0764057221B0CBD00304D21 /* ContentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764053221B0CBD00304D21 /* ContentError.swift */; };
 		D0764059221B0D0200304D21 /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764058221B0D0200304D21 /* AccountError.swift */; };
+		D076405B221B0D9B00304D21 /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076405A221B0D9B00304D21 /* AppDependency.swift */; };
 		D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3D37F221231BD00695166 /* AppDelegate.swift */; };
 		D0A3D387221231BF00695166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D386221231BF00695166 /* Assets.xcassets */; };
 		D0A3D38A221231BF00695166 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D388221231BF00695166 /* LaunchScreen.storyboard */; };
@@ -87,6 +88,7 @@
 		D0764052221B0CBD00304D21 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		D0764053221B0CBD00304D21 /* ContentError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentError.swift; sourceTree = "<group>"; };
 		D0764058221B0D0200304D21 /* AccountError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountError.swift; sourceTree = "<group>"; };
+		D076405A221B0D9B00304D21 /* AppDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
 		D0A3D37C221231BD00695166 /* Spotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A3D37F221231BD00695166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0A3D386221231BF00695166 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		D076404F221B0CBD00304D21 /* Middleware */ = {
 			isa = PBXGroup;
 			children = (
+				D076405A221B0D9B00304D21 /* AppDependency.swift */,
 				D0764051221B0CBD00304D21 /* ContentManager.swift */,
 				D0764053221B0CBD00304D21 /* ContentError.swift */,
 				D0764052221B0CBD00304D21 /* AccountManager.swift */,
@@ -370,6 +373,7 @@
 				D076401A221AE15300304D21 /* DateFormatter-Extensions.swift in Sources */,
 				D0764046221B040F00304D21 /* Artist.swift in Sources */,
 				D0764020221AE15300304D21 /* Atomic.swift in Sources */,
+				D076405B221B0D9B00304D21 /* AppDependency.swift in Sources */,
 				D0764026221AE15300304D21 /* Notifying.swift in Sources */,
 				D076404B221B058B00304D21 /* DataManager.swift in Sources */,
 				D0764041221B040F00304D21 /* Track.swift in Sources */,
