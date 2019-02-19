@@ -22,7 +22,7 @@ extension Album: SearchResult {
 	}
 
 	var details: String {
-		return "by \( artists.map{ $0.name }.joined(separator: ", ") ), \( tracks.count ) tracks, 2018"
+		return "by \( artists.map{ $0.name }.joined(separator: ", ") )\n\( numberOfTracks ) tracks [\( releaseDate ?? "" )]"
 	}
 
 	var imageURL: URL? {
@@ -36,7 +36,8 @@ extension Artist: SearchResult {
 	}
 
 	var details: String {
-		return "\( albums.count ) albums, \( followersCount ) followers"
+		let albumsPart: String = albums.count == 0 ? "" : "\( albums.count ) albums, "
+		return "\( albumsPart )\( followersCount ) followers"
 	}
 
 	var imageURL: URL? {

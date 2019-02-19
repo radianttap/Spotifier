@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,13 +27,13 @@
                                     <constraint firstAttribute="width" secondItem="b82-yu-iEr" secondAttribute="height" multiplier="1:1" id="Oh6-lk-9f6"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6y-lV-yQ3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6y-lV-yQ3">
                                 <rect key="frame" x="81" y="12" width="247" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kc-9F-okD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="900" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kc-9F-okD">
                                 <rect key="frame" x="81" y="34" width="247" height="18"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -47,7 +46,7 @@
                             <constraint firstItem="c6y-lV-yQ3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="AWw-lO-wkY" secondAttribute="top" id="CGV-vF-vcG"/>
                             <constraint firstItem="c6y-lV-yQ3" firstAttribute="leading" secondItem="b82-yu-iEr" secondAttribute="trailing" constant="15" id="HNy-E4-fgU"/>
                             <constraint firstItem="1kc-9F-okD" firstAttribute="top" secondItem="c6y-lV-yQ3" secondAttribute="bottom" constant="1" id="KcU-Is-FOX"/>
-                            <constraint firstItem="c6y-lV-yQ3" firstAttribute="bottom" secondItem="b82-yu-iEr" secondAttribute="centerY" id="NdN-X6-oV3"/>
+                            <constraint firstItem="c6y-lV-yQ3" firstAttribute="bottom" secondItem="b82-yu-iEr" secondAttribute="centerY" priority="899" id="NdN-X6-oV3"/>
                             <constraint firstItem="1kc-9F-okD" firstAttribute="leading" secondItem="c6y-lV-yQ3" secondAttribute="leading" id="a5D-j1-o9E"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1kc-9F-okD" secondAttribute="bottom" id="g12-6h-ahg"/>
                             <constraint firstItem="1kc-9F-okD" firstAttribute="trailing" secondItem="c6y-lV-yQ3" secondAttribute="trailing" id="gE7-aR-gT9"/>
