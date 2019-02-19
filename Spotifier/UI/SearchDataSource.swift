@@ -75,7 +75,9 @@ private extension SearchDataSource {
 				break
 			}
 
-			keys.append(searchType)
+			if arr.count > 0 {
+				keys.append(searchType)
+			}
 		}
 
 		orderedResults = d
