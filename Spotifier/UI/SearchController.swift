@@ -19,13 +19,9 @@ final class SearchController: UIViewController, StoryboardLoadable {
 	}
 
 
-
-
 	//	MARK:- Data model
 
 	private lazy var dataSource = SearchDataSource(collectionView: collectionView, appDependency: appDependency)
-
-
 
 
 	//	MARK:- UI
@@ -33,14 +29,29 @@ final class SearchController: UIViewController, StoryboardLoadable {
 	@IBOutlet private var searchBox: UIView!
 	@IBOutlet private var searchField: UITextField!
 	@IBOutlet private var collectionView: UICollectionView!
-
 	@IBOutlet private var logoHeightConstraint: NSLayoutConstraint!
 
 
+	//	MARK:- Exit (output)
+
+	private func displayArtist(_ artist: Artist) {
+		let vc = ArtistController.instantiate()
+		vc.artist = artist
+		show(vc, sender: self)
+	}
+
+	private func displayAlbum(_ album: Album) {
+		let vc = AlbumController.instantiate()
+		vc.album = album
+		show(vc, sender: self)
+	}
+}
 
 
-	//	MARK:- View lifecycle
 
+//	MARK:- View lifecycle
+
+extension SearchController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -57,7 +68,6 @@ final class SearchController: UIViewController, StoryboardLoadable {
 		collectionView.contentInset.top = searchBox.bounds.height
 	}
 }
-
 
 
 //	MARK:- Delegates
@@ -98,14 +108,10 @@ extension SearchController: UICollectionViewDelegate {
 
 		switch item {
 		case let artist as Artist:
-			let vc = ArtistController.instantiate()
-			vc.artist = artist
-			show(vc, sender: self)
+			displayArtist(artist)
 
 		case let album as Album:
-			let vc = AlbumController.instantiate()
-			vc.album = album
-			show(vc, sender: self)
+			displayAlbum(album)
 
 		default:
 			break
