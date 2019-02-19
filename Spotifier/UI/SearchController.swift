@@ -98,10 +98,14 @@ extension SearchController: UICollectionViewDelegate {
 
 		switch item {
 		case let artist as Artist:
-			#warning("Open Artist VC")
+			let vc = ArtistController.instantiate()
+			vc.artist = artist
+			show(vc, sender: self)
 
 		case let album as Album:
-			#warning("Open Album VC")
+			let vc = AlbumController.instantiate()
+			vc.album = album
+			show(vc, sender: self)
 
 		default:
 			break
