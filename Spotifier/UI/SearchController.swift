@@ -8,23 +8,18 @@
 
 import UIKit
 
-final class SearchController: UIViewController, StoryboardLoadable {
-	//	Dependencies
+final class SearchController: UIViewController, StoryboardLoadable { // (C)
+	//	MARK:- Data model (M)
 
-	var appDependency: AppDependency? {
+	var dataSource: SearchDataSource! {
 		didSet {
 			if !isViewLoaded { return }
-			dataSource = SearchDataSource(collectionView: collectionView, appDependency: appDependency)
+			prepareDataSource()
 		}
 	}
 
 
-	//	MARK:- Data model
-
-	private lazy var dataSource = SearchDataSource(collectionView: collectionView, appDependency: appDependency)
-
-
-	//	MARK:- UI
+	//	MARK:- UI (V)
 
 	@IBOutlet private var searchBox: UIView!
 	@IBOutlet private var searchField: UITextField!
@@ -55,9 +50,8 @@ extension SearchController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		prepareDataSource()
 		setupUI()
-		collectionView.dataSource = dataSource
-		collectionView.delegate = self
 
 		applyTheme()
 	}
@@ -141,5 +135,13 @@ private extension SearchController {
 
 		//	setup delegate for search text field
 		searchField.delegate = self
+
+		//	setup delegate for events in UICollectionView
+		collectionView.delegate = self
+	}
+
+	func prepareDataSource() {
+		dataSource.collectionView = collectionView
+		collectionView.dataSource = dataSource
 	}
 }

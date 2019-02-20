@@ -140,8 +140,6 @@ extension SearchDataSource: UICollectionViewDataSource {
 	private func prepareCollectionView() {
 		collectionView?.register(SearchCell.self)
 		collectionView?.register(LargeHeader.self, kind: UICollectionView.elementKindSectionHeader)
-
-		collectionView?.dataSource = self
 	}
 
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
