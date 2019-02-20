@@ -11,18 +11,21 @@ import UIKit
 final class SearchDataSource: NSObject {
 	//	Initialization
 
-	private weak var collectionView: UICollectionView?
 	private weak var contentManager: ContentManager?
 
-	init(collectionView: UICollectionView?, appDependency: AppDependency?) {
-		self.collectionView = collectionView
+	init(appDependency: AppDependency?) {
 		self.contentManager = appDependency?.contentManager
 		super.init()
 
-		collectionView?.register(SearchCell.self)
-		collectionView?.register(LargeHeader.self, kind: UICollectionView.elementKindSectionHeader)
 	}
 
+	//	Dependencies
+
+	weak var collectionView: UICollectionView? {
+		didSet {
+			prepareCollectionView()
+		}
+	}
 
 
 	//	Public Data model
@@ -59,6 +62,10 @@ final class SearchDataSource: NSObject {
 //	MARK:- Private
 
 private extension SearchDataSource {
+	///	Splits combined results per SearchType,
+	///	meaning group Artists, Albums etc.
+	///
+	///	That builds 2-level hierarchy which is easy to translate into UICVDataSource
 	func processResults() {
 		var d: [Spotify.SearchType: [SearchResult]] = [:]
 		var keys: [Spotify.SearchType] = []
@@ -129,6 +136,13 @@ private extension SearchDataSource {
 //	MARK:- UICollectionView.DataSource
 
 extension SearchDataSource: UICollectionViewDataSource {
+	private func prepareCollectionView() {
+		collectionView?.register(SearchCell.self)
+		collectionView?.register(LargeHeader.self, kind: UICollectionView.elementKindSectionHeader)
+
+		collectionView?.dataSource = self
+	}
+
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
 		return orderedSearchTypes.count
 	}
@@ -156,6 +170,8 @@ extension SearchDataSource: UICollectionViewDataSource {
 		return cell
 	}
 }
+
+//	MARK:- Public
 
 extension SearchDataSource {
 	func object(at indexPath: IndexPath) -> SearchResult? {
