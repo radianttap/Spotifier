@@ -71,8 +71,9 @@ private extension AppDelegate {
 
 	///	Built UI stack and inject the dependencies into it
 	func setupUI() {
+		let dataSource = SearchDataSource(appDependency: appDependency)
 		let vc = SearchController.instantiate()
-		vc.appDependency = appDependency
+		vc.dataSource = dataSource
 
 		let nc = UINavigationController(rootViewController: vc)
 		window?.rootViewController = nc
