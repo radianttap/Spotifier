@@ -11,15 +11,15 @@ import UIKit
 final class SearchDataSource: NSObject {
 	//	Initialization
 
-	private weak var contentManager: ContentManager?
-
 	init(appDependency: AppDependency?) {
 		self.contentManager = appDependency?.contentManager
 		super.init()
-
 	}
 
+
 	//	Dependencies
+
+	private weak var contentManager: ContentManager?
 
 	weak var collectionView: UICollectionView? {
 		didSet {
@@ -28,11 +28,11 @@ final class SearchDataSource: NSObject {
 	}
 
 
-	//	Public Data model
+	//	Data model (input)
 
 	var searchTerm: String? {
 		didSet {
-			performSearch()
+			prepareSearchRequest()
 		}
 	}
 
@@ -43,8 +43,26 @@ final class SearchDataSource: NSObject {
 	}
 
 
+	//	Exit (output)
 
-	//	Internal data model
+	func executeSearch(for s: String) {
+		contentManager?.search(for: s, onQueue: .main) {
+			[weak self] searchedTerm, results, error in
+
+			//	race-condition check
+			if let lastSearchTerm = self?.searchTerm, lastSearchTerm != searchedTerm { return }
+
+			if let error = error {
+				print(error)
+				return
+			}
+
+			self?.results = results
+		}
+	}
+
+
+	//	Internal data model (derivatives)
 
 	private var orderedResults: [Spotify.SearchType: [SearchResult]] = [:]
 
@@ -54,7 +72,10 @@ final class SearchDataSource: NSObject {
 		}
 	}
 
+	//	Helpers
+
 	private var searchWorkItem: DispatchWorkItem?
+	private var searchQueue = DispatchQueue.main
 }
 
 
@@ -62,10 +83,9 @@ final class SearchDataSource: NSObject {
 //	MARK:- Private
 
 private extension SearchDataSource {
-	///	Splits combined results per SearchType,
-	///	meaning group Artists, Albums etc.
+	///	Splits combined results per SearchType thus groups Artists, Albums etc.
 	///
-	///	That builds 2-level hierarchy which is easy to translate into UICVDataSource
+	///	That builds 2-level hierarchy which is easy to translate into UICVDataSource.
 	func processResults() {
 		var d: [Spotify.SearchType: [SearchResult]] = [:]
 		var keys: [Spotify.SearchType] = []
@@ -92,41 +112,22 @@ private extension SearchDataSource {
 	}
 
 	/// Prepares search request, wrapped inside `DispatchWorkItem`
-	///	so it can be cancelled if customer continues typing into the UITextField
-	func performSearch() {
+	///	so it can be cancelled if customer continues typing into the UITextField.
+	func prepareSearchRequest() {
 		searchWorkItem?.cancel()
 
-		let wi = DispatchWorkItem {
-			[weak self] in
-			self?.search()
-		}
-
-		searchWorkItem = wi
-		DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: wi)
-	}
-
-	///	Actual search request
-	func search() {
 		guard let s = searchTerm, s.count > 0 else {
 			results = []
 			return
 		}
 
-		searchWorkItem = nil
-
-		contentManager?.search(for: s, onQueue: .main) {
-			[weak self] searchedTerm, results, error in
-
-			//	race-condition check
-			if let lastSearchTerm = self?.searchTerm, lastSearchTerm != searchedTerm { return }
-
-			if let error = error {
-				print(error)
-				return
-			}
-
-			self?.results = results
+		let wi = DispatchWorkItem {
+			[weak self] in
+			self?.executeSearch(for: s)
+			self?.searchWorkItem = nil
 		}
+		searchWorkItem = wi
+		searchQueue.asyncAfter(deadline: .now() + 0.3, execute: wi)
 	}
 }
 
