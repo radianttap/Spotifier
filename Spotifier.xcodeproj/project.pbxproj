@@ -58,6 +58,10 @@
 		D0764089221B284B00304D21 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0764088221B284B00304D21 /* Kingfisher.framework */; };
 		D076408C221B309E00304D21 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D076408B221B309E00304D21 /* Icons.xcassets */; };
 		D0764090221B350200304D21 /* SwiftyOAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D076408F221B350200304D21 /* SwiftyOAuth.framework */; };
+		D0804E05221DEF1F0036C541 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0804E03221DEF1F0036C541 /* AlbumCell.swift */; };
+		D0804E06221DEF1F0036C541 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0804E04221DEF1F0036C541 /* AlbumCell.xib */; };
+		D0804E08221DF1890036C541 /* HorizontalScrollerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0804E07221DF1890036C541 /* HorizontalScrollerLayout.swift */; };
+		D0804E0A221DF8510036C541 /* Artist-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0804E09221DF8510036C541 /* Artist-Extensions.swift */; };
 		D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3D37F221231BD00695166 /* AppDelegate.swift */; };
 		D0A3D387221231BF00695166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D386221231BF00695166 /* Assets.xcassets */; };
 		D0A3D38A221231BF00695166 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D388221231BF00695166 /* LaunchScreen.storyboard */; };
@@ -124,6 +128,10 @@
 		D0764088221B284B00304D21 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		D076408B221B309E00304D21 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		D076408F221B350200304D21 /* SwiftyOAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyOAuth.framework; path = Carthage/Build/iOS/SwiftyOAuth.framework; sourceTree = "<group>"; };
+		D0804E03221DEF1F0036C541 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		D0804E04221DEF1F0036C541 /* AlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
+		D0804E07221DF1890036C541 /* HorizontalScrollerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollerLayout.swift; sourceTree = "<group>"; };
+		D0804E09221DF8510036C541 /* Artist-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist-Extensions.swift"; sourceTree = "<group>"; };
 		D0A3D37C221231BD00695166 /* Spotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A3D37F221231BD00695166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0A3D386221231BF00695166 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -290,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				D076405E221B1CEF00304D21 /* BaseGridLayout.swift */,
+				D0804E07221DF1890036C541 /* HorizontalScrollerLayout.swift */,
 				D076406C221B1CEF00304D21 /* SearchLayout.swift */,
 				D0764063221B1CEF00304D21 /* SearchController.swift */,
 				D076406D221B1CEF00304D21 /* SearchController.storyboard */,
@@ -302,6 +311,8 @@
 				D0BC1369221C810000DE8114 /* AlbumController.storyboard */,
 				D0BC1365221C80FF00DE8114 /* ArtistController.swift */,
 				D0BC1367221C80FF00DE8114 /* ArtistController.storyboard */,
+				D0804E03221DEF1F0036C541 /* AlbumCell.swift */,
+				D0804E04221DEF1F0036C541 /* AlbumCell.xib */,
 				D0BC136A221C810000DE8114 /* LoginController.swift */,
 				D0BC1368221C80FF00DE8114 /* PlayerController.swift */,
 				D0BC1363221C80FF00DE8114 /* PlaylistController.swift */,
@@ -315,6 +326,7 @@
 			children = (
 				D0764084221B203100304D21 /* SearchType-Extensions.swift */,
 				D0764086221B275400304D21 /* SearchResult-Extensions.swift */,
+				D0804E09221DF8510036C541 /* Artist-Extensions.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -418,6 +430,7 @@
 				D0A3D38A221231BF00695166 /* LaunchScreen.storyboard in Resources */,
 				D0BC136F221C810000DE8114 /* ArtistController.storyboard in Resources */,
 				D076407C221B1CEF00304D21 /* SearchCell.xib in Resources */,
+				D0804E06221DEF1F0036C541 /* AlbumCell.xib in Resources */,
 				D076407E221B1CEF00304D21 /* SearchController.storyboard in Resources */,
 				D076408C221B309E00304D21 /* Icons.xcassets in Resources */,
 				D0BC1371221C810000DE8114 /* AlbumController.storyboard in Resources */,
@@ -480,6 +493,7 @@
 				D0764074221B1CEF00304D21 /* SearchController.swift in Sources */,
 				D0BC1372221C810000DE8114 /* LoginController.swift in Sources */,
 				D0764047221B040F00304D21 /* Playlist.swift in Sources */,
+				D0804E08221DF1890036C541 /* HorizontalScrollerLayout.swift in Sources */,
 				D0764024221AE15300304D21 /* ReusableView.swift in Sources */,
 				D0764019221AE15300304D21 /* String-Extensions.swift in Sources */,
 				D0764057221B0CBD00304D21 /* ContentError.swift in Sources */,
@@ -503,6 +517,7 @@
 				D076401F221AE15300304D21 /* FileManager-Extensions.swift in Sources */,
 				D0764018221AE15300304D21 /* NumberFormatter-Extensions.swift in Sources */,
 				D076401A221AE15300304D21 /* DateFormatter-Extensions.swift in Sources */,
+				D0804E0A221DF8510036C541 /* Artist-Extensions.swift in Sources */,
 				D0764046221B040F00304D21 /* Artist.swift in Sources */,
 				D0764020221AE15300304D21 /* Atomic.swift in Sources */,
 				D076405B221B0D9B00304D21 /* AppDependency.swift in Sources */,
@@ -510,6 +525,7 @@
 				D076406E221B1CEF00304D21 /* SearchCell.swift in Sources */,
 				D0764026221AE15300304D21 /* Notifying.swift in Sources */,
 				D076404B221B058B00304D21 /* DataManager.swift in Sources */,
+				D0804E05221DEF1F0036C541 /* AlbumCell.swift in Sources */,
 				D0764087221B275400304D21 /* SearchResult-Extensions.swift in Sources */,
 				D0BC136D221C810000DE8114 /* ArtistController.swift in Sources */,
 				D0764041221B040F00304D21 /* Track.swift in Sources */,
