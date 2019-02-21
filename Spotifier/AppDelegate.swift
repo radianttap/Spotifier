@@ -23,7 +23,13 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 	{
 		window = UIWindow(frame: UIScreen.main.bounds)
 
-		buildDependencies()
+		applicationCoordinator = {
+			let nc = UINavigationController()
+			let c = ApplicationCoordinator(application: application, rootViewController: nc)
+			return c
+		}()
+		window?.rootViewController = applicationCoordinator.rootViewController
+		applyTheme()
 
 		return true
 	}
@@ -31,15 +37,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication,
 					 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
 	{
-		applicationCoordinator = {
-			let nc = UINavigationController()
-			let c = ApplicationCoordinator(application: application, rootViewController: nc)
-			return c
-		}()
-
-		applyTheme()
-
 		window?.makeKeyAndVisible()
+		applicationCoordinator.start()
 		return true
 	}
 }
@@ -62,6 +61,5 @@ private extension AppDelegate {
 		vc.dataSource = dataSource
 
 		let nc = UINavigationController(rootViewController: vc)
-		window?.rootViewController = nc
 	}
 }

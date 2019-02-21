@@ -35,7 +35,7 @@ final class ApplicationCoordinator: NavigationCoordinator {
 
 	//	MARK:- Lifecycle
 
-	override func start(with completion: @escaping () -> Void) {
+	override func start(with completion: @escaping () -> Void = {}) {
 		buildDependencies()
 		super.start(with: completion)
 
