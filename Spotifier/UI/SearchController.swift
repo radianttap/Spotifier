@@ -30,15 +30,11 @@ final class SearchController: UIViewController, StoryboardLoadable { // (C)
 	//	MARK:- Exit (output)
 
 	private func displayArtist(_ artist: Artist) {
-		let vc = ArtistController.instantiate()
-		vc.artist = artist
-		show(vc, sender: self)
+		contentDisplayArtist(artist, sender: self)
 	}
 
 	private func displayAlbum(_ album: Album) {
-		let vc = AlbumController.instantiate()
-		vc.album = album
-		show(vc, sender: self)
+		contentDisplayAlbum(album, sender: self)
 	}
 }
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D02D9C99221F1E9A00DD6AD0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02D9C98221F1E9A00DD6AD0 /* ApplicationCoordinator.swift */; };
 		D02D9C9B221F25D200DD6AD0 /* ContentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02D9C9A221F25D200DD6AD0 /* ContentCoordinator.swift */; };
+		D02D9C9D221F334D00DD6AD0 /* Content-CoordinatingResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02D9C9C221F334D00DD6AD0 /* Content-CoordinatingResponder.swift */; };
 		D0763FFC221ADE9B00304D21 /* Coordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0763FF8221ADE9B00304D21 /* Coordinator.framework */; };
 		D0763FFD221ADE9B00304D21 /* CardPresentationController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0763FF9221ADE9B00304D21 /* CardPresentationController.framework */; };
 		D0763FFF221ADE9B00304D21 /* Avenue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0763FFB221ADE9B00304D21 /* Avenue.framework */; };
@@ -80,6 +81,7 @@
 /* Begin PBXFileReference section */
 		D02D9C98221F1E9A00DD6AD0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		D02D9C9A221F25D200DD6AD0 /* ContentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCoordinator.swift; sourceTree = "<group>"; };
+		D02D9C9C221F334D00DD6AD0 /* Content-CoordinatingResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content-CoordinatingResponder.swift"; sourceTree = "<group>"; };
 		D0763FF8221ADE9B00304D21 /* Coordinator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Coordinator.framework; path = Carthage/Build/iOS/Coordinator.framework; sourceTree = "<group>"; };
 		D0763FF9221ADE9B00304D21 /* CardPresentationController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardPresentationController.framework; path = Carthage/Build/iOS/CardPresentationController.framework; sourceTree = "<group>"; };
 		D0763FFA221ADE9B00304D21 /* Ambar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ambar.framework; path = Carthage/Build/iOS/Ambar.framework; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			children = (
 				D02D9C98221F1E9A00DD6AD0 /* ApplicationCoordinator.swift */,
 				D02D9C9A221F25D200DD6AD0 /* ContentCoordinator.swift */,
+				D02D9C9C221F334D00DD6AD0 /* Content-CoordinatingResponder.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */,
 				D0764043221B040F00304D21 /* Album.swift in Sources */,
 				D0764021221AE15300304D21 /* StoryboardLoadable.swift in Sources */,
+				D02D9C9D221F334D00DD6AD0 /* Content-CoordinatingResponder.swift in Sources */,
 				D0764022221AE15300304D21 /* Embeddable.swift in Sources */,
 				D0764074221B1CEF00304D21 /* SearchController.swift in Sources */,
 				D0BC1372221C810000DE8114 /* LoginController.swift in Sources */,
