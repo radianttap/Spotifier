@@ -71,6 +71,16 @@ private extension ApplicationCoordinator {
 	}
 
 	func showContent(page: ContentCoordinator.Page? = nil) {
+		let identifier = String(describing: ContentCoordinator.self)
+
+		if let c = childCoordinators[identifier] as? ContentCoordinator {
+			c.appDependency = appDependency
+			if let page = page {
+				c.page = page
+			}
+			c.activate()
+			return
+		}
 
 		let c = ContentCoordinator(rootViewController: rootViewController)
 		c.appDependency = appDependency
@@ -78,6 +88,5 @@ private extension ApplicationCoordinator {
 			c.page = page
 		}
 		startChild(coordinator: c)
-
 	}
 }
