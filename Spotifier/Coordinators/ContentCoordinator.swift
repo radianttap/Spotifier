@@ -12,6 +12,13 @@ import Coordinator
 final class ContentCoordinator: NavigationCoordinator {
 	var appDependency: AppDependency?
 
+	enum Page {
+		case search
+	}
+	var page: Page = .search
+
+
+	//	MARK:- Lifecycle
 
 	override func start(with completion: @escaping () -> Void = {}) {
 		super.start(with: completion)
@@ -20,12 +27,17 @@ final class ContentCoordinator: NavigationCoordinator {
 	}
 }
 
+//	MARK:- Private
+
 private extension ContentCoordinator {
 	func setupContent() {
-		let dataSource = SearchDataSource(appDependency: appDependency)
-		let vc = SearchController.instantiate()
-		vc.dataSource = dataSource
 
-		root(vc)
+		switch page {
+		case .search:
+			let dataSource = SearchDataSource(appDependency: appDependency)
+			let vc = SearchController.instantiate()
+			vc.dataSource = dataSource
+			root(vc)
+		}
 	}
 }
