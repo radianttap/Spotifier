@@ -32,6 +32,13 @@ final class ApplicationCoordinator: NavigationCoordinator {
 
 
 
+	//	MARK:- Content
+
+	enum Section {
+		case content(page: ContentCoordinator.Page?)
+	}
+	var section: Section = .content(page: nil)
+
 
 	//	MARK:- Lifecycle
 
@@ -57,6 +64,13 @@ private extension ApplicationCoordinator {
 
 	///	Sets up actual content to show, inside rootViewController
 	func setupContent() {
+		switch section {
+		case .content(let page):
+			showContent(page: page)
+		}
+	}
+
+	func showContent(page: ContentCoordinator.Page? = nil) {
 
 	}
 }
