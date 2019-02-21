@@ -33,6 +33,19 @@ final class ContentCoordinator: NavigationCoordinator {
 
 		setupContent()
 	}
+
+
+	//	MARK:- coordinatingResponder
+
+	override func contentDisplayAlbum(_ album: Album, onQueue queue: OperationQueue?, sender: Any?) {
+		page = .album(album)
+		setupContent()
+	}
+
+	override func contentDisplayArtist(_ artist: Artist, onQueue queue: OperationQueue?, sender: Any?) {
+		page = .artist(artist)
+		setupContent()
+	}
 }
 
 //	MARK:- Private
