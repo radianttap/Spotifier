@@ -39,7 +39,8 @@ final class ApplicationCoordinator: NavigationCoordinator {
 		buildDependencies()
 		super.start(with: completion)
 
-		
+		// The moment when app logic decices what is the first content VC to show
+		setupContent()
 	}
 
 }
@@ -52,5 +53,14 @@ private extension ApplicationCoordinator {
 									  dataManager: dataManager,
 									  accountManager: accountManager,
 									  contentManager: contentManager)
+	}
+
+	///	Sets up actual content to show, inside rootViewController
+	func setupContent() {
+		let dataSource = SearchDataSource(appDependency: appDependency)
+		let vc = SearchController.instantiate()
+		vc.dataSource = dataSource
+
+		root(vc)
 	}
 }

@@ -53,13 +53,4 @@ private extension AppDelegate {
 		guard let nc = window?.rootViewController as? UINavigationController else { return }
 		nc.navigationBar.barStyle = .blackTranslucent
 	}
-
-	///	Built UI stack and inject the dependencies into it
-	func setupUI() {
-		let dataSource = SearchDataSource(appDependency: appDependency)
-		let vc = SearchController.instantiate()
-		vc.dataSource = dataSource
-
-		let nc = UINavigationController(rootViewController: vc)
-	}
 }
