@@ -17,4 +17,40 @@ final class ApplicationCoordinator: NavigationCoordinator {
 		super.init(rootViewController: rootViewController)
 	}
 
+
+	//	MARK:- Middleware
+
+	//	All the shared instances are kept here,
+	//	since AppDelegate is the only object that is always in memory
+	private lazy var spotify: Spotify = Spotify()
+	private lazy var dataManager: DataManager = DataManager(spotify: spotify)
+	private lazy var accountManager: AccountManager = AccountManager(dataManager: dataManager)
+	private lazy var contentManager: ContentManager = ContentManager(dataManager: dataManager)
+
+	//	Current value of all non-UI in use
+	var appDependency: AppDependency?
+
+
+
+
+	//	MARK:- Lifecycle
+
+	override func start(with completion: @escaping () -> Void) {
+		buildDependencies()
+		super.start(with: completion)
+
+		
+	}
+
+}
+
+
+private extension ApplicationCoordinator {
+	///	Build `appDependency` value as many times as you need
+	func buildDependencies() {
+		appDependency = AppDependency(spotify: spotify,
+									  dataManager: dataManager,
+									  accountManager: accountManager,
+									  contentManager: contentManager)
+	}
 }

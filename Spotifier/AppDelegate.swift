@@ -13,18 +13,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	var applicationCoordinator: ApplicationCoordinator!
 
-	//	MARK:- Middleware
-
-	//	All the shared instances are kept here,
-	//	since AppDelegate is the only object that is always in memory
-	lazy var spotify: Spotify = Spotify()
-	lazy var dataManager: DataManager = DataManager(spotify: spotify)
-	lazy var accountManager: AccountManager = AccountManager(dataManager: dataManager)
-	lazy var contentManager: ContentManager = ContentManager(dataManager: dataManager)
-
-	//	Current value of all non-UI in use
-	var appDependency: AppDependency?
-
 
 
 
@@ -65,14 +53,6 @@ private extension AppDelegate {
 	func applyTheme() {
 		guard let nc = window?.rootViewController as? UINavigationController else { return }
 		nc.navigationBar.barStyle = .blackTranslucent
-	}
-
-	///	Build `appDependency` value as many times as you need
-	func buildDependencies() {
-		appDependency = AppDependency(spotify: spotify,
-									  dataManager: dataManager,
-									  accountManager: accountManager,
-									  contentManager: contentManager)
 	}
 
 	///	Built UI stack and inject the dependencies into it
