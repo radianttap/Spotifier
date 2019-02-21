@@ -27,6 +27,12 @@ final class ContentCoordinator: NavigationCoordinator {
 
 		setupContent()
 	}
+
+	override func activate() {
+		super.activate()
+
+		setupContent()
+	}
 }
 
 //	MARK:- Private
