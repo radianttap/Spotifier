@@ -11,6 +11,7 @@ import UIKit
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
+	var applicationCoordinator: ApplicationCoordinator!
 
 	//	MARK:- Middleware
 
@@ -42,7 +43,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication,
 					 didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
 	{
-		setupUI()
+		applicationCoordinator = {
+			let nc = UINavigationController()
+			let c = ApplicationCoordinator(application: application, rootViewController: nc)
+			return c
+		}()
+
 		applyTheme()
 
 		window?.makeKeyAndVisible()
