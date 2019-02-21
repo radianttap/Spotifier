@@ -11,10 +11,10 @@ import Coordinator
 
 extension UIResponder {
 	@objc func contentDisplayAlbum(_ album: Album, onQueue queue: OperationQueue? = .main, sender: Any?) {
-
+		coordinatingResponder?.contentDisplayAlbum(album, onQueue: queue, sender: sender)
 	}
 
 	@objc func contentDisplayArtist(_ artist: Artist, onQueue queue: OperationQueue? = .main, sender: Any?) {
-
+		coordinatingResponder?.contentDisplayArtist(artist, onQueue: queue, sender: sender)
 	}
 }
