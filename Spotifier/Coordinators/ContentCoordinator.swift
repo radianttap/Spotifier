@@ -22,6 +22,10 @@ final class ContentCoordinator: NavigationCoordinator {
 
 private extension ContentCoordinator {
 	func setupContent() {
+		let dataSource = SearchDataSource(appDependency: appDependency)
+		let vc = SearchController.instantiate()
+		vc.dataSource = dataSource
 
+		root(vc)
 	}
 }

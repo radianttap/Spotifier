@@ -57,10 +57,6 @@ private extension ApplicationCoordinator {
 
 	///	Sets up actual content to show, inside rootViewController
 	func setupContent() {
-		let dataSource = SearchDataSource(appDependency: appDependency)
-		let vc = SearchController.instantiate()
-		vc.dataSource = dataSource
 
-		root(vc)
 	}
 }
