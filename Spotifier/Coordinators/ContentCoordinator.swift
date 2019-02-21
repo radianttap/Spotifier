@@ -14,6 +14,8 @@ final class ContentCoordinator: NavigationCoordinator {
 
 	enum Page {
 		case search
+		case album(Album)
+		case artist(Artist)
 	}
 	var page: Page = .search
 
@@ -38,6 +40,16 @@ private extension ContentCoordinator {
 			let vc = SearchController.instantiate()
 			vc.dataSource = dataSource
 			root(vc)
+
+		case .album(let album):
+			let vc = AlbumController.instantiate()
+			vc.album = album
+			show(vc)
+
+		case .artist(let artist):
+			let vc = ArtistController.instantiate()
+			vc.artist = artist
+			show(vc)
 		}
 	}
 }
