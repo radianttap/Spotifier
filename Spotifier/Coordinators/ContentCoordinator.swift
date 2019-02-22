@@ -55,9 +55,8 @@ private extension ContentCoordinator {
 
 		switch page {
 		case .search:
-			let dataSource = SearchDataSource(appDependency: appDependency)
 			let vc = SearchController.instantiate()
-			vc.dataSource = dataSource
+			vc.dataSource = SearchDataSource()
 			root(vc)
 
 		case .album(let album):

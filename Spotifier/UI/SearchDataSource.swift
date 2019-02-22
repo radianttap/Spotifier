@@ -9,17 +9,7 @@
 import UIKit
 
 final class SearchDataSource: NSObject {
-	//	Initialization
-
-	init(appDependency: AppDependency?) {
-		self.contentManager = appDependency?.contentManager
-		super.init()
-	}
-
-
 	//	Dependencies
-
-	private weak var contentManager: ContentManager?
 
 	weak var collectionView: UICollectionView? {
 		didSet {
@@ -46,8 +36,8 @@ final class SearchDataSource: NSObject {
 	//	Exit (output)
 
 	func executeSearch(for s: String) {
-		contentManager?.search(for: s, onQueue: .main) {
-			[weak self] searchedTerm, results, error in
+		collectionView?.contentSearch(for: s, onQueue: .main, sender: self) {
+			[weak self] searchedTerm, boxedResults, error in
 
 			//	race-condition check
 			if let lastSearchTerm = self?.searchTerm, lastSearchTerm != searchedTerm { return }
@@ -57,7 +47,7 @@ final class SearchDataSource: NSObject {
 				return
 			}
 
-			self?.results = results
+			self?.results = boxedResults.unboxed
 		}
 	}
 
