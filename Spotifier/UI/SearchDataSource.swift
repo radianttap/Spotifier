@@ -47,7 +47,7 @@ final class SearchDataSource: NSObject {
 				return
 			}
 
-			self?.results = boxedResults.unboxed
+			self?.results = boxedResults.unbox
 		}
 	}
 

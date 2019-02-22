@@ -13,11 +13,11 @@ final class {{type.name|split:"."|join:"" }}Box: NSObject {
 extension {{type.name}} {
 	var boxed: {{type.name|split:"."|join:"" }}Box { return {{type.name|split:"."|join:"" }}Box(self) }
 }
-extension Array where Element: {{type.name}} {
+extension Array where Element == {{type.name}} {
 	var boxed: [{{type.name|split:"."|join:"" }}Box] { return self.map{ $0.boxed } }
 }
-extension Array where Element: {{type.name|split:"."|join:"" }}Box {
-	var unboxed: [{{type.name}}] { return self.map{ $0.unbox } }
+extension Array where Element == {{type.name|split:"."|join:"" }}Box {
+	var unbox: [{{type.name}}] { return self.map{ $0.unbox } }
 }
 
 

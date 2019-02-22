@@ -46,6 +46,17 @@ final class ContentCoordinator: NavigationCoordinator {
 		page = .artist(artist)
 		setupContent()
 	}
+
+	override func contentSearch(for term: String, onQueue queue: OperationQueue?, sender: Any?, callback: @escaping (String, [SearchResultBox], Error?) -> Void) {
+		guard let contentManager = appDependency?.contentManager else {
+			//	?!
+			return
+		}
+
+		contentManager.search(for: term, onQueue: queue) {
+			callback($0, $1.boxed, $2)
+		}
+	}
 }
 
 //	MARK:- Private

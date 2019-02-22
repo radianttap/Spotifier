@@ -14,11 +14,11 @@ final class SearchResultBox: NSObject {
 extension SearchResult {
 	var boxed: SearchResultBox { return SearchResultBox(self) }
 }
-extension Array where Element: SearchResult {
+extension Array where Element == SearchResult {
 	var boxed: [SearchResultBox] { return self.map{ $0.boxed } }
 }
-extension Array where Element: SearchResultBox {
-	var unboxed: [SearchResult] { return self.map{ $0.unbox } }
+extension Array where Element == SearchResultBox {
+	var unbox: [SearchResult] { return self.map{ $0.unbox } }
 }
 
 
