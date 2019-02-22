@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D00A7BB922207C9100D9D7DF /* AutoBoxable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00A7BB822207C9100D9D7DF /* AutoBoxable.swift */; };
+		D00A7BBC22207DF000D9D7DF /* autoboxable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00A7BBB22207DF000D9D7DF /* autoboxable.generated.swift */; };
 		D02D9C99221F1E9A00DD6AD0 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02D9C98221F1E9A00DD6AD0 /* ApplicationCoordinator.swift */; };
 		D02D9C9B221F25D200DD6AD0 /* ContentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02D9C9A221F25D200DD6AD0 /* ContentCoordinator.swift */; };
 		D02D9C9D221F334D00DD6AD0 /* Content-CoordinatingResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02D9C9C221F334D00DD6AD0 /* Content-CoordinatingResponder.swift */; };
@@ -79,6 +81,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D00A7BB622207C7000D9D7DF /* autoboxable.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = autoboxable.stencil; sourceTree = "<group>"; };
+		D00A7BB822207C9100D9D7DF /* AutoBoxable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoBoxable.swift; sourceTree = "<group>"; };
+		D00A7BBB22207DF000D9D7DF /* autoboxable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = autoboxable.generated.swift; sourceTree = "<group>"; };
 		D02D9C98221F1E9A00DD6AD0 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		D02D9C9A221F25D200DD6AD0 /* ContentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCoordinator.swift; sourceTree = "<group>"; };
 		D02D9C9C221F334D00DD6AD0 /* Content-CoordinatingResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content-CoordinatingResponder.swift"; sourceTree = "<group>"; };
@@ -170,6 +175,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D00A7BB422207C7000D9D7DF /* sourcery */ = {
+			isa = PBXGroup;
+			children = (
+				D00A7BBB22207DF000D9D7DF /* autoboxable.generated.swift */,
+				D00A7BB522207C7000D9D7DF /* templates */,
+				D00A7BB822207C9100D9D7DF /* AutoBoxable.swift */,
+			);
+			path = sourcery;
+			sourceTree = "<group>";
+		};
+		D00A7BB522207C7000D9D7DF /* templates */ = {
+			isa = PBXGroup;
+			children = (
+				D00A7BB622207C7000D9D7DF /* autoboxable.stencil */,
+			);
+			path = templates;
+			sourceTree = "<group>";
+		};
 		D02D9C97221F1E7F00DD6AD0 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +301,7 @@
 		D0764039221B040F00304D21 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				D00A7BB422207C7000D9D7DF /* sourcery */,
 				D076404D221B096200304D21 /* SearchResult.swift */,
 				D076403A221B040F00304D21 /* Track.swift */,
 				D076403C221B040F00304D21 /* Album.swift */,
@@ -391,6 +415,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0A3D38E221231BF00695166 /* Build configuration list for PBXNativeTarget "Spotifier" */;
 			buildPhases = (
+				D00A7BBA22207D6100D9D7DF /* Sourcery */,
 				D0A3D378221231BD00695166 /* Sources */,
 				D0A3D379221231BD00695166 /* Frameworks */,
 				D0A3D37A221231BD00695166 /* Resources */,
@@ -458,6 +483,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		D00A7BBA22207D6100D9D7DF /* Sourcery */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Sourcery;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sourcery --sources ${SRCROOT} --templates ${SRCROOT}/DataModel/sourcery/templates/ --output ${SRCROOT}/DataModel/sourcery\n";
+		};
 		D076408A221B2F3900304D21 /* Run Script: Carthage frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -504,6 +547,7 @@
 				D0764017221AE15300304D21 /* AsyncOperation.swift in Sources */,
 				D0BC136C221C810000DE8114 /* ProfileController.swift in Sources */,
 				D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */,
+				D00A7BBC22207DF000D9D7DF /* autoboxable.generated.swift in Sources */,
 				D0764043221B040F00304D21 /* Album.swift in Sources */,
 				D0764021221AE15300304D21 /* StoryboardLoadable.swift in Sources */,
 				D02D9C9D221F334D00DD6AD0 /* Content-CoordinatingResponder.swift in Sources */,
@@ -549,6 +593,7 @@
 				D0764087221B275400304D21 /* SearchResult-Extensions.swift in Sources */,
 				D0BC136D221C810000DE8114 /* ArtistController.swift in Sources */,
 				D0764041221B040F00304D21 /* Track.swift in Sources */,
+				D00A7BB922207C9100D9D7DF /* AutoBoxable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

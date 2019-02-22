@@ -1,0 +1,17 @@
+import Foundation
+
+{% for type in types.implementing.AutoBoxable %}
+{% if not type.based.NSObject %}
+final class {{type.name|split:"."|join:"" }}Box: NSObject {
+	let unbox: {{type.name}}
+	init(_ value: {{type.name}}) {
+		self.unbox = value
+	}
+}
+extension {{type.name}} {
+	var boxed: {{type.name|split:"."|join:"" }}Box { return {{type.name|split:"."|join:"" }}Box(self) }
+}
+
+
+{% endif %}
+{% endfor %}

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SearchResult {
+protocol SearchResult: AutoBoxable {
 	var searchType: Spotify.SearchType { get }
 	var id: String { get }
 	var name: String { get }
