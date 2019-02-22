@@ -81,6 +81,12 @@ private extension ContentCoordinator {
 			let vc = ArtistController.instantiate()
 			vc.artist = artist
 			show(vc)
+
+			appDependency?.contentManager?.fetchAlbums(for: artist, onQueue: .main) {
+				updatedArtist, _ in
+				vc.artist = updatedArtist
+			}
+
 		}
 	}
 }
