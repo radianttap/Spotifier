@@ -10,7 +10,9 @@ import UIKit
 import Coordinator
 
 final class ContentCoordinator: NavigationCoordinator {
-	var appDependency: AppDependency?
+	var appDependency: AppDependency? {
+		didSet { processQueuedMessages() }
+	}
 
 	enum Page {
 		case search
@@ -49,7 +51,7 @@ final class ContentCoordinator: NavigationCoordinator {
 
 	override func contentSearch(for term: String, onQueue queue: OperationQueue?, sender: Any?, callback: @escaping (String, [SearchResultBox], Error?) -> Void) {
 		guard let contentManager = appDependency?.contentManager else {
-			//	?!
+			enqueueMessage { [weak self] in self?.contentSearch(for: term, onQueue: queue, sender: sender, callback: callback) }
 			return
 		}
 
