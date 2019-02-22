@@ -72,6 +72,40 @@ extension DataManager {
 	{
 
 	}
+
+	func fetchAlbums(for artist: Artist, callback: @escaping ( [Album], DataError? ) -> Void) {
+		let endpoint: Spotify.Endpoint = .artists(artistId: artist.id, contentType: .albums)
+
+		spotify.call(endpoint: endpoint) {
+			json, spotifyError in
+
+			//	validate
+			if let spotifyError = spotifyError {
+				print(spotifyError)
+				callback([], .spotifyError(spotifyError))
+				return
+			}
+
+			guard let json = json else {
+				callback([], nil)
+				return
+			}
+
+			//	process and convert into model object
+			do {
+				let albums: [Album] = try json.value(for: "items")
+				callback( albums, nil)
+
+			} catch let err as MarshalError {
+				print(err)
+				callback([], .jsonError(err))
+
+			} catch let err {
+				print(err)
+				callback([], .generalError(err))
+			}
+		}
+	}
 }
 
 
