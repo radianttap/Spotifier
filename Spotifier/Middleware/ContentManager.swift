@@ -61,4 +61,24 @@ extension ContentManager {
 			callback(q, results, nil)
 		}
 	}
+
+
+	func fetchAlbums(for artist: Artist,
+				onQueue queue: OperationQueue? = nil,
+				callback: @escaping (Artist, ContentError?) -> Void )
+	{
+		dataManager.fetchAlbums(for: artist) {
+			albums, dataError in
+
+			if let dataError = dataError {
+				OperationQueue.perform( callback(artist, .dataError(dataError)), onQueue: queue)
+				return
+			}
+
+			OperationQueue.perform({
+				artist.albums = albums
+				callback(artist, nil)
+			}(), onQueue: queue)
+		}
+	}
 }
