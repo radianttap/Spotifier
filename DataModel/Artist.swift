@@ -13,15 +13,13 @@ final class Artist: NSObject {
 	//	Properties
 
 	let name: String
-	let id: String
+	let artistId: String
 
 	var popularity: Int = 0
+	var followersCount: Int = 0
 	var genres: [String] = []
 	var webURL: URL?
-	var followersCount: Int = 0
-	//
-	var images: [Image] = []
-
+	var imageURL: URL?
 
 	//	Relationships
 
@@ -35,7 +33,7 @@ final class Artist: NSObject {
 	}
 
 	init(id: String, name: String) {
-		self.id = id
+		self.artistId = id
 		self.name = name
 		super.init()
 	}
@@ -47,13 +45,20 @@ extension Artist: Unmarshaling {
 		let name: String = try object.value(for: "name")
 		self.init(id: id, name: name)
 
-		popularity = (try? object.value(for: "popularity")) ?? 0
+		if let num: Int = try object.value(for: "popularity") {
+			popularity = num
+		}
+		if let arr: [String] = try object.value(for: "genres") {
+			genres = arr
+		}
+		if let num: Int = try object.value(for: "followers.total") {
+			followersCount = num
+		}
+
 		webURL = try? object.value(for: "href")
-		genres = (try? object.value(for: "genres")) ?? []
-		followersCount = (try? object.value(for: "followers.total")) ?? 0
 
 		if let images: [Image] = try? object.value(for: "images") {
-			self.images = images
+			self.imageURL = images.first?.url
 		}
 	}
 }

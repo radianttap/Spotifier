@@ -35,13 +35,13 @@ extension Artist: SearchResult {
 		return .artist
 	}
 
+	var id: String {
+		return artistId
+	}
+
 	var details: String {
 		let albumsPart: String = albums.count == 0 ? "" : "\( albums.count ) albums, "
 		return "\( albumsPart )\( followersCount ) followers"
-	}
-
-	var imageURL: URL? {
-		return images.first?.url
 	}
 }
 
