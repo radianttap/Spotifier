@@ -52,7 +52,7 @@ private extension AlbumController {
 		}
 
 		titleLabel.text = album.name
-		yearLabel.text = album.releaseDate
+		yearLabel.text = album.formattedReleaseDate
 		artistLabel.text = album.artists.map{ $0.name }.joined(separator: ", ")
 		album.populateImageView(photoView, with: album.imageURL)
 	}

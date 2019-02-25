@@ -13,13 +13,14 @@ final class Album: NSObject {
 	//	Properties
 
 	let name: String
-	let id: String
+	let albumId: String
 
 	var webURL: URL?
-	var images: [Image] = []
+	var imageURL: URL?
 	var availableMarkets: Set<String> = []
 	var numberOfTracks: Int = 0
-	var releaseDate: String?
+	var releaseDate: Date?
+	var releaseDatePrecision: Spotify.ReleaseDatePrecision?
 
 	//	Relationships
 
@@ -33,7 +34,7 @@ final class Album: NSObject {
 	}
 
 	init(id: String, name: String) {
-		self.id = id
+		self.albumId = id
 		self.name = name
 		super.init()
 	}
@@ -41,6 +42,8 @@ final class Album: NSObject {
 
 extension Album: Unmarshaling {
 	convenience init(object: MarshaledObject) throws {
+		//	Properties
+
 		let id: String = try object.value(for: "id")
 		let name: String = try object.value(for: "name")
 		self.init(id: id, name: name)
@@ -48,11 +51,21 @@ extension Album: Unmarshaling {
 		numberOfTracks = (try? object.value(for: "total_tracks")) ?? 0
 		webURL = try? object.value(for: "href")
 		availableMarkets = (try? object.value(for: "available_markets")) ?? []
+
+		if 	let s: String = try? object.value(for: "release_date_precision"),
+			let value = Spotify.ReleaseDatePrecision(rawValue: s)
+		{
+			releaseDatePrecision = value
+		}
 		releaseDate = try? object.value(for: "release_date")
 
 		if let images: [Image] = try? object.value(for: "images") {
-			self.images = images
+			self.imageURL = images.first?.url
 		}
+
+
+		//	Relationships
+
 		artists = try object.value(for: "artists")
 	}
 }

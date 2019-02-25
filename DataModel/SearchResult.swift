@@ -21,12 +21,12 @@ extension Album: SearchResult {
 		return .album
 	}
 
-	var details: String {
-		return "by \( artists.map{ $0.name }.joined(separator: ", ") )\n\( numberOfTracks ) tracks [\( releaseDate ?? "" )]"
+	var id: String {
+		return albumId
 	}
 
-	var imageURL: URL? {
-		return images.first?.url
+	var details: String {
+		return "by \( artists.map{ $0.name }.joined(separator: ", ") )\n\( numberOfTracks ) tracks [\( formattedReleaseDate ?? "" )]"
 	}
 }
 

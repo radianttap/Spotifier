@@ -18,4 +18,10 @@ extension Spotify {
 	enum ObjectContentType: String {
 		case albums //, topTracks, relatedArtists
 	}
+
+	enum ReleaseDatePrecision: String {
+		case year
+		case month
+		case day
+	}
 }
