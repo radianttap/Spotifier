@@ -45,12 +45,12 @@ final class ContentCoordinator: NavigationCoordinator {
 
 	override func contentDisplayAlbum(_ album: Album, onQueue queue: OperationQueue?, sender: Any?) {
 		page = .album(album)
-		setupContent()
+		setupContent(for: sender)
 	}
 
 	override func contentDisplayArtist(_ artist: Artist, onQueue queue: OperationQueue?, sender: Any?) {
 		page = .artist(artist)
-		setupContent()
+		setupContent(for: sender)
 	}
 
 	override func contentSearch(for term: String, onQueue queue: OperationQueue?, sender: Any?, callback: @escaping (String, [SearchResultBox], Error?) -> Void) {
@@ -68,7 +68,7 @@ final class ContentCoordinator: NavigationCoordinator {
 //	MARK:- Private
 
 private extension ContentCoordinator {
-	func setupContent() {
+	func setupContent(for sender: Any? = nil) {
 		switch page {
 		case .search:
 			let vc = SearchController.instantiate()
