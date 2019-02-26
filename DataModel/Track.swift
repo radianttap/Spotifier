@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Marshal
 
 final class Track: NSObject {
 	var trackId: String
@@ -28,7 +29,7 @@ final class Track: NSObject {
 //	var linkedFromTrack: Track?
 //	var restrictions: [TrackRestriction] = []
 
-	var album: Album!	//	track must have an Album
+	weak var album: Album!	//	track must have an Album
 
 	var artists: [Artist] = []
 
@@ -45,5 +46,27 @@ final class Track: NSObject {
 		self.durationInMilliseconds = duration
 		self.trackNumber = trackNumber
 		super.init()
+	}
+}
+
+extension Track: Unmarshaling {
+	convenience init(object: MarshaledObject) throws {
+		//	Properties
+
+		let id: String = try object.value(for: "id")
+		let name: String = try object.value(for: "name")
+		let duration: TimeInterval = try object.value(for: "duration_ms")
+		let trackNumber: Int = try object.value(for: "track_number")
+		self.init(id: id, name: name, duration: duration, trackNumber: trackNumber)
+
+		discNumber = try object.value(for: "disc_number")
+		previewAudioURL = try? object.value(for: "preview_url")
+		webURL = try? object.value(for: "href")
+		availableMarkets = (try? object.value(for: "available_markets")) ?? []
+		isExplicit = try object.value(for: "explicit")
+
+		//	Relationships
+
+		artists = try object.value(for: "artists")
 	}
 }

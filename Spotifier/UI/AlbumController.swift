@@ -11,7 +11,7 @@ import UIKit
 final class AlbumController: UIViewController, StoryboardLoadable {
 	//	Data model
 
-	var album: Album?{
+	var album: Album? {
 		didSet {
 			if !isViewLoaded { return }
 			populate()
@@ -58,6 +58,7 @@ private extension AlbumController {
 		artistLabel.text = album.artists.map{ $0.name }.joined(separator: ", ")
 		album.populateImageView(photoView, with: album.imageURL)
 
+		collectionView.reloadData()
 	}
 
 

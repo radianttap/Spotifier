@@ -73,5 +73,10 @@ extension Album: Unmarshaling {
 		//	Relationships
 
 		artists = try object.value(for: "artists")
+
+		if let arr: [Track] = try? object.value(for: "tracks.items") {
+			arr.forEach { $0.album = self }
+			tracks = arr
+		}
 	}
 }
