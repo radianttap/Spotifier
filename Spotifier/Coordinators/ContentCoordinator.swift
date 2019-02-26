@@ -36,6 +36,10 @@ final class ContentCoordinator: NavigationCoordinator {
 		setupContent()
 	}
 
+	override func handlePopBack(to vc: UIViewController?) {
+		guard let vc = vc else { return }
+		recognizePage(for: vc)
+	}
 
 	//	MARK:- coordinatingResponder
 
@@ -65,7 +69,6 @@ final class ContentCoordinator: NavigationCoordinator {
 
 private extension ContentCoordinator {
 	func setupContent() {
-
 		switch page {
 		case .search:
 			let vc = SearchController.instantiate()
@@ -92,6 +95,26 @@ private extension ContentCoordinator {
 				vc.artist = updatedArtist
 			}
 
+		}
+	}
+
+	func recognizePage(for vc: UIViewController) {
+		switch vc {
+		case is SearchController:
+			page = .search
+
+		case let vc as AlbumController:
+			if let album = vc.album {
+				page = .album(album)
+			}
+
+		case let vc as ArtistController:
+			if let artist = vc.artist {
+				page = .artist(artist)
+			}
+
+		default:
+			break
 		}
 	}
 }
