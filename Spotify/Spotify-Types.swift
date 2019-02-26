@@ -24,4 +24,10 @@ extension Spotify {
 		case month
 		case day
 	}
+
+	enum AlbumType: String {
+		case album
+		case single
+		case compilation
+	}
 }

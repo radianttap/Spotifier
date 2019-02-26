@@ -21,6 +21,7 @@ final class Album: NSObject {
 	var numberOfTracks: Int = 0
 	var releaseDate: Date?
 	var releaseDatePrecision: Spotify.ReleaseDatePrecision?
+	var albumType: Spotify.AlbumType = .album
 
 	//	Relationships
 
@@ -63,6 +64,11 @@ extension Album: Unmarshaling {
 			self.imageURL = images.first?.url
 		}
 
+		if 	let s: String = try? object.value(for: "album_type"),
+			let value = Spotify.AlbumType(rawValue: s)
+		{
+			albumType = value
+		}
 
 		//	Relationships
 
