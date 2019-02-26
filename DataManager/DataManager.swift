@@ -106,7 +106,47 @@ extension DataManager {
 			}
 		}
 	}
-}
+
+	func fetchAlbum(_ album: Album, callback: @escaping ( Album, DataError? ) -> Void) {
+		let endpoint: Spotify.Endpoint = .albums(albumId: album.albumId)
+
+		spotify.call(endpoint: endpoint) {
+			json, spotifyError in
+
+			//	validate
+			if let spotifyError = spotifyError {
+				print(spotifyError)
+				callback(album, .spotifyError(spotifyError))
+				return
+			}
+
+			guard let json = json else {
+				callback(album, nil)
+				return
+			}
+
+			//	process and convert into model object
+			do {
+				let wrapper = ["wrap": json]
+				let updatedAlbum: Album = try wrapper.value(for: "wrap")
+
+				if let cachedAlbum = self.albums.first(where: { $0.albumId == album.albumId }) {
+					self.albums.remove(cachedAlbum)
+				}
+				self.albums.insert(updatedAlbum)
+
+				callback(updatedAlbum, nil)
+
+			} catch let err as MarshalError {
+				print(err)
+				callback(album, .jsonError(err))
+
+			} catch let err {
+				print(err)
+				callback(album, .generalError(err))
+			}
+		}
+	}}
 
 
 private extension DataManager {

@@ -77,6 +77,11 @@ private extension ContentCoordinator {
 			vc.album = album
 			show(vc)
 
+			appDependency?.contentManager?.refreshAlbum(album, onQueue: .main) {
+				updatedAlbum, _ in
+				vc.album = updatedAlbum
+			}
+
 		case .artist(let artist):
 			let vc = ArtistController.instantiate()
 			vc.artist = artist

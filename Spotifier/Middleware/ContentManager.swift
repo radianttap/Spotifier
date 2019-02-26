@@ -81,4 +81,19 @@ extension ContentManager {
 			}(), onQueue: queue)
 		}
 	}
+
+	func refreshAlbum(_ album: Album,
+					 onQueue queue: OperationQueue? = nil,
+					 callback: @escaping (Album, ContentError?) -> Void )
+	{
+		dataManager.fetchAlbum(album) {
+			updatedAlbum, dataError in
+
+			if let dataError = dataError {
+				OperationQueue.perform( callback(album, .dataError(dataError)), onQueue: queue)
+				return
+			}
+			OperationQueue.perform(callback(updatedAlbum, nil), onQueue: queue)
+		}
+	}
 }
