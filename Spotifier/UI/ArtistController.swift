@@ -83,6 +83,12 @@ extension ArtistController: UICollectionViewDataSource {
 }
 
 extension ArtistController: UICollectionViewDelegate {
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		guard let album = artist?.albums[indexPath.item] else {
+			return
+		}
 
+		contentDisplayAlbum(album, sender: self)
+	}
 }
 
