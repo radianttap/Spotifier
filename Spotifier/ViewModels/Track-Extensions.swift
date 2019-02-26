@@ -20,3 +20,23 @@ extension Track {
 		return s
 	}
 }
+
+extension Track {
+	enum UsageContext {
+		case album
+		case playlist
+		case popular
+		case search
+	}
+
+	func formattedDetails(in context: UsageContext) -> String {
+		switch context {
+		case .album:
+			return "(artists)"
+		case .playlist, .search:
+			return "\( artists.first?.name ?? "" ) (\( album.name ))"
+		case .popular:
+			return artists.first?.name ?? ""
+		}
+	}
+}

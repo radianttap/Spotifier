@@ -45,3 +45,21 @@ extension Artist: SearchResult {
 	}
 }
 
+extension Track: SearchResult {
+	var searchType: Spotify.SearchType {
+		return .track
+	}
+
+	var id: String {
+		return trackId
+	}
+
+	var imageURL: URL? {
+		return album.imageURL
+	}
+
+	var details: String {
+		return formattedDetails(in: .search)
+	}
+}
+
