@@ -72,18 +72,29 @@
                                     <constraint firstItem="KQb-jU-rVo" firstAttribute="leading" secondItem="CJt-BW-xaN" secondAttribute="leading" id="wxQ-I7-3n7"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h3x-Zq-H3K">
+                                <rect key="frame" x="0.0" y="254" width="375" height="413"/>
+                                <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewLayout key="collectionViewLayout" id="GFa-Ne-gu7" customClass="TrackListLayout" customModule="Spotifier" customModuleProvider="target"/>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="h3x-Zq-H3K" secondAttribute="bottom" priority="999" id="0rq-CZ-EBg"/>
+                            <constraint firstItem="h3x-Zq-H3K" firstAttribute="trailing" secondItem="SXd-py-Bpe" secondAttribute="trailing" id="HUz-oo-yYb"/>
                             <constraint firstItem="SXd-py-Bpe" firstAttribute="leading" secondItem="tGX-pV-JGw" secondAttribute="leading" id="N5c-Te-mpu"/>
                             <constraint firstItem="tGX-pV-JGw" firstAttribute="trailing" secondItem="SXd-py-Bpe" secondAttribute="trailing" id="WcI-Mo-kSH"/>
+                            <constraint firstItem="h3x-Zq-H3K" firstAttribute="top" secondItem="SXd-py-Bpe" secondAttribute="bottom" constant="8" id="ZVN-pm-FjU"/>
                             <constraint firstItem="SXd-py-Bpe" firstAttribute="top" secondItem="tGX-pV-JGw" secondAttribute="top" constant="16" id="iP7-5z-w1M"/>
+                            <constraint firstItem="h3x-Zq-H3K" firstAttribute="leading" secondItem="SXd-py-Bpe" secondAttribute="leading" id="yYe-GS-e4i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tGX-pV-JGw"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="artistLabel" destination="KQb-jU-rVo" id="naZ-BV-6sx"/>
+                        <outlet property="collectionView" destination="h3x-Zq-H3K" id="deR-hh-Kny"/>
                         <outlet property="photoContainerView" destination="by1-Ts-bgR" id="TOi-sX-4my"/>
                         <outlet property="photoView" destination="Qfq-Kn-w7y" id="W2m-7P-T0g"/>
                         <outlet property="titleLabel" destination="EAM-mF-x2Z" id="aIW-j6-NEt"/>

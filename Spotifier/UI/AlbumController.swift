@@ -25,6 +25,7 @@ final class AlbumController: UIViewController, StoryboardLoadable {
 	@IBOutlet private var titleLabel: UILabel!
 	@IBOutlet private var yearLabel: UILabel!
 	@IBOutlet private var artistLabel: UILabel!
+	@IBOutlet private var collectionView: UICollectionView!
 }
 
 extension AlbumController {
@@ -33,6 +34,7 @@ extension AlbumController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		setupCollectionView()
 		populate()
 	}
 }
@@ -55,6 +57,35 @@ private extension AlbumController {
 		yearLabel.text = album.formattedReleaseDate
 		artistLabel.text = album.artists.map{ $0.name }.joined(separator: ", ")
 		album.populateImageView(photoView, with: album.imageURL)
+
 	}
+
+
+	func setupCollectionView() {
+		collectionView.register(TrackCell.self)
+
+		collectionView.dataSource = self
+		collectionView.delegate = self
+	}
+}
+
+extension AlbumController: UICollectionViewDataSource {
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return album?.tracks.count ?? 0
+	}
+
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		guard let track = album?.tracks[indexPath.item] else {
+			fatalError("No album at indexPath: \( indexPath )")
+		}
+
+		let cell: TrackCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+		cell.populate(with: track, context: .album)
+		return cell
+	}
+}
+
+extension AlbumController: UICollectionViewDelegate {
+
 }
 
