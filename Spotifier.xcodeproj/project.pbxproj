@@ -16,6 +16,7 @@
 		D034FA4822248C48000748C4 /* Marshal-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034FA4522248C48000748C4 /* Marshal-Extensions.swift */; };
 		D034FA4922248C48000748C4 /* NumberFormatter-AppExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034FA4622248C48000748C4 /* NumberFormatter-AppExtensions.swift */; };
 		D034FA4B222490FD000748C4 /* Album-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034FA4A222490FD000748C4 /* Album-Extensions.swift */; };
+		D034FA4D222557F0000748C4 /* Track-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034FA4C222557F0000748C4 /* Track-Extensions.swift */; };
 		D0763FFC221ADE9B00304D21 /* Coordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0763FF8221ADE9B00304D21 /* Coordinator.framework */; };
 		D0763FFD221ADE9B00304D21 /* CardPresentationController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0763FF9221ADE9B00304D21 /* CardPresentationController.framework */; };
 		D0763FFF221ADE9B00304D21 /* Avenue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0763FFB221ADE9B00304D21 /* Avenue.framework */; };
@@ -95,6 +96,7 @@
 		D034FA4522248C48000748C4 /* Marshal-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Marshal-Extensions.swift"; sourceTree = "<group>"; };
 		D034FA4622248C48000748C4 /* NumberFormatter-AppExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NumberFormatter-AppExtensions.swift"; sourceTree = "<group>"; };
 		D034FA4A222490FD000748C4 /* Album-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Album-Extensions.swift"; sourceTree = "<group>"; };
+		D034FA4C222557F0000748C4 /* Track-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Track-Extensions.swift"; sourceTree = "<group>"; };
 		D0763FF8221ADE9B00304D21 /* Coordinator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Coordinator.framework; path = Carthage/Build/iOS/Coordinator.framework; sourceTree = "<group>"; };
 		D0763FF9221ADE9B00304D21 /* CardPresentationController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardPresentationController.framework; path = Carthage/Build/iOS/CardPresentationController.framework; sourceTree = "<group>"; };
 		D0763FFA221ADE9B00304D21 /* Ambar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ambar.framework; path = Carthage/Build/iOS/Ambar.framework; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				D0764086221B275400304D21 /* SearchResult-Extensions.swift */,
 				D0804E09221DF8510036C541 /* Artist-Extensions.swift */,
 				D034FA4A222490FD000748C4 /* Album-Extensions.swift */,
+				D034FA4C222557F0000748C4 /* Track-Extensions.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				D0764026221AE15300304D21 /* Notifying.swift in Sources */,
 				D076404B221B058B00304D21 /* DataManager.swift in Sources */,
 				D0804E05221DEF1F0036C541 /* AlbumCell.swift in Sources */,
+				D034FA4D222557F0000748C4 /* Track-Extensions.swift in Sources */,
 				D0764087221B275400304D21 /* SearchResult-Extensions.swift in Sources */,
 				D0BC136D221C810000DE8114 /* ArtistController.swift in Sources */,
 				D0764041221B040F00304D21 /* Track.swift in Sources */,
