@@ -77,6 +77,7 @@
 		D0804E0A221DF8510036C541 /* Artist-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0804E09221DF8510036C541 /* Artist-Extensions.swift */; };
 		D08620C122467D90006F6C90 /* PlayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08620C022467D90006F6C90 /* PlayManager.swift */; };
 		D08620C922469A79006F6C90 /* Music.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D08620C822469A79006F6C90 /* Music.xcassets */; };
+		D08620CB2246C94B006F6C90 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08620CA2246C94B006F6C90 /* NavigationController.swift */; };
 		D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3D37F221231BD00695166 /* AppDelegate.swift */; };
 		D0A3D387221231BF00695166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D386221231BF00695166 /* Assets.xcassets */; };
 		D0A3D38A221231BF00695166 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D388221231BF00695166 /* LaunchScreen.storyboard */; };
@@ -163,6 +164,7 @@
 		D0804E09221DF8510036C541 /* Artist-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist-Extensions.swift"; sourceTree = "<group>"; };
 		D08620C022467D90006F6C90 /* PlayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayManager.swift; sourceTree = "<group>"; };
 		D08620C822469A79006F6C90 /* Music.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Music.xcassets; sourceTree = "<group>"; };
+		D08620CA2246C94B006F6C90 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		D0A3D37C221231BD00695166 /* Spotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A3D37F221231BD00695166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0A3D386221231BF00695166 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 				D0A3D38B221231BF00695166 /* Info.plist */,
 				D076404F221B0CBD00304D21 /* Middleware */,
 				D0A3D37F221231BD00695166 /* AppDelegate.swift */,
+				D08620CA2246C94B006F6C90 /* NavigationController.swift */,
 				D02D9C97221F1E7F00DD6AD0 /* Coordinators */,
 				D0764083221B200A00304D21 /* ViewModels */,
 				D076405C221B1CEF00304D21 /* UI */,
@@ -617,6 +620,7 @@
 				D076404E221B096200304D21 /* SearchResult.swift in Sources */,
 				D0764056221B0CBD00304D21 /* AccountManager.swift in Sources */,
 				D076401F221AE15300304D21 /* FileManager-Extensions.swift in Sources */,
+				D08620CB2246C94B006F6C90 /* NavigationController.swift in Sources */,
 				D0764018221AE15300304D21 /* NumberFormatter-Extensions.swift in Sources */,
 				D076401A221AE15300304D21 /* DateFormatter-Extensions.swift in Sources */,
 				D0804E0A221DF8510036C541 /* Artist-Extensions.swift in Sources */,

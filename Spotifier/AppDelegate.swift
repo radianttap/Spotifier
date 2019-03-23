@@ -24,7 +24,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 		window = UIWindow(frame: UIScreen.main.bounds)
 
 		applicationCoordinator = {
-			let nc = UINavigationController()
+			let nc = NavigationController()
 			let c = ApplicationCoordinator(application: application, rootViewController: nc)
 			return c
 		}()

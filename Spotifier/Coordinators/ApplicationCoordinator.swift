@@ -12,7 +12,7 @@ import Coordinator
 final class ApplicationCoordinator: NavigationCoordinator {
 	private weak var application: UIApplication!
 
-	init(application: UIApplication, rootViewController: UINavigationController?) {
+	init(application: UIApplication, rootViewController: NavigationController?) {
 		self.application = application
 		super.init(rootViewController: rootViewController)
 	}
@@ -34,6 +34,10 @@ final class ApplicationCoordinator: NavigationCoordinator {
 
 
 	//	MARK:- Content
+
+	var navigationController: NavigationController {
+		return rootViewController as! NavigationController
+	}
 
 	enum Section {
 		case content(page: ContentCoordinator.Page?)
