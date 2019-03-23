@@ -75,6 +75,7 @@
 		D0804E06221DEF1F0036C541 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0804E04221DEF1F0036C541 /* AlbumCell.xib */; };
 		D0804E08221DF1890036C541 /* HorizontalScrollerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0804E07221DF1890036C541 /* HorizontalScrollerLayout.swift */; };
 		D0804E0A221DF8510036C541 /* Artist-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0804E09221DF8510036C541 /* Artist-Extensions.swift */; };
+		D08620C122467D90006F6C90 /* PlayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08620C022467D90006F6C90 /* PlayManager.swift */; };
 		D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3D37F221231BD00695166 /* AppDelegate.swift */; };
 		D0A3D387221231BF00695166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D386221231BF00695166 /* Assets.xcassets */; };
 		D0A3D38A221231BF00695166 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D388221231BF00695166 /* LaunchScreen.storyboard */; };
@@ -159,6 +160,7 @@
 		D0804E04221DEF1F0036C541 /* AlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 		D0804E07221DF1890036C541 /* HorizontalScrollerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollerLayout.swift; sourceTree = "<group>"; };
 		D0804E09221DF8510036C541 /* Artist-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist-Extensions.swift"; sourceTree = "<group>"; };
+		D08620C022467D90006F6C90 /* PlayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayManager.swift; sourceTree = "<group>"; };
 		D0A3D37C221231BD00695166 /* Spotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A3D37F221231BD00695166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0A3D386221231BF00695166 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				D0764053221B0CBD00304D21 /* ContentError.swift */,
 				D0764052221B0CBD00304D21 /* AccountManager.swift */,
 				D0764058221B0D0200304D21 /* AccountError.swift */,
+				D08620C022467D90006F6C90 /* PlayManager.swift */,
 			);
 			path = Middleware;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				D034FA4D222557F0000748C4 /* Track-Extensions.swift in Sources */,
 				D0764087221B275400304D21 /* SearchResult-Extensions.swift in Sources */,
 				D0BC136D221C810000DE8114 /* ArtistController.swift in Sources */,
+				D08620C122467D90006F6C90 /* PlayManager.swift in Sources */,
 				D0764041221B040F00304D21 /* Track.swift in Sources */,
 				D00A7BB922207C9100D9D7DF /* AutoBoxable.swift in Sources */,
 			);
