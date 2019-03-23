@@ -26,6 +26,7 @@ final class ApplicationCoordinator: NavigationCoordinator {
 	private lazy var dataManager: DataManager = DataManager(spotify: spotify)
 	private lazy var accountManager: AccountManager = AccountManager(dataManager: dataManager)
 	private lazy var contentManager: ContentManager = ContentManager(dataManager: dataManager)
+	private lazy var playManager: PlayManager = PlayManager()
 
 	//	Current value of all non-UI in use
 	var appDependency: AppDependency?
@@ -36,6 +37,7 @@ final class ApplicationCoordinator: NavigationCoordinator {
 
 	enum Section {
 		case content(page: ContentCoordinator.Page?)
+		case playlist
 	}
 	var section: Section = .content(page: nil)
 
@@ -59,7 +61,8 @@ private extension ApplicationCoordinator {
 		appDependency = AppDependency(spotify: spotify,
 									  dataManager: dataManager,
 									  accountManager: accountManager,
-									  contentManager: contentManager)
+									  contentManager: contentManager,
+									  playManager: playManager)
 	}
 
 	///	Sets up actual content to show, inside rootViewController
@@ -67,6 +70,10 @@ private extension ApplicationCoordinator {
 		switch section {
 		case .content(let page):
 			showContent(page: page)
+		case .playlist:
+			let vc = PlayerController()
+			vc.tracks = appDependency?.playManager?.tracks ?? []
+			root(vc)
 		}
 	}
 
