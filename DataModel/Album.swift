@@ -14,6 +14,7 @@ final class Album: NSObject {
 
 	let name: String
 	let albumId: String
+	let spotifyURI: String
 
 	var webURL: URL?
 	var imageURL: URL?
@@ -34,9 +35,10 @@ final class Album: NSObject {
 		fatalError("Use `init(id:name:)`")
 	}
 
-	init(id: String, name: String) {
+	init(id: String, name: String, uri: String) {
 		self.albumId = id
 		self.name = name
+		self.spotifyURI = uri
 		super.init()
 	}
 }
@@ -47,7 +49,8 @@ extension Album: Unmarshaling {
 
 		let id: String = try object.value(for: "id")
 		let name: String = try object.value(for: "name")
-		self.init(id: id, name: name)
+		let uri: String = try object.value(for: "uri")
+		self.init(id: id, name: name, uri: uri)
 
 		numberOfTracks = (try? object.value(for: "total_tracks")) ?? 0
 		webURL = try? object.value(for: "href")

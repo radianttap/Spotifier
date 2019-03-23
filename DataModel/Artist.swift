@@ -14,6 +14,7 @@ final class Artist: NSObject {
 
 	let name: String
 	let artistId: String
+	let spotifyURI: String
 
 	var popularity: Int = 0
 	var followersCount: Int = 0
@@ -32,9 +33,10 @@ final class Artist: NSObject {
 		fatalError("Use `init(id:name:)`")
 	}
 
-	init(id: String, name: String) {
+	init(id: String, name: String, uri: String) {
 		self.artistId = id
 		self.name = name
+		self.spotifyURI = uri
 		super.init()
 	}
 }
@@ -43,7 +45,8 @@ extension Artist: Unmarshaling {
 	convenience init(object: MarshaledObject) throws {
 		let id: String = try object.value(for: "id")
 		let name: String = try object.value(for: "name")
-		self.init(id: id, name: name)
+		let uri: String = try object.value(for: "uri")
+		self.init(id: id, name: name, uri: uri)
 
 		if let num: Int = try object.value(for: "popularity") {
 			popularity = num
