@@ -11,6 +11,7 @@ import Foundation
 final class PlayManager {
 
 	private(set) var tracks: [Track] = []
+	private(set) var currentTrack: Track?
 }
 
 extension PlayManager {
@@ -26,15 +27,63 @@ extension PlayManager {
 			let t = tracks.remove(at: index)
 			tracks.insert(t, at: 0)
 
+			play(track: t)
 			return
 		}
 
 		tracks.insert(track, at: 0)
+		play(track: track)
 	}
 
 	func removeTrack(_ track: Track) {
 		guard let index = tracks.firstIndex(of: track) else { return }
 
 		tracks.remove(at: index)
+	}
+}
+
+
+extension PlayManager {
+	func play(track: Track? = nil) {
+		guard let t = track ?? tracks.first else { return }
+
+		currentTrack = t
+	}
+
+	func pause() {
+
+	}
+
+	func stop() {
+		currentTrack = nil
+	}
+
+	func next() {
+		guard let currentTrack = currentTrack else {
+			play(track: tracks.first)
+			return
+		}
+
+		guard
+			let index = tracks.firstIndex(of: currentTrack),
+			index < tracks.count - 1
+		else { return }
+
+		let t = tracks[index + 1]
+		play(track: t)
+	}
+
+	func previous() {
+		guard let currentTrack = currentTrack else {
+			return
+		}
+
+		guard
+			let index = tracks.firstIndex(of: currentTrack),
+			index > 0
+		else { return }
+
+		let t = tracks[index - 1]
+		play(track: t)
 	}
 }
