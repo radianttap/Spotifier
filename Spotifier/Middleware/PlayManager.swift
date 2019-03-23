@@ -15,14 +15,26 @@ final class PlayManager {
 
 extension PlayManager {
 	func queueTrack(_ track: Track) {
+		if tracks.contains(track) { return }
 
+		tracks.append(track)
 	}
 
 	func playTrack(_ track: Track) {
+		if let index = tracks.firstIndex(of: track) {
+			if index == 0 { return }
+			let t = tracks.remove(at: index)
+			tracks.insert(t, at: 0)
 
+			return
+		}
+
+		tracks.insert(track, at: 0)
 	}
 
 	func removeTrack(_ track: Track) {
+		guard let index = tracks.firstIndex(of: track) else { return }
 
+		tracks.remove(at: index)
 	}
 }
