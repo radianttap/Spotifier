@@ -13,18 +13,21 @@ struct AppDependency {
 	var dataManager: DataManager?
 	var accountManager: AccountManager?
 	var contentManager: ContentManager?
+	var playManager: PlayManager?
 
 	//	Init
 
 	init(spotify: Spotify? = nil,
 		 dataManager: DataManager? = nil,
 		 accountManager: AccountManager? = nil,
-		 contentManager: ContentManager? = nil)
+		 contentManager: ContentManager? = nil,
+		 playManager: PlayManager? = nil)
 	{
 		self.spotify = spotify
 		self.dataManager = dataManager
 		self.accountManager = accountManager
 		self.contentManager = contentManager
+		self.playManager = playManager
 	}
 }
 
