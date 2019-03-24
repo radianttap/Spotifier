@@ -52,5 +52,7 @@ private extension AppDelegate {
 	func applyTheme() {
 		guard let nc = window?.rootViewController as? UINavigationController else { return }
 		nc.navigationBar.barStyle = .blackTranslucent
+
+		window?.tintColor = UIColor(hex: "63CD6C")
 	}
 }
