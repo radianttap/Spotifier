@@ -20,7 +20,12 @@ final class PlayerController: UICollectionViewController {
 
 	//	Data source
 
-	var tracks: [Track] = []
+	var tracks: [Track] = [] {
+		didSet {
+			if !isViewLoaded { return }
+			populate()
+		}
+	}
 }
 
 extension PlayerController {
@@ -37,6 +42,12 @@ extension PlayerController {
 private extension PlayerController {
 	func populate() {
 		collectionView.reloadData()
+
+		if tracks.count == 0 {
+			collectionView.backgroundView = EmptyPlaylist.nibInstance
+		} else {
+			collectionView.backgroundView = nil
+		}
 	}
 
 	func setupCollectionView() {
