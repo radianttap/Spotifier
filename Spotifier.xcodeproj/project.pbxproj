@@ -78,6 +78,9 @@
 		D08620C122467D90006F6C90 /* PlayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08620C022467D90006F6C90 /* PlayManager.swift */; };
 		D08620C922469A79006F6C90 /* Music.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D08620C822469A79006F6C90 /* Music.xcassets */; };
 		D08620CB2246C94B006F6C90 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08620CA2246C94B006F6C90 /* NavigationController.swift */; };
+		D08620CE2246CB55006F6C90 /* UIColor-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08620CD2246CB55006F6C90 /* UIColor-Extensions.swift */; };
+		D08620D02246CCDD006F6C90 /* PlayBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08620CF2246CCDD006F6C90 /* PlayBar.swift */; };
+		D08620D22246CCFD006F6C90 /* PlayBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = D08620D12246CCFD006F6C90 /* PlayBar.xib */; };
 		D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A3D37F221231BD00695166 /* AppDelegate.swift */; };
 		D0A3D387221231BF00695166 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D386221231BF00695166 /* Assets.xcassets */; };
 		D0A3D38A221231BF00695166 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A3D388221231BF00695166 /* LaunchScreen.storyboard */; };
@@ -165,6 +168,9 @@
 		D08620C022467D90006F6C90 /* PlayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayManager.swift; sourceTree = "<group>"; };
 		D08620C822469A79006F6C90 /* Music.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Music.xcassets; sourceTree = "<group>"; };
 		D08620CA2246C94B006F6C90 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		D08620CD2246CB55006F6C90 /* UIColor-Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extensions.swift"; sourceTree = "<group>"; };
+		D08620CF2246CCDD006F6C90 /* PlayBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayBar.swift; sourceTree = "<group>"; };
+		D08620D12246CCFD006F6C90 /* PlayBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayBar.xib; sourceTree = "<group>"; };
 		D0A3D37C221231BD00695166 /* Spotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A3D37F221231BD00695166 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0A3D386221231BF00695166 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -256,6 +262,7 @@
 				D076400D221AE15300304D21 /* Atomic.swift */,
 				D0764002221AE15300304D21 /* Operation */,
 				D0764004221AE15300304D21 /* Foundation */,
+				D08620CC2246CB55006F6C90 /* UIKit */,
 				D076400E221AE15300304D21 /* Controllers */,
 				D0764011221AE15300304D21 /* Views */,
 				D0764015221AE15300304D21 /* Notifications */,
@@ -386,6 +393,8 @@
 				D0BC1368221C80FF00DE8114 /* PlayerController.swift */,
 				D0BC136A221C810000DE8114 /* LoginController.swift */,
 				D0BC1364221C80FF00DE8114 /* ProfileController.swift */,
+				D08620CF2246CCDD006F6C90 /* PlayBar.swift */,
+				D08620D12246CCFD006F6C90 /* PlayBar.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -400,6 +409,14 @@
 				D034FA4C222557F0000748C4 /* Track-Extensions.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D08620CC2246CB55006F6C90 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				D08620CD2246CB55006F6C90 /* UIColor-Extensions.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		D0A3D373221231BD00695166 = {
@@ -508,6 +525,7 @@
 				D0BC136F221C810000DE8114 /* ArtistController.storyboard in Resources */,
 				D076407C221B1CEF00304D21 /* SearchCell.xib in Resources */,
 				D0804E06221DEF1F0036C541 /* AlbumCell.xib in Resources */,
+				D08620D22246CCFD006F6C90 /* PlayBar.xib in Resources */,
 				D076407E221B1CEF00304D21 /* SearchController.storyboard in Resources */,
 				D076408C221B309E00304D21 /* Icons.xcassets in Resources */,
 				D0BC1371221C810000DE8114 /* AlbumController.storyboard in Resources */,
@@ -580,6 +598,7 @@
 				D0764059221B0D0200304D21 /* AccountError.swift in Sources */,
 				D076401D221AE15300304D21 /* Bundle-Extensions.swift in Sources */,
 				D0764017221AE15300304D21 /* AsyncOperation.swift in Sources */,
+				D08620CE2246CB55006F6C90 /* UIColor-Extensions.swift in Sources */,
 				D034FA53222579FE000748C4 /* TrackListLayout.swift in Sources */,
 				D0BC136C221C810000DE8114 /* ProfileController.swift in Sources */,
 				D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */,
@@ -601,6 +620,7 @@
 				D02D9C9B221F25D200DD6AD0 /* ContentCoordinator.swift in Sources */,
 				D0BC1370221C810000DE8114 /* PlayerController.swift in Sources */,
 				D0764023221AE15300304D21 /* DequeableView.swift in Sources */,
+				D08620D02246CCDD006F6C90 /* PlayBar.swift in Sources */,
 				D034FA4722248C48000748C4 /* DateFormatter-AppExtensions.swift in Sources */,
 				D0BC136B221C810000DE8114 /* PlaylistController.swift in Sources */,
 				D034FA4822248C48000748C4 /* Marshal-Extensions.swift in Sources */,

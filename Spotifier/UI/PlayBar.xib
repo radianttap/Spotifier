@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="PlayBar" customModule="Spotifier" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UeI-vK-ovU" userLabel="toggle">
+                    <rect key="frame" x="325" y="0.0" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="UeI-vK-ovU" secondAttribute="height" multiplier="1:1" id="RGO-qr-ftP"/>
+                    </constraints>
+                    <state key="normal" image="mus22-cover"/>
+                    <connections>
+                        <action selector="open:" destination="iN0-l3-epB" eventType="touchUpInside" id="uAT-uW-XFg"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upu-Lf-NYd" userLabel="close">
+                    <rect key="frame" x="325" y="0.0" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="upu-Lf-NYd" secondAttribute="height" multiplier="1:1" id="TMx-ca-OhE"/>
+                    </constraints>
+                    <state key="normal" image="icon-close"/>
+                    <connections>
+                        <action selector="close:" destination="iN0-l3-epB" eventType="touchUpInside" id="YUy-Kt-iJF"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="UeI-vK-ovU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="0E6-eH-jq1"/>
+                <constraint firstItem="upu-Lf-NYd" firstAttribute="bottom" secondItem="UeI-vK-ovU" secondAttribute="bottom" id="6sA-tm-WEF"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="UeI-vK-ovU" secondAttribute="bottom" id="7k9-KP-FUA"/>
+                <constraint firstItem="upu-Lf-NYd" firstAttribute="width" secondItem="upu-Lf-NYd" secondAttribute="height" multiplier="1:1" id="B1e-tD-soS"/>
+                <constraint firstItem="upu-Lf-NYd" firstAttribute="trailing" secondItem="UeI-vK-ovU" secondAttribute="trailing" id="FWm-gz-vFs"/>
+                <constraint firstItem="upu-Lf-NYd" firstAttribute="leading" secondItem="UeI-vK-ovU" secondAttribute="leading" id="HRN-4m-BGr"/>
+                <constraint firstItem="upu-Lf-NYd" firstAttribute="top" secondItem="UeI-vK-ovU" secondAttribute="top" id="Q5R-Bm-Q1W"/>
+                <constraint firstItem="UeI-vK-ovU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" id="R3o-qx-hhR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UeI-vK-ovU" secondAttribute="trailing" id="dW6-Tj-zpZ"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="closeButton" destination="upu-Lf-NYd" id="4Ru-sN-vMv"/>
+                <outlet property="toggleButton" destination="UeI-vK-ovU" id="gKZ-2r-ZQA"/>
+            </connections>
+            <point key="canvasLocation" x="-207.19999999999999" y="28.785607196401802"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon-close" width="14" height="14"/>
+        <image name="mus22-cover" width="22" height="20"/>
+    </resources>
+</document>
