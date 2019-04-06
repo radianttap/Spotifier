@@ -4,5 +4,5 @@ github "radianttap/Ambar"
 github "radianttap/CardPresentationController"
 
 github "radianttap/SwiftyOAuth"
-github "utahiosmac/Marshal"
-github "onevcat/Kingfisher"
+github "radianttap/Marshal"
+github "radianttap/Kingfisher"

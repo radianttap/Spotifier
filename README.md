@@ -6,7 +6,7 @@ It’s an example built to showcase LAYERS architecture (aka the ONION, aka the 
 
 ### How to run
 
-This is built with Swift 4.2 code thus use Xcode 10.1.
+This is built with Swift 5 code thus do use Xcode 10.2.
 
 (1) Install [Homebrew](https://brew.sh)
 
