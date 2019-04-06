@@ -93,6 +93,7 @@
 		D0BC1370221C810000DE8114 /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC1368221C80FF00DE8114 /* PlayerController.swift */; };
 		D0BC1371221C810000DE8114 /* AlbumController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0BC1369221C810000DE8114 /* AlbumController.storyboard */; };
 		D0BC1372221C810000DE8114 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BC136A221C810000DE8114 /* LoginController.swift */; };
+		D0C7F1FA2258BFE3001C70E5 /* Play-CoordinatingResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C7F1F92258BFE3001C70E5 /* Play-CoordinatingResponder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -186,6 +187,7 @@
 		D0BC1368221C80FF00DE8114 /* PlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
 		D0BC1369221C810000DE8114 /* AlbumController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AlbumController.storyboard; sourceTree = "<group>"; };
 		D0BC136A221C810000DE8114 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		D0C7F1F92258BFE3001C70E5 /* Play-CoordinatingResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Play-CoordinatingResponder.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 				D02D9C98221F1E9A00DD6AD0 /* ApplicationCoordinator.swift */,
 				D02D9C9A221F25D200DD6AD0 /* ContentCoordinator.swift */,
 				D02D9C9C221F334D00DD6AD0 /* Content-CoordinatingResponder.swift */,
+				D0C7F1F92258BFE3001C70E5 /* Play-CoordinatingResponder.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				D076402F221AE80700304D21 /* Spotify-Types.swift in Sources */,
 				D0764059221B0D0200304D21 /* AccountError.swift in Sources */,
 				D076401D221AE15300304D21 /* Bundle-Extensions.swift in Sources */,
+				D0C7F1FA2258BFE3001C70E5 /* Play-CoordinatingResponder.swift in Sources */,
 				D0764017221AE15300304D21 /* AsyncOperation.swift in Sources */,
 				D08620CE2246CB55006F6C90 /* UIColor-Extensions.swift in Sources */,
 				D034FA53222579FE000748C4 /* TrackListLayout.swift in Sources */,
