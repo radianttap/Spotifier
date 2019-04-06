@@ -13,8 +13,10 @@ extension Track {
 		let duration = Int(durationInMilliseconds)
 		let oneSecond = 1000
 		let oneMinute = 60 * oneSecond
+
 		let minutes = duration / oneMinute
-		let seconds = (duration % (minutes * oneMinute)) / oneSecond
+		let leftOver = minutes == 0 ? duration : duration % (minutes * oneMinute)
+		let seconds = leftOver / oneSecond
 
 		let s = String(format: "%02d:%02d", minutes, seconds)
 		return s
