@@ -77,7 +77,7 @@ extension AlbumController: UICollectionViewDataSource {
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		guard let track = album?.tracks[indexPath.item] else {
-			fatalError("No album at indexPath: \( indexPath )")
+			fatalError("No track at indexPath: \( indexPath )")
 		}
 
 		let cell: TrackCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
@@ -87,6 +87,11 @@ extension AlbumController: UICollectionViewDataSource {
 }
 
 extension AlbumController: UICollectionViewDelegate {
-
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		guard let track = album?.tracks[indexPath.item] else {
+			fatalError("No track at indexPath: \( indexPath )")
+		}
+		playEnqueueTrack(track, onQueue: .main, sender: self)
+	}
 }
 

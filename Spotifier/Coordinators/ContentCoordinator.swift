@@ -63,6 +63,15 @@ final class ContentCoordinator: NavigationCoordinator {
 			callback($0, $1.boxed, $2)
 		}
 	}
+
+	override func playEnqueueTrack(_ track: Track, onQueue queue: OperationQueue? = .main, sender: Any?, callback: @escaping (Playlist?, Error?) -> Void = {_, _ in}) {
+		guard let playManager = appDependency?.playManager else {
+			enqueueMessage { [weak self] in self?.playEnqueueTrack(track, onQueue: queue, sender: sender, callback: callback) }
+			return
+		}
+
+		playManager.queueTrack(track)
+	}
 }
 
 //	MARK:- Private
