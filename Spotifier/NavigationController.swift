@@ -12,6 +12,15 @@ final class NavigationController: UINavigationController {
 	//	UI
 
 	private lazy var playBar: PlayBar = PlayBar.nibInstance
+
+	//	DataModel
+
+	var isPlayBarVisible: Bool = false {
+		didSet {
+			if !isViewLoaded { return }
+			processPlayBarVisibility()
+		}
+	}
 }
 
 extension NavigationController {
@@ -23,17 +32,21 @@ extension NavigationController {
 		super.viewDidLoad()
 
 		setupPlayBar()
+		processPlayBarVisibility()
 	}
 }
 
 private extension NavigationController {
 	func setupPlayBar() {
 		playBar.translatesAutoresizingMaskIntoConstraints = false
-		playBar.alpha = 0
 		view.addSubview(playBar)
 
 		playBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
 		playBar.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: 0).isActive = true
 		playBar.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -8).isActive = true
+	}
+
+	func processPlayBarVisibility() {
+		playBar.alpha = isPlayBarVisible ? 1 : 0
 	}
 }

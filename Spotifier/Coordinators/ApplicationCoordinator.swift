@@ -52,6 +52,9 @@ final class ApplicationCoordinator: NavigationCoordinator {
 		buildDependencies()
 		super.start(with: completion)
 
+		//	now that PlayManager is ready, setup global UI dependent on it
+		navigationController.isPlayBarVisible = playManager.playlist.tracks.count > 0
+
 		// The moment when app logic decices what is the first content VC to show
 		setupContent()
 	}
