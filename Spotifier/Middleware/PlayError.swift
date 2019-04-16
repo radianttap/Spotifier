@@ -10,4 +10,5 @@ import Foundation
 
 enum PlayError: Error {
 	case trackAlreadyAdded
+	case trackNotFound
 }

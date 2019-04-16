@@ -32,24 +32,40 @@ extension PlayManager {
 		OperationQueue.perform( callback(self.playlist, nil), onQueue: queue)
 	}
 
-	func playTrack(_ track: Track) {
-		if let index = playlist.tracks.firstIndex(of: track) {
-			if index == 0 { return }
-			let t = playlist.tracks.remove(at: index)
-			playlist.tracks.insert(t, at: 0)
+	func playTrack(_ track: Track,
+				   onQueue queue: OperationQueue? = nil,
+				   callback: @escaping (Playlist?, PlayError?) -> Void )
+	{
+		//	if the track is already in the playlist, but it's not at the top
+		if
+			let index = playlist.tracks.firstIndex(of: track),
+			index > 0
+		{
+			//	then remove it from wherever it was
+			playlist.tracks.remove(at: index)
+			//	and then...
+		}
 
-			play(track: t)
+		//	insert this track at the top
+		playlist.tracks.insert(track, at: 0)
+		//	and play it
+		play(track: track)
+
+		OperationQueue.perform( callback(self.playlist, nil), onQueue: queue)
+	}
+
+	func removeTrack(_ track: Track,
+					 onQueue queue: OperationQueue? = nil,
+					 callback: @escaping (Playlist?, PlayError?) -> Void )
+	{
+		guard let index = playlist.tracks.firstIndex(of: track) else {
+			OperationQueue.perform( callback(self.playlist, .trackNotFound), onQueue: queue)
 			return
 		}
 
-		playlist.tracks.insert(track, at: 0)
-		play(track: track)
-	}
-
-	func removeTrack(_ track: Track) {
-		guard let index = playlist.tracks.firstIndex(of: track) else { return }
-
 		playlist.tracks.remove(at: index)
+
+		OperationQueue.perform( callback(self.playlist, .trackAlreadyAdded), onQueue: queue)
 	}
 }
 
