@@ -9,5 +9,5 @@
 import Foundation
 
 final class Playlist: NSObject {
-
+	var tracks: [Track] = []
 }
