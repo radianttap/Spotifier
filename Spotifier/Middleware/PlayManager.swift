@@ -9,7 +9,7 @@
 import Foundation
 
 final class PlayManager {
-	private let playlist: Playlist
+	private(set) var playlist: Playlist
 
 	init() {
 		self.playlist = Playlist()

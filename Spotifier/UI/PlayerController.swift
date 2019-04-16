@@ -20,7 +20,7 @@ final class PlayerController: UICollectionViewController {
 
 	//	Data source
 
-	var tracks: [Track] = [] {
+	var playlist: Playlist? {
 		didSet {
 			if !isViewLoaded { return }
 			populate()
@@ -40,6 +40,10 @@ extension PlayerController {
 }
 
 private extension PlayerController {
+	var tracks: [Track] {
+		return playlist?.tracks ?? []
+	}
+
 	func populate() {
 		collectionView.reloadData()
 

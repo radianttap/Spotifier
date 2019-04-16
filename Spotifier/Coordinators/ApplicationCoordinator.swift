@@ -76,7 +76,7 @@ private extension ApplicationCoordinator {
 			showContent(page: page)
 		case .playlist:
 			let vc = PlayerController()
-			vc.tracks = appDependency?.playManager?.tracks ?? []
+			vc.playlist = appDependency?.playManager?.playlist
 			root(vc)
 		}
 	}
