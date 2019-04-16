@@ -21,6 +21,18 @@ final class NavigationController: UINavigationController {
 			processPlayBarVisibility()
 		}
 	}
+
+	//	MARK: coordinatingResponder
+
+	override func playEnqueueTrack(_ track: Track, onQueue queue: OperationQueue? = .main, sender: Any?, callback: @escaping (Playlist?, Error?) -> Void = {_, _ in}) {
+		coordinatingResponder?.playEnqueueTrack(track, onQueue: queue, sender: sender) {
+			[weak self] playlist, playError in
+
+			self?.isPlayBarVisible = (playlist?.tracks.count ?? 0) > 0
+
+			callback(playlist, playError)
+		}
+	}
 }
 
 extension NavigationController {
