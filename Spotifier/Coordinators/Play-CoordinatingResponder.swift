@@ -9,6 +9,19 @@
 import UIKit
 
 extension UIResponder {
+	//	Navigation
+
+	@objc func playShowPlayer(onQueue queue: OperationQueue? = .main, sender: Any? = nil) {
+		coordinatingResponder?.playShowPlayer(onQueue: queue, sender: sender)
+	}
+
+	@objc func playHidePlayer(onQueue queue: OperationQueue? = .main, sender: Any? = nil) {
+		coordinatingResponder?.playHidePlayer(onQueue: queue, sender: sender)
+	}
+
+
+	//	Actions
+
 	@objc func playTrackNow(_ track: Track,
 							onQueue queue: OperationQueue? = .main,
 							sender: Any?,

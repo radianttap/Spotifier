@@ -25,6 +25,7 @@ final class PlayBar: UIView, NibLoadableFinalView {
 private extension PlayBar {
 	@IBAction func open(_ sender: UIButton) {
 		//	display playlist
+		playShowPlayer()
 
 		//	switch buttons
 		UIView.animate(withDuration: 0.3) {
@@ -35,6 +36,7 @@ private extension PlayBar {
 
 	@IBAction func close(_ sender: UIButton) {
 		//	hide playlist, restore previous UI
+		playHidePlayer()
 
 		//	switch buttons
 		UIView.animate(withDuration: 0.3) {

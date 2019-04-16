@@ -30,12 +30,6 @@ final class ContentCoordinator: NavigationCoordinator {
 		setupContent()
 	}
 
-	override func activate() {
-		super.activate()
-
-		setupContent()
-	}
-
 	override func handlePopBack(to vc: UIViewController?) {
 		guard let vc = vc else { return }
 		recognizePage(for: vc)

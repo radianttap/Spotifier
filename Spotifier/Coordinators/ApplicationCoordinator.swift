@@ -59,6 +59,18 @@ final class ApplicationCoordinator: NavigationCoordinator {
 		setupContent()
 	}
 
+
+	//	MARK:- coordinatingResponder
+
+	override func playShowPlayer(onQueue queue: OperationQueue? = .main, sender: Any? = nil) {
+		section = .playlist
+		setupContent()
+	}
+
+	override func playHidePlayer(onQueue queue: OperationQueue? = .main, sender: Any? = nil) {
+		section = .content(page: nil)	//	sending nil to simply restore whatever it was shown the last time
+		setupContent()
+	}
 }
 
 
@@ -93,6 +105,8 @@ private extension ApplicationCoordinator {
 				c.page = page
 			}
 			c.activate()
+
+			section = .content(page: c.page)
 			return
 		}
 
