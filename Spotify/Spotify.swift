@@ -115,7 +115,7 @@ extension Spotify {
 fileprivate extension Spotify.Endpoint {
 	//	Request parts:
 
-	fileprivate var method: NetworkHTTPMethod {
+	var method: NetworkHTTPMethod {
 		switch self {
 		case .search, .albums, .artists:
 			return .GET
