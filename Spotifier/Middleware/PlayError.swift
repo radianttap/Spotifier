@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum PlayError {
+enum PlayError: Error {
 	case trackAlreadyAdded
 }

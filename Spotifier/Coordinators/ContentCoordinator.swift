@@ -70,7 +70,7 @@ final class ContentCoordinator: NavigationCoordinator {
 			return
 		}
 
-		playManager.queueTrack(track)
+		playManager.queueTrack(track, callback: callback)
 	}
 }
 
