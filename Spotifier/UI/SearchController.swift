@@ -103,6 +103,9 @@ extension SearchController: UICollectionViewDelegate {
 		case let album as Album:
 			displayAlbum(album)
 
+		case let track as Track:
+			playEnqueueTrack(track, onQueue: .main, sender: self)
+
 		default:
 			break
 		}
