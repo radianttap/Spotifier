@@ -30,7 +30,7 @@ final class Track: NSObject {
 //	var linkedFromTrack: Track?
 //	var restrictions: [TrackRestriction] = []
 
-	weak var album: Album!	//	track must have an Album
+	var album: Album!	//	track must have an Album
 
 	var artists: [Artist] = []
 
@@ -68,8 +68,11 @@ extension Track: Unmarshaling {
 		availableMarkets = (try? object.value(for: "available_markets")) ?? []
 		isExplicit = try object.value(for: "explicit")
 
+		popularity = try object.value(for: "popularity")
+
 		//	Relationships
 
+		album = try object.value(for: "album")
 		artists = try object.value(for: "artists")
 	}
 }

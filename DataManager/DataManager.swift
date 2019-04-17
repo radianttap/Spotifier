@@ -162,7 +162,9 @@ private extension DataManager {
 				return (Array(albums), nil)
 
 			case .track:
-				break
+				let tracks = try processTracks(from: json, at: "tracks.items")
+				return (Array(tracks), nil)
+
 			case .playlist:
 				break
 			}
@@ -206,5 +208,13 @@ private extension DataManager {
 		self.albums.formUnion(albums)
 
 		return albums
+	}
+
+	func processTracks(from json: JSON, at key: String) throws -> Set<Track> {
+		let tracks: Set<Track> = try json.value(for: key)
+
+		self.tracks.formUnion(tracks)
+
+		return tracks
 	}
 }

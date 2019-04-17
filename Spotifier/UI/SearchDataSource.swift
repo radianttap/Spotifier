@@ -88,7 +88,9 @@ private extension SearchDataSource {
 				d[searchType] = (arr as! [Artist]).sorted { $0.followersCount > $1.followersCount }
 			case .album:
 				d[searchType] = arr.sorted { $0.name < $1.name }
-			case .track, .playlist:
+			case .track:
+				d[searchType] = (arr as! [Track]).sorted { $0.popularity > $1.popularity }
+			case .playlist:
 				break
 			}
 
