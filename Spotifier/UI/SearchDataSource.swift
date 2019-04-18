@@ -17,6 +17,8 @@ final class SearchDataSource: NSObject {
 		}
 	}
 
+	weak var controller: UIViewController?
+
 
 	//	Data model (input)
 
@@ -43,7 +45,12 @@ final class SearchDataSource: NSObject {
 			if let lastSearchTerm = self?.searchTerm, lastSearchTerm != searchedTerm { return }
 
 			if let error = error {
-				print(error)
+				switch error {
+				case let error as LocalizedError:
+					UIAlertController.alert(error, from: self?.controller)
+				default:
+					print(error)
+				}
 				return
 			}
 

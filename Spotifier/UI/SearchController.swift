@@ -142,5 +142,7 @@ private extension SearchController {
 	func prepareDataSource() {
 		dataSource.collectionView = collectionView
 		collectionView.dataSource = dataSource
+
+		dataSource.controller = self
 	}
 }
