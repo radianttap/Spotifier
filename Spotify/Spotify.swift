@@ -65,6 +65,8 @@ final class Spotify: NetworkSession {
 			processQueuedRequests()
 		}
 	}
+
+	private var unrecoverableError: SpotifyError?
 }
 
 extension Spotify {
@@ -105,6 +107,11 @@ private extension Spotify {
 
 private extension Spotify {
 	private func oauth(_ apiRequest: APIRequest) {
+		if let unrecoverableError = unrecoverableError {
+			apiRequest.callback(nil, unrecoverableError)
+			return
+		}
+
 		if isFetchingToken {
 			queuedRequests.append(apiRequest)
 			return
@@ -136,15 +143,20 @@ private extension Spotify {
 		oauthProvider.authorize {
 			[unowned self] result in
 
-			self.isFetchingToken = false
-
 			switch result {
 			case .success(let token):
 				print(token)
+
 			case .failure(let error):
-				let callback = apiRequest.callback
-				callback(nil, .authError(error))
+				if error.isUnrecoverable {
+					self.unrecoverableError = .authError(error)
+				} else {
+					let callback = apiRequest.callback
+					callback(nil, .authError(error))
+				}
 			}
+
+			self.isFetchingToken = false
 		}
 	}
 

@@ -81,3 +81,30 @@ extension SpotifyError: LocalizedError {
 		}
 	}
 }
+
+extension SwiftyOAuth.Error {
+	var isUnrecoverable: Bool {
+		switch self {
+		case .invalidClient, .invalidGrant, .invalidScope, .redirectURIMismatch:
+			return true
+		default:
+			break
+		}
+
+		return false
+	}
+}
+
+extension SpotifyError {
+	var isUnrecoverable: Bool {
+		switch self {
+		case .authError(let authError):
+			return authError.isUnrecoverable
+
+		default:
+			break
+		}
+
+		return false
+	}
+}
