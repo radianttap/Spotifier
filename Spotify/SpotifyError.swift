@@ -10,6 +10,10 @@ import Foundation
 import Avenue
 
 enum SpotifyError: Error {
+	case invalidBaseURL(basePath: String)
+	case invalidFinalURL(url: URL, queryParams: JSON)
+	case requestBuildFailed(Swift.Error)
+
 	case networkError(NetworkError)
 	case invalidResponseType
 	case emptyResponse

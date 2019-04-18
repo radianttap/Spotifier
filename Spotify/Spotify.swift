@@ -101,153 +101,6 @@ private extension Spotify {
 	}()
 }
 
-extension Spotify {
-	enum Endpoint {
-		case search(q: String, type: SearchType, market: String?, limit: Int?, offset: Int?)
-		case albums(albumId: String?)
-		case artists(artistId: String?, contentType: ObjectContentType?)
-
-		case createPlaylist(_ playlist: JSON, forUserId: String)
-		case deleteTracks(_ tracks: [JSON], fromPlaylist: String)
-	}
-}
-
-fileprivate extension Spotify.Endpoint {
-	//	Request parts:
-
-	var method: NetworkHTTPMethod {
-		switch self {
-		case .search, .albums, .artists:
-			return .GET
-		case .deleteTracks:
-			return .DELETE
-		case .createPlaylist:
-			return .POST
-		}
-	}
-
-	private var headers: [String: String] {
-		var h: [String: String] = [:]
-
-		switch self {
-		default:
-			h["Accept"] = "application/json"
-		}
-
-		return h
-	}
-
-	private var baseURL : URL {
-		guard let url = URL(string: Spotify.basePath) else { fatalError("Can't create base URL!") }
-		return url
-	}
-
-	private var url: URL {
-		var url = baseURL
-
-		switch self {
-		case .search:
-			return url.appendingPathComponent("search")
-
-		case .albums(let albumId):
-			url = url.appendingPathComponent("albums")
-			if let albumId = albumId {
-				return url.appendingPathComponent(albumId)
-			}
-			return url
-
-		case .artists(let artistId, let contentType):
-			url = url.appendingPathComponent("artists")
-			if let artistId = artistId {
-				url = url.appendingPathComponent(artistId)
-				if let contentType = contentType {
-					url = url.appendingPathComponent(contentType.rawValue)
-				}
-			}
-			return url
-
-		case .createPlaylist(_, let userId):
-			url = url.appendingPathComponent("users")
-				.appendingPathComponent(userId)
-				.appendingPathComponent("playlists")
-			return url
-
-		case .deleteTracks(_, let playlistId):
-			url = url.appendingPathComponent("playlist")
-				.appendingPathComponent(playlistId)
-				.appendingPathComponent("tracks")
-			return url
-		}
-	}
-
-	private var params: JSON {
-		var p: JSON = [:]
-
-		switch self {
-		case .search(let q, let type, let market, let limit, let offset):
-			p["q"] = q
-			p["type"] = type.rawValue
-			if let market = market {
-				p["market"] = market
-			}
-			if let limit = limit {
-				p["limit"] = limit
-			}
-			if let offset = offset {
-				p["offset"] = offset
-			}
-
-		case .albums, .artists, .deleteTracks, .createPlaylist:
-			break
-		}
-
-		return p
-	}
-
-	//	Request building
-
-	private var queryItems: [URLQueryItem]? {
-		if params.count == 0 { return nil }
-
-		var arr: [URLQueryItem] = []
-		for (key, value) in params {
-			let qi = URLQueryItem(name: key, value: "\( value )")
-			arr.append( qi )
-		}
-		return arr
-	}
-
-	private var body: Data? {
-		switch self {
-		case .deleteTracks(let tracks, _):
-			return try? JSONSerialization.data(withJSONObject: tracks)
-
-		case .createPlaylist(let playlist, _):
-			return try? JSONSerialization.data(withJSONObject: playlist)
-
-		case .search, .albums, .artists:
-			return nil
-		}
-	}
-
-	var urlRequest: URLRequest {
-		guard var comps = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-			fatalError("Invalid path-based URL")
-		}
-		comps.queryItems = queryItems
-
-		guard let finalURL = comps.url else {
-			fatalError("Invalid query items...(probably)")
-		}
-
-		var req = URLRequest(url: finalURL)
-		req.httpMethod = method.rawValue
-		req.allHTTPHeaderFields = headers
-		req.httpBody = body
-
-		return req
-	}
-}
 
 
 private extension Spotify {
@@ -316,9 +169,26 @@ private extension Spotify {
 			return
 		}
 
-		var urlRequest = endpoint.urlRequest
+
+
+		var urlRequest: URLRequest
+		do {
+			urlRequest = try endpoint.urlRequest(using: Spotify.basePath)
+
+		} catch let error as SpotifyError {
+			callback(nil, error )
+			return
+
+		} catch let error {
+			callback(nil, SpotifyError.requestBuildFailed(error) )
+			return
+		}
+
 		urlRequest.addValue("Bearer \( token.accessToken )",
 			forHTTPHeaderField: "Authorization")
+
+
+
 
 		let op = NetworkOperation(urlRequest: urlRequest, urlSession: urlSession) {
 			payload in
@@ -348,7 +218,7 @@ private extension Spotify {
 			}
 
 			guard let data = payload.data else {
-				if endpoint.method.allowsEmptyResponseData {
+				if endpoint.httpMethod.allowsEmptyResponseData {
 					callback(nil, nil)
 					return
 				}
