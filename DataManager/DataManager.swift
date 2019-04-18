@@ -42,7 +42,6 @@ extension DataManager {
 
 			//	validate
 			if let spotifyError = spotifyError {
-				print(spotifyError)
 				callback([], .spotifyError(spotifyError))
 				return
 			}
@@ -81,7 +80,6 @@ extension DataManager {
 
 			//	validate
 			if let spotifyError = spotifyError {
-				print(spotifyError)
 				callback([], .spotifyError(spotifyError))
 				return
 			}
@@ -97,11 +95,9 @@ extension DataManager {
 				callback( albums, nil)
 
 			} catch let err as MarshalError {
-				print(err)
 				callback([], .jsonError(err))
 
 			} catch let err {
-				print(err)
 				callback([], .generalError(err))
 			}
 		}
@@ -115,7 +111,6 @@ extension DataManager {
 
 			//	validate
 			if let spotifyError = spotifyError {
-				print(spotifyError)
 				callback(album, .spotifyError(spotifyError))
 				return
 			}
@@ -138,11 +133,9 @@ extension DataManager {
 				callback(updatedAlbum, nil)
 
 			} catch let err as MarshalError {
-				print(err)
 				callback(album, .jsonError(err))
 
 			} catch let err {
-				print(err)
 				callback(album, .generalError(err))
 			}
 		}
@@ -171,11 +164,9 @@ private extension DataManager {
 			return ([], nil)
 
 		} catch let err as MarshalError {
-			print(err)
 			return ([], .jsonError(err))
 
 		} catch let err {
-			print(err)
 			return ([], .generalError(err))
 
 		}

@@ -110,11 +110,11 @@ private extension Spotify {
 			return
 		}
 
-		//	is token availalbe?
+		//	is token available?
 		guard let token = oauthProvider.token else {
 			queuedRequests.append(apiRequest)
 
-			fetchToken()
+			fetchToken(apiRequest)
 			return
 		}
 
@@ -122,14 +122,14 @@ private extension Spotify {
 		if token.isExpired {
 			queuedRequests.append(apiRequest)
 
-			refreshToken()
+			refreshToken(apiRequest)
 			return
 		}
 
 		execute(apiRequest)
 	}
 
-	func fetchToken() {
+	private func fetchToken(_ apiRequest: APIRequest) {
 		if isFetchingToken { return }
 		isFetchingToken = true
 
@@ -143,12 +143,14 @@ private extension Spotify {
 				print(token)
 			case .failure(let error):
 				print(error)
+				let callback = apiRequest.callback
+				callback(nil, .authError)
 			}
 		}
 	}
 
-	func refreshToken() {
-		fetchToken()
+	private func refreshToken(_ apiRequest: APIRequest) {
+		fetchToken(apiRequest)
 	}
 
 	///	When fetching token process completes,
