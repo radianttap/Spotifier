@@ -1,5 +1,5 @@
 github "radianttap/Ambar" "6.2"
-github "radianttap/Avenue" "3.1"
+github "radianttap/Avenue" "3.1.1"
 github "radianttap/CardPresentationController" "1.5.1"
 github "radianttap/Coordinator" "6.2.1"
 github "radianttap/Kingfisher" "5.3.0"

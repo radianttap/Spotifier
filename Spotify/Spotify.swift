@@ -142,9 +142,8 @@ private extension Spotify {
 			case .success(let token):
 				print(token)
 			case .failure(let error):
-				print(error)
 				let callback = apiRequest.callback
-				callback(nil, .authError)
+				callback(nil, .authError(error))
 			}
 		}
 	}
@@ -167,7 +166,7 @@ private extension Spotify {
 		let callback = apiRequest.callback
 
 		guard let token = oauthProvider.token, token.isValid else {
-			callback(nil, .authError)
+			callback(nil, .invalidAuthToken)
 			return
 		}
 
