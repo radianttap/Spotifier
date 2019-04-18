@@ -68,11 +68,15 @@ extension Track: Unmarshaling {
 		availableMarkets = (try? object.value(for: "available_markets")) ?? []
 		isExplicit = try object.value(for: "explicit")
 
-		popularity = try object.value(for: "popularity")
+		if let num: Int = try? object.value(for: "popularity") {
+			popularity = num
+		}
 
 		//	Relationships
 
-		album = try object.value(for: "album")
+		if let a: Album = try? object.value(for: "album") {
+			album = a
+		}
 		artists = try object.value(for: "artists")
 	}
 }
