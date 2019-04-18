@@ -14,3 +14,31 @@ enum DataError: Error {
 	case spotifyError(SpotifyError)
 	case jsonError(MarshalError)
 }
+
+extension DataError: LocalizedError {
+	var errorDescription: String? {
+		switch self {
+		case .generalError(let error):
+			return error.localizedDescription
+
+		case .spotifyError(let spotifyError):
+			return spotifyError.errorDescription
+
+		case .jsonError(let marshalError):
+			return marshalError.localizedDescription
+		}
+	}
+
+	var failureReason: String? {
+		switch self {
+		case .generalError:
+			return nil
+
+		case .spotifyError(let spotifyError):
+			return spotifyError.failureReason
+
+		case .jsonError:
+			return nil
+		}
+	}
+}

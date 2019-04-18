@@ -11,3 +11,19 @@ import Foundation
 enum AccountError: Error {
 	case dataError(DataError)
 }
+
+extension AccountError: LocalizedError {
+	var errorDescription: String? {
+		switch self {
+		case .dataError(let dataError):
+			return dataError.errorDescription
+		}
+	}
+
+	var failureReason: String? {
+		switch self {
+		case .dataError(let dataError):
+			return dataError.failureReason
+		}
+	}
+}
