@@ -11,8 +11,10 @@ import Foundation
 extension Spotify {
 
 	enum SearchType: String, CaseIterable {
-		case artist, album, track, playlist
-
+		case artist
+		case album
+		case track
+		case playlist
 	}
 
 	enum ObjectContentType: String {

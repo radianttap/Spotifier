@@ -159,9 +159,8 @@ private extension DataManager {
 				return (Array(tracks), nil)
 
 			case .playlist:
-				break
+				return ([], nil)
 			}
-			return ([], nil)
 
 		} catch let err as MarshalError {
 			return ([], .jsonError(err))
