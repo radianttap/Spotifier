@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="SearchTypeCell" customModule="Spotifier" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdM-Cq-clu" userLabel="contentView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEA-mU-oWy">
+                            <rect key="frame" x="0.0" y="8" width="312" height="34"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z5O-pt-74R">
+                            <rect key="frame" x="0.0" y="46" width="40" height="3"/>
+                            <color key="backgroundColor" red="0.38823529410000002" green="0.80392156859999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="Gjt-gW-3eF"/>
+                                <constraint firstAttribute="height" constant="3" id="kGT-va-3ZP"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottomMargin" secondItem="lEA-mU-oWy" secondAttribute="bottom" id="GL4-c9-0gg"/>
+                        <constraint firstAttribute="bottom" secondItem="Z5O-pt-74R" secondAttribute="bottom" constant="1" id="Qfn-8W-htV"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="lEA-mU-oWy" secondAttribute="trailing" id="SEg-kj-mwP"/>
+                        <constraint firstItem="Z5O-pt-74R" firstAttribute="leading" secondItem="lEA-mU-oWy" secondAttribute="leading" id="bs5-5H-6lS"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Z5O-pt-74R" secondAttribute="trailing" id="dxR-rT-V45"/>
+                        <constraint firstItem="lEA-mU-oWy" firstAttribute="leading" secondItem="gdM-Cq-clu" secondAttribute="leading" id="edm-3W-UKI"/>
+                        <constraint firstItem="lEA-mU-oWy" firstAttribute="top" secondItem="gdM-Cq-clu" secondAttribute="topMargin" id="nNp-rw-sXP"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="tintColor" red="0.38823529410000002" green="0.80392156859999997" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="gdM-Cq-clu" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="9fH-Tc-7Yf"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="gdM-Cq-clu" secondAttribute="trailing" priority="999" id="JJ2-ZE-quS"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="top" secondItem="gdM-Cq-clu" secondAttribute="top" id="oM0-Pk-0wY"/>
+                <constraint firstItem="gdM-Cq-clu" firstAttribute="bottom" secondItem="VXr-Tz-HHm" secondAttribute="bottom" priority="999" id="sGY-hr-kOT"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <connections>
+                <outlet property="label" destination="lEA-mU-oWy" id="gCb-dM-rcP"/>
+                <outlet property="sep" destination="Z5O-pt-74R" id="1BA-bK-3Fa"/>
+            </connections>
+            <point key="canvasLocation" x="-70" y="116"/>
+        </collectionReusableView>
+    </objects>
+</document>
