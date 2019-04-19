@@ -73,8 +73,6 @@
 		D076407C221B1CEF00304D21 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D076406B221B1CEF00304D21 /* SearchCell.xib */; };
 		D076407D221B1CEF00304D21 /* SearchLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076406C221B1CEF00304D21 /* SearchLayout.swift */; };
 		D076407E221B1CEF00304D21 /* SearchController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D076406D221B1CEF00304D21 /* SearchController.storyboard */; };
-		D0764081221B1D2300304D21 /* LargeHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D076407F221B1D2300304D21 /* LargeHeader.xib */; };
-		D0764082221B1D2300304D21 /* LargeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764080221B1D2300304D21 /* LargeHeader.swift */; };
 		D0764085221B203100304D21 /* SearchType-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764084221B203100304D21 /* SearchType-Extensions.swift */; };
 		D0764087221B275400304D21 /* SearchResult-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764086221B275400304D21 /* SearchResult-Extensions.swift */; };
 		D0764089221B284B00304D21 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0764088221B284B00304D21 /* Kingfisher.framework */; };
@@ -175,8 +173,6 @@
 		D076406B221B1CEF00304D21 /* SearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		D076406C221B1CEF00304D21 /* SearchLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchLayout.swift; sourceTree = "<group>"; };
 		D076406D221B1CEF00304D21 /* SearchController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchController.storyboard; sourceTree = "<group>"; };
-		D076407F221B1D2300304D21 /* LargeHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LargeHeader.xib; sourceTree = "<group>"; };
-		D0764080221B1D2300304D21 /* LargeHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeHeader.swift; sourceTree = "<group>"; };
 		D0764084221B203100304D21 /* SearchType-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchType-Extensions.swift"; sourceTree = "<group>"; };
 		D0764086221B275400304D21 /* SearchResult-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResult-Extensions.swift"; sourceTree = "<group>"; };
 		D0764088221B284B00304D21 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -257,8 +253,6 @@
 				D01D9018226A487E00305E1B /* SearchResultsController.swift */,
 				D076405D221B1CEF00304D21 /* SearchCell.swift */,
 				D076406B221B1CEF00304D21 /* SearchCell.xib */,
-				D0764080221B1D2300304D21 /* LargeHeader.swift */,
-				D076407F221B1D2300304D21 /* LargeHeader.xib */,
 				D01D9015226A42D600305E1B /* SearchTypeCell.swift */,
 				D01D9014226A42D600305E1B /* SearchTypeCell.xib */,
 			);
@@ -563,7 +557,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0764081221B1D2300304D21 /* LargeHeader.xib in Resources */,
 				D034FA5122255A6A000748C4 /* TrackCell.xib in Resources */,
 				D06F6AFF2248188C008A2D09 /* EmptyPlaylist.xib in Resources */,
 				D08620C922469A79006F6C90 /* Music.xcassets in Resources */,
@@ -687,7 +680,6 @@
 				D076401E221AE15300304D21 /* OperationQueue-Extensions.swift in Sources */,
 				D076401B221AE15300304D21 /* DispatchQueue-Extensions.swift in Sources */,
 				D0BC136E221C810000DE8114 /* AlbumController.swift in Sources */,
-				D0764082221B1D2300304D21 /* LargeHeader.swift in Sources */,
 				D076404C221B058B00304D21 /* DataError.swift in Sources */,
 				D034FA5022255A6A000748C4 /* TrackCell.swift in Sources */,
 				D076402B221AE4F900304D21 /* Spotify.swift in Sources */,
