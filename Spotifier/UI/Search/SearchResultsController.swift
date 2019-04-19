@@ -20,7 +20,12 @@ final class SearchResultsController: UICollectionViewController {
 
 	//	MARK: Model
 
-	var results: [SearchResult] = []
+	var results: [SearchResult] = [] {
+		didSet {
+			if !isViewLoaded { return }
+			collectionView.reloadData()
+		}
+	}
 
 
 	//	MARK: View lifecycle
@@ -31,6 +36,12 @@ final class SearchResultsController: UICollectionViewController {
 		collectionView.register(SearchCell.self)
 	}
 
+	//	MARK: UICollectionViewDataSource
+
+	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return results.count
+	}
+
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let item = results[indexPath.item]
 
@@ -38,6 +49,8 @@ final class SearchResultsController: UICollectionViewController {
 		cell.populate(with: item)
 		return cell
 	}
+
+	//	MARK: UICollectionViewDelegate
 
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let item = results[indexPath.item]

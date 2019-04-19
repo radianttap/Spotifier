@@ -25,6 +25,11 @@ final class SearchController: UIViewController, StoryboardLoadable { // (C)
 	@IBOutlet private var searchField: UITextField!
 	@IBOutlet private var collectionView: UICollectionView!
 	@IBOutlet private var logoHeightConstraint: NSLayoutConstraint!
+	@IBOutlet private var containerView: UIView!
+
+	//	MARK: Embedded
+
+	private var resultsController: SearchResultsController?
 }
 
 
@@ -37,6 +42,7 @@ extension SearchController {
 
 		prepareDataSource()
 		setupUI()
+		embedResultsController()
 
 		applyTheme()
 	}
@@ -77,7 +83,9 @@ extension SearchController: UITextFieldDelegate {
 
 extension SearchController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//		let item = dataSource.searchType(at: indexPath)
+		let searchType = dataSource.searchType(at: indexPath)
+		let results = dataSource.searchResults(ofType: searchType)
+		updateResults(with: results)
 	}
 }
 
@@ -113,5 +121,21 @@ private extension SearchController {
 		collectionView.dataSource = dataSource
 
 		dataSource.controller = self
+	}
+}
+
+//	MARK:- Embeds
+
+private extension SearchController {
+	func embedResultsController() {
+		if resultsController != nil { return }
+
+		let vc = SearchResultsController()
+		embed(controller: vc, into: containerView)
+		resultsController = vc
+	}
+
+	func updateResults(with arr: [SearchResult]) {
+		resultsController?.results = arr
 	}
 }
