@@ -137,34 +137,22 @@ private extension SearchDataSource {
 
 extension SearchDataSource: UICollectionViewDataSource {
 	private func prepareCollectionView() {
-		collectionView?.register(SearchCell.self)
-		collectionView?.register(LargeHeader.self, kind: UICollectionView.elementKindSectionHeader)
+		collectionView?.register(SearchTypeCell.self)
 	}
 
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return orderedSearchTypes.count
-	}
-
-	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-		let searchType = orderedSearchTypes[indexPath.section]
-
-		let v: LargeHeader = collectionView.dequeueReusableView(kind: kind, atIndexPath: indexPath)
-		v.populate(with: searchType.headerTitle)
-		return v
+		return 1
 	}
 
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		let key = orderedSearchTypes[section]
-		return orderedResults[key]?.count ?? 0
+		return orderedSearchTypes.count
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let item = object(at: indexPath) else {
-			fatalError("No SearchResult instance found at indexPath: \( indexPath )")
-		}
+		let key = orderedSearchTypes[indexPath.row]
 
-		let cell: SearchCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-		cell.populate(with: item)
+		let cell: SearchTypeCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+		cell.populate(with: key.headerTitle)
 		return cell
 	}
 }
@@ -172,11 +160,13 @@ extension SearchDataSource: UICollectionViewDataSource {
 //	MARK:- Public
 
 extension SearchDataSource {
-	func object(at indexPath: IndexPath) -> SearchResult? {
-		let key = orderedSearchTypes[indexPath.section]
-		guard let items = orderedResults[key] else { return nil }
+	func searchType(at indexPath: IndexPath) -> Spotify.SearchType {
+		let key = orderedSearchTypes[indexPath.row]
+		return key
+	}
 
-		let item = items[indexPath.item]
-		return item
+	func searchResults(ofType key: Spotify.SearchType) -> [SearchResult] {
+		guard let items = orderedResults[key] else { return [] }
+		return items
 	}
 }
