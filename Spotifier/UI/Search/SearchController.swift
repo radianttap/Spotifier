@@ -46,6 +46,13 @@ extension SearchController {
 
 		applyTheme()
 	}
+
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+
+		let top = collectionView.frame.maxY - searchBox.frame.minY
+		resultsController?.additionalSafeAreaInsets = UIEdgeInsets(top: top, left: 0, bottom: 0, right: 0)
+	}
 }
 
 
@@ -96,7 +103,12 @@ extension SearchController: UICollectionViewDelegate {
 private extension SearchController {
 	func applyTheme() {
 		view.backgroundColor = .black
-		collectionView.backgroundColor = view.backgroundColor
+
+		//	add blurred background to SearchTypes scroller
+		collectionView.backgroundColor = .clear
+
+		let bv = UIVisualEffectView(effect: UIBlurEffect(style: .dark) )
+		collectionView.backgroundView = bv
 	}
 
 	/// Sets-up UI stuff which are not possible to do in IB

@@ -34,8 +34,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgy-iP-Fyf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0j6-7P-8ty">
-                                <rect key="frame" x="0.0" y="268" width="375" height="54"/>
+                                <rect key="frame" x="0.0" y="260" width="375" height="54"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="nIO-4I-fLH"/>
@@ -95,9 +99,6 @@
                                     <constraint firstAttribute="bottom" secondItem="bxS-0p-PPG" secondAttribute="bottom" id="tzp-tQ-FLo"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgy-iP-Fyf">
-                                <rect key="frame" x="0.0" y="322" width="375" height="345"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -107,10 +108,10 @@
                             <constraint firstItem="bgy-iP-Fyf" firstAttribute="leading" secondItem="0j6-7P-8ty" secondAttribute="leading" id="PaC-9t-wad"/>
                             <constraint firstAttribute="bottom" secondItem="bgy-iP-Fyf" secondAttribute="bottom" id="QGe-3Y-bGi"/>
                             <constraint firstItem="0j6-7P-8ty" firstAttribute="leading" secondItem="vWg-QU-pu6" secondAttribute="leading" id="Yhf-Uz-w8n"/>
+                            <constraint firstItem="bgy-iP-Fyf" firstAttribute="top" secondItem="OCf-sz-Gnz" secondAttribute="top" id="ZVa-th-Ui7"/>
                             <constraint firstItem="0j6-7P-8ty" firstAttribute="trailing" secondItem="vWg-QU-pu6" secondAttribute="trailing" id="jDc-OR-HBT"/>
-                            <constraint firstItem="bgy-iP-Fyf" firstAttribute="top" secondItem="0j6-7P-8ty" secondAttribute="bottom" id="nZU-SD-g9p"/>
                             <constraint firstItem="vWg-QU-pu6" firstAttribute="leading" secondItem="OCf-sz-Gnz" secondAttribute="leading" id="u96-TD-WWp"/>
-                            <constraint firstItem="0j6-7P-8ty" firstAttribute="top" secondItem="vWg-QU-pu6" secondAttribute="bottom" constant="8" id="wdM-18-nlX"/>
+                            <constraint firstItem="0j6-7P-8ty" firstAttribute="top" secondItem="vWg-QU-pu6" secondAttribute="bottom" id="wdM-18-nlX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xgN-s8-Veh"/>
                     </view>
