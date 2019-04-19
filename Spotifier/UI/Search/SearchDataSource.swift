@@ -11,12 +11,6 @@ import UIKit
 final class SearchDataSource: NSObject {
 	//	Dependencies
 
-	weak var collectionView: UICollectionView? {
-		didSet {
-			prepareCollectionView()
-		}
-	}
-
 	weak var controller: SearchController?
 
 
@@ -44,7 +38,7 @@ final class SearchDataSource: NSObject {
 	//	Exit (output)
 
 	func executeSearch(for s: String) {
-		collectionView?.contentSearch(for: s, onQueue: .main, sender: self) {
+		controller?.contentSearch(for: s, onQueue: .main, sender: self) {
 			[weak self] searchedTerm, boxedResults, error in
 
 			//	race-condition check
@@ -157,10 +151,6 @@ private extension SearchDataSource {
 //	MARK:- UICollectionView.DataSource
 
 extension SearchDataSource: UICollectionViewDataSource {
-	private func prepareCollectionView() {
-		collectionView?.register(SearchTypeCell.self)
-	}
-
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
 		return 1
 	}

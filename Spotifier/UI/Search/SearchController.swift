@@ -147,12 +147,12 @@ private extension SearchController {
 		//	setup delegate for search text field
 		searchField.delegate = self
 
-		//	setup delegate for events in UICollectionView
+		//	setup UICollectionView
+		collectionView?.register(SearchTypeCell.self)
 		collectionView.delegate = self
 	}
 
 	func prepareDataSource() {
-		dataSource.collectionView = collectionView
 		collectionView.dataSource = dataSource
 
 		dataSource.controller = self
