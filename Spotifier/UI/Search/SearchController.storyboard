@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="olK-Wq-X0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="olK-Wq-X0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,9 +35,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0j6-7P-8ty">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="268" width="375" height="54"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewLayout key="collectionViewLayout" id="IBl-1X-Oi8" customClass="SearchLayout" customModule="Spotifier" customModuleProvider="target"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="nIO-4I-fLH"/>
+                                </constraints>
+                                <collectionViewLayout key="collectionViewLayout" id="IBl-1X-Oi8" customClass="SearchTypesLayout" customModule="Spotifier" customModuleProvider="target"/>
                                 <cells/>
                             </collectionView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWg-QU-pu6" userLabel="searchbox">
@@ -96,12 +99,11 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vWg-QU-pu6" firstAttribute="top" secondItem="xgN-s8-Veh" secondAttribute="top" id="3nm-qH-Hff"/>
-                            <constraint firstAttribute="trailing" secondItem="0j6-7P-8ty" secondAttribute="trailing" id="8E0-6p-SVR"/>
-                            <constraint firstItem="0j6-7P-8ty" firstAttribute="leading" secondItem="OCf-sz-Gnz" secondAttribute="leading" id="CHz-gx-neG"/>
-                            <constraint firstAttribute="bottom" secondItem="0j6-7P-8ty" secondAttribute="bottom" id="CYb-Z0-tXq"/>
                             <constraint firstAttribute="trailing" secondItem="vWg-QU-pu6" secondAttribute="trailing" id="I4W-Vn-ghm"/>
-                            <constraint firstItem="0j6-7P-8ty" firstAttribute="top" secondItem="OCf-sz-Gnz" secondAttribute="top" id="VeL-d5-ZgE"/>
+                            <constraint firstItem="0j6-7P-8ty" firstAttribute="leading" secondItem="vWg-QU-pu6" secondAttribute="leading" id="Yhf-Uz-w8n"/>
+                            <constraint firstItem="0j6-7P-8ty" firstAttribute="trailing" secondItem="vWg-QU-pu6" secondAttribute="trailing" id="jDc-OR-HBT"/>
                             <constraint firstItem="vWg-QU-pu6" firstAttribute="leading" secondItem="OCf-sz-Gnz" secondAttribute="leading" id="u96-TD-WWp"/>
+                            <constraint firstItem="0j6-7P-8ty" firstAttribute="top" secondItem="vWg-QU-pu6" secondAttribute="bottom" constant="8" id="wdM-18-nlX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xgN-s8-Veh"/>
                     </view>
@@ -115,11 +117,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZo-vq-TSn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-969" y="-110"/>
+            <point key="canvasLocation" x="-1076" y="-110"/>
         </scene>
     </scenes>
     <resources>
-        <image name="word-logo-green" width="566.8800048828125" height="170.16000366210938"/>
+        <image name="word-logo-green" width="787.33331298828125" height="236.33332824707031"/>
     </resources>
     <color key="tintColor" red="0.38823529411764707" green="0.80392156862745101" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

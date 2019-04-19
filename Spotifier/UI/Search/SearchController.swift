@@ -25,17 +25,6 @@ final class SearchController: UIViewController, StoryboardLoadable { // (C)
 	@IBOutlet private var searchField: UITextField!
 	@IBOutlet private var collectionView: UICollectionView!
 	@IBOutlet private var logoHeightConstraint: NSLayoutConstraint!
-
-
-	//	MARK:- Exit (output)
-
-	private func displayArtist(_ artist: Artist) {
-		contentDisplayArtist(artist, sender: self)
-	}
-
-	private func displayAlbum(_ album: Album) {
-		contentDisplayAlbum(album, sender: self)
-	}
 }
 
 
@@ -50,12 +39,6 @@ extension SearchController {
 		setupUI()
 
 		applyTheme()
-	}
-
-	override func viewDidLayoutSubviews() {
-		super.viewDidLayoutSubviews()
-
-		collectionView.contentInset.top = searchBox.bounds.height
 	}
 }
 
@@ -94,21 +77,7 @@ extension SearchController: UITextFieldDelegate {
 
 extension SearchController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		guard let item = dataSource.object(at: indexPath) else { return }
-
-		switch item {
-		case let artist as Artist:
-			displayArtist(artist)
-
-		case let album as Album:
-			displayAlbum(album)
-
-		case let track as Track:
-			playEnqueueTrack(track, onQueue: .main, sender: self)
-
-		default:
-			break
-		}
+//		let item = dataSource.searchType(at: indexPath)
 	}
 }
 
