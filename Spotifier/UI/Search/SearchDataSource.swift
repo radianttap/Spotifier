@@ -17,7 +17,7 @@ final class SearchDataSource: NSObject {
 		}
 	}
 
-	weak var controller: UIViewController?
+	weak var controller: SearchController?
 
 
 	//	Data model (input)
@@ -25,6 +25,12 @@ final class SearchDataSource: NSObject {
 	var searchTerm: String? {
 		didSet {
 			prepareSearchRequest()
+		}
+	}
+
+	var selectedSearchType: Spotify.SearchType? {
+		didSet {
+			controller?.renderContentUpdates()
 		}
 	}
 
@@ -63,9 +69,9 @@ final class SearchDataSource: NSObject {
 
 	private var orderedResults: [Spotify.SearchType: [SearchResult]] = [:]
 
-	private var orderedSearchTypes: [Spotify.SearchType] = [] {
+	private(set) var orderedSearchTypes: [Spotify.SearchType] = [] {
 		didSet {
-			collectionView?.reloadData()
+			processContentUpdates()
 		}
 	}
 
@@ -127,6 +133,21 @@ private extension SearchDataSource {
 		}
 		searchWorkItem = wi
 		searchQueue.asyncAfter(deadline: .now() + 0.3, execute: wi)
+	}
+
+	func processContentUpdates() {
+		if let searchType = selectedSearchType {
+			//	make sure this is still valid for the current results
+			if !orderedSearchTypes.contains(searchType) {
+				selectedSearchType = nil
+			}
+		}
+
+		if selectedSearchType == nil {
+			selectedSearchType = orderedSearchTypes.first
+		}
+
+		controller?.renderContentUpdates()
 	}
 }
 

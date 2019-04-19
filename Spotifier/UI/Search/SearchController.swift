@@ -18,7 +18,6 @@ final class SearchController: UIViewController, StoryboardLoadable { // (C)
 		}
 	}
 
-
 	//	MARK:- UI (V)
 
 	@IBOutlet private var searchBox: UIView!
@@ -40,11 +39,11 @@ extension SearchController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		prepareDataSource()
 		setupUI()
 		embedResultsController()
-
 		applyTheme()
+
+		prepareDataSource()
 	}
 
 	override func viewDidLayoutSubviews() {
@@ -91,11 +90,35 @@ extension SearchController: UITextFieldDelegate {
 extension SearchController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let searchType = dataSource.searchType(at: indexPath)
+		dataSource.selectedSearchType = searchType
+	}
+}
+
+
+extension SearchController {
+	///	Called by SearchDataSource to render changes in the data source that this VC is not aware of.
+	///
+	///	This approach keeps the nature of the View changes localized and pretty much hidden from the Model.
+	func renderContentUpdates() {
+		if !isViewLoaded { return }
+
+		collectionView.reloadData()
+
+		guard
+			let searchType = dataSource.selectedSearchType,
+			let item = dataSource.orderedSearchTypes.firstIndex(of: searchType)
+		else {
+			updateResults(with: [])
+			return
+		}
+
+		let indexPath = IndexPath(item: item, section: 0)
+		collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
+
 		let results = dataSource.searchResults(ofType: searchType)
 		updateResults(with: results)
 	}
 }
-
 
 
 //	MARK:- Private
