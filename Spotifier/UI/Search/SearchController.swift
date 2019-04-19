@@ -22,8 +22,9 @@ final class SearchController: UIViewController, StoryboardLoadable { // (C)
 
 	@IBOutlet private var searchBox: UIView!
 	@IBOutlet private var searchField: UITextField!
-	@IBOutlet private var collectionView: UICollectionView!
 	@IBOutlet private var logoHeightConstraint: NSLayoutConstraint!
+	@IBOutlet private var collectionView: UICollectionView!
+	@IBOutlet private var searchTypesHeightConstraint: NSLayoutConstraint!
 	@IBOutlet private var containerView: UIView!
 
 	//	MARK: Embedded
@@ -109,8 +110,18 @@ extension SearchController {
 			let item = dataSource.orderedSearchTypes.firstIndex(of: searchType)
 		else {
 			updateResults(with: [])
+
+			searchTypesHeightConstraint.constant = 0
+			self.view.setNeedsLayout()
+
 			return
 		}
+
+		if searchTypesHeightConstraint.constant != 54 {
+			searchTypesHeightConstraint.constant = 54
+			self.view.setNeedsLayout()
+		}
+
 
 		let indexPath = IndexPath(item: item, section: 0)
 		collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)

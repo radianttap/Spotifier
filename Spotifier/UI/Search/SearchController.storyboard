@@ -39,10 +39,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0j6-7P-8ty">
-                                <rect key="frame" x="0.0" y="260" width="375" height="54"/>
+                                <rect key="frame" x="0.0" y="260" width="375" height="0.0"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="nIO-4I-fLH"/>
+                                    <constraint firstAttribute="height" id="nIO-4I-fLH"/>
                                 </constraints>
                                 <collectionViewLayout key="collectionViewLayout" id="IBl-1X-Oi8" customClass="SearchTypesLayout" customModule="Spotifier" customModuleProvider="target"/>
                                 <cells/>
@@ -122,6 +122,7 @@
                         <outlet property="logoHeightConstraint" destination="YSs-8x-t6X" id="h1t-Mo-Pz3"/>
                         <outlet property="searchBox" destination="vWg-QU-pu6" id="AT8-cN-ldb"/>
                         <outlet property="searchField" destination="bxS-0p-PPG" id="tz1-29-cWE"/>
+                        <outlet property="searchTypesHeightConstraint" destination="nIO-4I-fLH" id="4TO-qa-gy4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZo-vq-TSn" userLabel="First Responder" sceneMemberID="firstResponder"/>
