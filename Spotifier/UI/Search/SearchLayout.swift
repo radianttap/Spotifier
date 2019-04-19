@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SearchLayout: BaseGridLayout {
+final class SearchLayout: PlainListLayout {
 
 	override func commonInit() {
 		super.commonInit()
@@ -19,15 +19,7 @@ final class SearchLayout: BaseGridLayout {
 		sectionInset.bottom = 44
 		minimumLineSpacing = 8
 		minimumInteritemSpacing = 0
-	}
 
-	override func prepare() {
-		defer {
-			super.prepare()
-		}
-
-		guard var availableWidth = collectionView?.bounds.width else { return }
-		availableWidth -= (sectionInset.left + sectionInset.right)
-		itemSize = CGSize(width: availableWidth, height: 88)
+		itemHeight = 88
 	}
 }

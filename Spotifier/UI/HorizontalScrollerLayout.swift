@@ -9,6 +9,8 @@
 import UIKit
 
 class HorizontalScrollerLayout: BaseGridLayout {
+	var width2height: CGFloat = 1
+
 	override func commonInit() {
 		super.commonInit()
 
@@ -26,6 +28,6 @@ class HorizontalScrollerLayout: BaseGridLayout {
 		availableHeight -= (sectionInset.top + sectionInset.bottom)
 		availableHeight -= (cv.contentInset.top + cv.contentInset.bottom)
 
-		itemSize = CGSize(width: availableHeight * 2/3, height: availableHeight)
+		itemSize = CGSize(width: availableHeight * width2height, height: availableHeight)
 	}
 }
