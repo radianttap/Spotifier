@@ -71,7 +71,6 @@
 		D0764074221B1CEF00304D21 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764063221B1CEF00304D21 /* SearchController.swift */; };
 		D0764079221B1CEF00304D21 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764068221B1CEF00304D21 /* SearchDataSource.swift */; };
 		D076407C221B1CEF00304D21 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D076406B221B1CEF00304D21 /* SearchCell.xib */; };
-		D076407D221B1CEF00304D21 /* SearchLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D076406C221B1CEF00304D21 /* SearchLayout.swift */; };
 		D076407E221B1CEF00304D21 /* SearchController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D076406D221B1CEF00304D21 /* SearchController.storyboard */; };
 		D0764085221B203100304D21 /* SearchType-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764084221B203100304D21 /* SearchType-Extensions.swift */; };
 		D0764087221B275400304D21 /* SearchResult-Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0764086221B275400304D21 /* SearchResult-Extensions.swift */; };
@@ -171,7 +170,6 @@
 		D0764063221B1CEF00304D21 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		D0764068221B1CEF00304D21 /* SearchDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
 		D076406B221B1CEF00304D21 /* SearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
-		D076406C221B1CEF00304D21 /* SearchLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchLayout.swift; sourceTree = "<group>"; };
 		D076406D221B1CEF00304D21 /* SearchController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SearchController.storyboard; sourceTree = "<group>"; };
 		D0764084221B203100304D21 /* SearchType-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchType-Extensions.swift"; sourceTree = "<group>"; };
 		D0764086221B275400304D21 /* SearchResult-Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchResult-Extensions.swift"; sourceTree = "<group>"; };
@@ -244,17 +242,16 @@
 		D01D900B226A219400305E1B /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				D076406C221B1CEF00304D21 /* SearchLayout.swift */,
+				D0764068221B1CEF00304D21 /* SearchDataSource.swift */,
 				D01D9010226A415400305E1B /* SearchTypesLayout.swift */,
-				D01D9012226A416500305E1B /* SearchResultsLayout.swift */,
 				D0764063221B1CEF00304D21 /* SearchController.swift */,
 				D076406D221B1CEF00304D21 /* SearchController.storyboard */,
-				D0764068221B1CEF00304D21 /* SearchDataSource.swift */,
-				D01D9018226A487E00305E1B /* SearchResultsController.swift */,
-				D076405D221B1CEF00304D21 /* SearchCell.swift */,
-				D076406B221B1CEF00304D21 /* SearchCell.xib */,
 				D01D9015226A42D600305E1B /* SearchTypeCell.swift */,
 				D01D9014226A42D600305E1B /* SearchTypeCell.xib */,
+				D01D9018226A487E00305E1B /* SearchResultsController.swift */,
+				D01D9012226A416500305E1B /* SearchResultsLayout.swift */,
+				D076405D221B1CEF00304D21 /* SearchCell.swift */,
+				D076406B221B1CEF00304D21 /* SearchCell.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -675,7 +672,6 @@
 				D076406F221B1CEF00304D21 /* BaseGridLayout.swift in Sources */,
 				D0BBC1112268C1D80050AA1A /* SpotifyEndpoint.swift in Sources */,
 				D0764025221AE15300304D21 /* NibLoadable.swift in Sources */,
-				D076407D221B1CEF00304D21 /* SearchLayout.swift in Sources */,
 				D034FA4B222490FD000748C4 /* Album-Extensions.swift in Sources */,
 				D076401E221AE15300304D21 /* OperationQueue-Extensions.swift in Sources */,
 				D076401B221AE15300304D21 /* DispatchQueue-Extensions.swift in Sources */,
