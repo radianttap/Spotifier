@@ -231,6 +231,21 @@
 			path = templates;
 			sourceTree = "<group>";
 		};
+		D01D900B226A219400305E1B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				D076406C221B1CEF00304D21 /* SearchLayout.swift */,
+				D0764063221B1CEF00304D21 /* SearchController.swift */,
+				D076406D221B1CEF00304D21 /* SearchController.storyboard */,
+				D0764068221B1CEF00304D21 /* SearchDataSource.swift */,
+				D076405D221B1CEF00304D21 /* SearchCell.swift */,
+				D076406B221B1CEF00304D21 /* SearchCell.xib */,
+				D0764080221B1D2300304D21 /* LargeHeader.swift */,
+				D076407F221B1D2300304D21 /* LargeHeader.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		D02D9C97221F1E7F00DD6AD0 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,14 +400,7 @@
 			children = (
 				D076405E221B1CEF00304D21 /* BaseGridLayout.swift */,
 				D0804E07221DF1890036C541 /* HorizontalScrollerLayout.swift */,
-				D076406C221B1CEF00304D21 /* SearchLayout.swift */,
-				D0764063221B1CEF00304D21 /* SearchController.swift */,
-				D076406D221B1CEF00304D21 /* SearchController.storyboard */,
-				D0764068221B1CEF00304D21 /* SearchDataSource.swift */,
-				D076405D221B1CEF00304D21 /* SearchCell.swift */,
-				D076406B221B1CEF00304D21 /* SearchCell.xib */,
-				D0764080221B1D2300304D21 /* LargeHeader.swift */,
-				D076407F221B1D2300304D21 /* LargeHeader.xib */,
+				D01D900B226A219400305E1B /* Search */,
 				D0BC1365221C80FF00DE8114 /* ArtistController.swift */,
 				D0BC1367221C80FF00DE8114 /* ArtistController.storyboard */,
 				D0804E03221DEF1F0036C541 /* AlbumCell.swift */,
