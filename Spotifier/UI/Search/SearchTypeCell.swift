@@ -20,6 +20,7 @@ final class SearchTypeCell: UICollectionViewCell, NibReusableView {
 		super.awakeFromNib()
 
 		cleanup()
+		sep.alpha = 0
 	}
 
 	override func prepareForReuse() {
@@ -38,6 +39,10 @@ final class SearchTypeCell: UICollectionViewCell, NibReusableView {
 		attr.frame = attr.frame.integral
 		return attr
 	}
+
+	override var isSelected: Bool {
+		didSet { renderSelected() }
+	}
 }
 
 extension SearchTypeCell {
@@ -51,4 +56,7 @@ private extension SearchTypeCell {
 		label.text = nil
 	}
 
+	func renderSelected() {
+		sep.alpha = isSelected ? 1 : 0
+	}
 }
