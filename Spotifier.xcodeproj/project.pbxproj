@@ -589,7 +589,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "sourcery --sources ${SRCROOT} --templates ${SRCROOT}/DataModel/sourcery/templates/ --output ${SRCROOT}/DataModel/sourcery\n";
+			shellScript = "sourcery --sources \"${SRCROOT}\" --templates \"${SRCROOT}/DataModel/sourcery/templates/\" --output \"${SRCROOT}/DataModel/sourcery\" \n";
 		};
 		D076408A221B2F3900304D21 /* Run Script: Carthage frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
