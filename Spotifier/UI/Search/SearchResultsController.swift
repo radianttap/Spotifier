@@ -64,7 +64,8 @@ final class SearchResultsController: UICollectionViewController {
 			contentDisplayAlbum(album, sender: self)
 
 		case let track as Track:
-			playEnqueueTrack(track, onQueue: .main, sender: self)
+			let cell = collectionView.cellForItem(at: indexPath)
+			playEnqueueTrack(track, cell: cell, onQueue: .main, sender: self)
 
 		default:
 			break

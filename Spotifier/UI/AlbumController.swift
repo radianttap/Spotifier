@@ -91,7 +91,9 @@ extension AlbumController: UICollectionViewDelegate {
 		guard let track = album?.tracks[indexPath.item] else {
 			fatalError("No track at indexPath: \( indexPath )")
 		}
-		playEnqueueTrack(track, onQueue: .main, sender: self)
+
+		let cell = collectionView.cellForItem(at: indexPath)
+		playEnqueueTrack(track, cell: cell, onQueue: .main, sender: self)
 	}
 }
 

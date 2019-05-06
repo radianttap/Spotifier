@@ -58,7 +58,7 @@ final class ContentCoordinator: NavigationCoordinator {
 		}
 	}
 
-	override func playEnqueueTrack(_ track: Track, onQueue queue: OperationQueue? = .main, sender: Any?, callback: @escaping (Playlist?, Error?) -> Void = {_, _ in}) {
+	override func playEnqueueTrack(_ track: Track, cell: UIView? = nil, onQueue queue: OperationQueue? = .main, sender: Any?, callback: @escaping (Playlist?, Error?) -> Void = {_, _ in}) {
 		guard let playManager = appDependency?.playManager else {
 			enqueueMessage { [weak self] in self?.playEnqueueTrack(track, onQueue: queue, sender: sender, callback: callback) }
 			return
