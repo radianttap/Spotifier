@@ -20,8 +20,8 @@ final class Album: NSObject {
 	var availableMarkets: Set<String> = []
 	var numberOfTracks: Int = 0
 	var releaseDate: Date?
-	var releaseDatePrecision: Spotify.ReleaseDatePrecision?
-	var albumType: Spotify.AlbumType = .album
+	var releaseDatePrecision: ReleaseDatePrecision?
+	var albumType: AlbumType = .album
 
 	//	Relationships
 

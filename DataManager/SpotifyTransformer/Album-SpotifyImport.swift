@@ -23,7 +23,7 @@ extension Album: Unmarshaling {
 		availableMarkets = (try? object.value(for: "available_markets")) ?? []
 
 		if 	let s: String = try? object.value(for: "release_date_precision"),
-			let value = Spotify.ReleaseDatePrecision(rawValue: s)
+			let value = ReleaseDatePrecision(rawValue: s)
 		{
 			releaseDatePrecision = value
 		}
@@ -34,7 +34,7 @@ extension Album: Unmarshaling {
 		}
 
 		if 	let s: String = try? object.value(for: "album_type"),
-			let value = Spotify.AlbumType(rawValue: s)
+			let value = AlbumType(rawValue: s)
 		{
 			albumType = value
 		}
