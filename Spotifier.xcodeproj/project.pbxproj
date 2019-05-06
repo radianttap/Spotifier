@@ -29,6 +29,9 @@
 		D034FA53222579FE000748C4 /* TrackListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034FA52222579FE000748C4 /* TrackListLayout.swift */; };
 		D06F6AFF2248188C008A2D09 /* EmptyPlaylist.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06F6AFE2248188C008A2D09 /* EmptyPlaylist.xib */; };
 		D06F6B0122481A16008A2D09 /* EmptyPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06F6B0022481A16008A2D09 /* EmptyPlaylist.swift */; };
+		D072DE45228051B200E67404 /* Track-SpotifyImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DE44228051B200E67404 /* Track-SpotifyImport.swift */; };
+		D072DE47228051EA00E67404 /* Album-SpotifyImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DE46228051EA00E67404 /* Album-SpotifyImport.swift */; };
+		D072DE492280522000E67404 /* Artist-SpotifyImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D072DE482280522000E67404 /* Artist-SpotifyImport.swift */; };
 		D0763FFC221ADE9B00304D21 /* Coordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0763FF8221ADE9B00304D21 /* Coordinator.framework */; };
 		D0763FFD221ADE9B00304D21 /* CardPresentationController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0763FF9221ADE9B00304D21 /* CardPresentationController.framework */; };
 		D0763FFF221ADE9B00304D21 /* Avenue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0763FFB221ADE9B00304D21 /* Avenue.framework */; };
@@ -127,6 +130,9 @@
 		D034FA52222579FE000748C4 /* TrackListLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListLayout.swift; sourceTree = "<group>"; };
 		D06F6AFE2248188C008A2D09 /* EmptyPlaylist.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyPlaylist.xib; sourceTree = "<group>"; };
 		D06F6B0022481A16008A2D09 /* EmptyPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPlaylist.swift; sourceTree = "<group>"; };
+		D072DE44228051B200E67404 /* Track-SpotifyImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Track-SpotifyImport.swift"; sourceTree = "<group>"; };
+		D072DE46228051EA00E67404 /* Album-SpotifyImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Album-SpotifyImport.swift"; sourceTree = "<group>"; };
+		D072DE482280522000E67404 /* Artist-SpotifyImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist-SpotifyImport.swift"; sourceTree = "<group>"; };
 		D0763FF8221ADE9B00304D21 /* Coordinator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Coordinator.framework; path = Carthage/Build/iOS/Coordinator.framework; sourceTree = "<group>"; };
 		D0763FF9221ADE9B00304D21 /* CardPresentationController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CardPresentationController.framework; path = Carthage/Build/iOS/CardPresentationController.framework; sourceTree = "<group>"; };
 		D0763FFA221ADE9B00304D21 /* Ambar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ambar.framework; path = Carthage/Build/iOS/Ambar.framework; sourceTree = "<group>"; };
@@ -267,6 +273,17 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		D072DE432280515600E67404 /* SpotifyTransformer */ = {
+			isa = PBXGroup;
+			children = (
+				D076403D221B040F00304D21 /* Image.swift */,
+				D072DE44228051B200E67404 /* Track-SpotifyImport.swift */,
+				D072DE46228051EA00E67404 /* Album-SpotifyImport.swift */,
+				D072DE482280522000E67404 /* Artist-SpotifyImport.swift */,
+			);
+			path = SpotifyTransformer;
+			sourceTree = "<group>";
+		};
 		D0763FF7221ADE9B00304D21 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,7 +391,6 @@
 				D076404D221B096200304D21 /* SearchResult.swift */,
 				D076403A221B040F00304D21 /* Track.swift */,
 				D076403C221B040F00304D21 /* Album.swift */,
-				D076403D221B040F00304D21 /* Image.swift */,
 				D076403E221B040F00304D21 /* User.swift */,
 				D076403F221B040F00304D21 /* Artist.swift */,
 				D0764040221B040F00304D21 /* Playlist.swift */,
@@ -387,6 +403,7 @@
 			children = (
 				D0764049221B058B00304D21 /* DataManager.swift */,
 				D076404A221B058B00304D21 /* DataError.swift */,
+				D072DE432280515600E67404 /* SpotifyTransformer */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -642,6 +659,7 @@
 				D08620CE2246CB55006F6C90 /* UIColor-Extensions.swift in Sources */,
 				D034FA53222579FE000748C4 /* TrackListLayout.swift in Sources */,
 				D0BC136C221C810000DE8114 /* ProfileController.swift in Sources */,
+				D072DE492280522000E67404 /* Artist-SpotifyImport.swift in Sources */,
 				D0A3D380221231BD00695166 /* AppDelegate.swift in Sources */,
 				D06F6B0122481A16008A2D09 /* EmptyPlaylist.swift in Sources */,
 				D00A7BBC22207DF000D9D7DF /* autoboxable.generated.swift in Sources */,
@@ -659,6 +677,7 @@
 				D0764019221AE15300304D21 /* String-Extensions.swift in Sources */,
 				D0BBC114226905310050AA1A /* UIAlertController-Extensions.swift in Sources */,
 				D0764057221B0CBD00304D21 /* ContentError.swift in Sources */,
+				D072DE47228051EA00E67404 /* Album-SpotifyImport.swift in Sources */,
 				D034FA4922248C48000748C4 /* NumberFormatter-AppExtensions.swift in Sources */,
 				D0764031221AE8E300304D21 /* SpotifyError.swift in Sources */,
 				D02D9C9B221F25D200DD6AD0 /* ContentCoordinator.swift in Sources */,
@@ -683,6 +702,7 @@
 				D0764056221B0CBD00304D21 /* AccountManager.swift in Sources */,
 				D076401F221AE15300304D21 /* FileManager-Extensions.swift in Sources */,
 				D08620CB2246C94B006F6C90 /* NavigationController.swift in Sources */,
+				D072DE45228051B200E67404 /* Track-SpotifyImport.swift in Sources */,
 				D0764018221AE15300304D21 /* NumberFormatter-Extensions.swift in Sources */,
 				D076401A221AE15300304D21 /* DateFormatter-Extensions.swift in Sources */,
 				D0804E0A221DF8510036C541 /* Artist-Extensions.swift in Sources */,
