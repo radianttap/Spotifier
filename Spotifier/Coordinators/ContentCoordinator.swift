@@ -47,17 +47,6 @@ final class ContentCoordinator: NavigationCoordinator {
 		setupContent(for: sender)
 	}
 
-	override func contentSearch(for term: String, onQueue queue: OperationQueue?, sender: Any?, callback: @escaping (String, [SearchResultBox], Error?) -> Void) {
-		guard let contentManager = appDependency?.contentManager else {
-			enqueueMessage { [weak self] in self?.contentSearch(for: term, onQueue: queue, sender: sender, callback: callback) }
-			return
-		}
-
-		contentManager.search(for: term, onQueue: queue) {
-			callback($0, $1.boxed, $2)
-		}
-	}
-
 	override func playEnqueueTrack(_ track: Track, cell: UIView? = nil, onQueue queue: OperationQueue? = .main, sender: Any?, callback: @escaping (Playlist?, Error?) -> Void = {_, _ in}) {
 		guard let playManager = appDependency?.playManager else {
 			enqueueMessage { [weak self] in self?.playEnqueueTrack(track, onQueue: queue, sender: sender, callback: callback) }
@@ -71,11 +60,25 @@ final class ContentCoordinator: NavigationCoordinator {
 //	MARK:- Private
 
 private extension ContentCoordinator {
+	func setupSearchDataSource(for vc: SearchController) {
+		guard let cm = appDependency?.contentManager else {
+			enqueueMessage {
+				[weak self, weak vc] in
+				guard let self = self, let vc = vc else { return }
+
+				self.setupSearchDataSource(for: vc)
+			}
+			return
+		}
+
+		vc.dataSource = SearchDataSource(contentManager: cm)
+	}
+
 	func setupContent(for sender: Any? = nil) {
 		switch page {
 		case .search:
 			let vc = SearchController.instantiate()
-			vc.dataSource = SearchDataSource()
+			setupSearchDataSource(for: vc)
 			root(vc)
 
 		case .album(let album):
