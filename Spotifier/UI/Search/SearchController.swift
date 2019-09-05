@@ -11,7 +11,7 @@ import UIKit
 final class SearchController: UIViewController, StoryboardLoadable { // (C)
 	//	MARK:- Data model (M)
 
-	var dataSource: SearchDataSource! {
+	var dataSource: SearchDataSource? {
 		didSet {
 			if !isViewLoaded { return }
 			prepareDataSource()
@@ -69,7 +69,7 @@ extension SearchController: UITextFieldDelegate {
 	}
 
 	func textFieldDidEndEditing(_ textField: UITextField) {
-		if dataSource.searchTerm?.count ?? 0 > 0 { return }
+		if dataSource?.searchTerm?.count ?? 0 > 0 { return }
 
 		logoHeightConstraint.isActive = false
 
@@ -84,14 +84,14 @@ extension SearchController: UITextFieldDelegate {
 	}
 
 	@IBAction private func processSearchFieldTextChange(_ sender: UITextField) {
-		dataSource.searchTerm = sender.text
+		dataSource?.searchTerm = sender.text
 	}
 }
 
 extension SearchController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		let searchType = dataSource.searchType(at: indexPath)
-		dataSource.selectedSearchType = searchType
+		guard let searchType = dataSource?.searchType(at: indexPath) else { return }
+		dataSource?.selectedSearchType = searchType
 	}
 }
 
@@ -102,6 +102,7 @@ extension SearchController {
 	///	This approach keeps the nature of the View changes localized and pretty much hidden from the Model.
 	func renderContentUpdates() {
 		if !isViewLoaded { return }
+		guard let dataSource = dataSource else { return }
 
 		collectionView.reloadData()
 
@@ -164,11 +165,11 @@ private extension SearchController {
 
 	func prepareDataSource() {
 		//	assign UIVC to DataSource
-		dataSource.controller = self
+		dataSource?.controller = self
 
 
+		collectionView.register(SearchTypeCell.self)
 		collectionView.dataSource = dataSource
-		collectionView?.register(SearchTypeCell.self)
 	}
 }
 
