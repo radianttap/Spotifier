@@ -11,7 +11,19 @@ import UIKit
 final class SearchDataSource: NSObject {
 	//	Dependencies
 
+	//	Note: DataSource should be testable and usable when this is `nil`
 	weak var controller: SearchController?
+
+	//	connection to middleware
+	private let contentManager: ContentManager
+
+	init(contentManager: ContentManager) {
+		self.contentManager = contentManager
+		super.init()
+	}
+
+
+
 
 
 	//	Data model (input)
@@ -38,8 +50,8 @@ final class SearchDataSource: NSObject {
 	//	Exit (output)
 
 	func executeSearch(for s: String) {
-		controller?.contentSearch(for: s, onQueue: .main, sender: self) {
-			[weak self] searchedTerm, boxedResults, error in
+		contentManager.search(for: s, onQueue: .main) {
+			[weak self] searchedTerm, results, error in
 
 			//	race-condition check
 			if let lastSearchTerm = self?.searchTerm, lastSearchTerm != searchedTerm { return }
@@ -54,7 +66,7 @@ final class SearchDataSource: NSObject {
 				return
 			}
 
-			self?.results = boxedResults.unbox
+			self?.results = results
 		}
 	}
 
@@ -166,11 +178,9 @@ extension SearchDataSource: UICollectionViewDataSource {
 		cell.populate(with: key.headerTitle)
 		return cell
 	}
-}
 
-//	MARK:- Public
+	//	MARK: Helpers, for UIViewController to use
 
-extension SearchDataSource {
 	func searchType(at indexPath: IndexPath) -> Spotify.SearchType {
 		let key = orderedSearchTypes[indexPath.row]
 		return key
