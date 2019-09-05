@@ -23,12 +23,4 @@ extension UIResponder {
 	{
 		coordinatingResponder?.contentDisplayArtist(artist, onQueue: queue, sender: sender)
 	}
-
-	@objc func contentSearch(for term: String,
-							 onQueue queue: OperationQueue? = nil,
-							 sender: Any?,
-							 callback: @escaping (String, [SearchResultBox], Error?) -> Void)
-	{
-		coordinatingResponder?.contentSearch(for: term, onQueue: queue, sender: sender, callback: callback)
-	}
 }
