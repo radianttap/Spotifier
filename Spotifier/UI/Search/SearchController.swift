@@ -159,14 +159,16 @@ private extension SearchController {
 		searchField.delegate = self
 
 		//	setup UICollectionView
-		collectionView?.register(SearchTypeCell.self)
 		collectionView.delegate = self
 	}
 
 	func prepareDataSource() {
-		collectionView.dataSource = dataSource
-
+		//	assign UIVC to DataSource
 		dataSource.controller = self
+
+
+		collectionView.dataSource = dataSource
+		collectionView?.register(SearchTypeCell.self)
 	}
 }
 
