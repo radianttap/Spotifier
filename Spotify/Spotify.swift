@@ -231,7 +231,7 @@ private extension Spotify {
 			}
 
 			guard let data = payload.data else {
-				if endpoint.httpMethod.allowsEmptyResponseData {
+				if endpoint.allowsEmptyResponseData {
 					callback(nil, nil)
 					return
 				}

@@ -35,7 +35,7 @@ extension Spotify.Endpoint {
 		}
 
 		var req = URLRequest(url: finalURL)
-		req.httpMethod = httpMethod.rawValue
+		req.httpMethod = httpMethod
 		req.allHTTPHeaderFields = headers
 
 		if let bodyParams = bodyParams {
@@ -45,15 +45,19 @@ extension Spotify.Endpoint {
 		return req
 	}
 
-	var httpMethod: NetworkHTTPMethod {
+	var httpMethod: String {
 		switch self {
 		case .search, .albums, .artists:
-			return .GET
+			return "GET"
 		case .deleteTracks:
-			return .DELETE
+			return "DELETE"
 		case .createPlaylist:
-			return .POST
+			return "POST"
 		}
+	}
+	
+	var allowsEmptyResponseData: Bool {
+		return false
 	}
 }
 
